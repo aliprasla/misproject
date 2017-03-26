@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace PraslaBonnerWondwossenFinalProject.Models
 {
+    public enum PayeeTypes { Credit Card, Utilities, Rent, Mortgage, Other }
     public class Payee
 
     {        
@@ -37,7 +38,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name="Phone Number")]
         public Int32 Phone { get; set; }
         
-        
-        
+        [Required(ErrorMessage= "Type Required")]
+        [Display(Name="Type")]
+        public PayeeTypes Type { get; set; }
+       
         
     }
