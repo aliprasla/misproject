@@ -32,7 +32,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         
         [Required(ErrorMessage= "Zip Code Required")]
         [Display(Name="Zip Code")]
-        public Int 32 ZipCode { get; set; }
+        public Int32 ZipCode { get; set; }
         
         [Required(ErrorMessage= "Phone Number Required")]
         [Display(Name="Phone Number")]
