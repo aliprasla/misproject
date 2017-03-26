@@ -25,7 +25,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         
         [Required(ErrorMessage= "Please enter an initial deposit")]
         [Display(Name="Initial Deposit")]
-        public Dec Balance { get; set; }
+        public Decimal Balance { get; set; }
         
         public virtual Customer Customer { get; set; }
     }
