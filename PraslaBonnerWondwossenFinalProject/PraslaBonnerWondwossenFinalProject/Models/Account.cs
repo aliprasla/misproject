@@ -21,11 +21,11 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public AccountTypes Type { get; set; }
         
         [Display(Name="Account Name")]
-        public Int32 Name { get; set; }
+        public Str Name { get; set; }
         
         [Required(ErrorMessage= "Please enter an initial deposit")]
         [Display(Name="Initial Deposit")]
-        public Decimal Balance { get; set; }
+        public Dec Balance { get; set; }
         
         public virtual Customer Customer { get; set; }
     }
