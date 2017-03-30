@@ -97,6 +97,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Account.cs" />
+    <Compile Include="Models\Dispute.cs" />
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\Person.cs" />
     <Compile Include="Models\Transaction.cs" />
