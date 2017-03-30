@@ -35,5 +35,5 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name="Initial Deposit")]
         public Decimal Balance { get; set; }
         
-        public virtual Customer Customer { get; set; }
+        public virtual Person Person { get; set; }
     }
