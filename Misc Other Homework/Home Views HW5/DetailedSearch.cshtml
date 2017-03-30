@@ -1,0 +1,53 @@
+﻿
+@{
+    ViewBag.Title = "DetailedSearch";
+}
+
+<h2>Detailed Search</h2>
+
+
+@using (Html.BeginForm("SearchResults", "Home", FormMethod.Get))
+{
+    <p class="form-group">
+        Name: @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
+        @Html.DropDownList("SelectedFrequency", (SelectList)(ViewBag.AllFrequencies),new { @class = "form-control" })
+        <div class="form-group">
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.RadioButton("SelectedGender", "All", true, new { @class = "form-check-input" }) All
+                </label>
+            </div>
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.RadioButton("SelectedGender", "Female", new { @class = "form-check-input" }) Female
+                </label>
+            </div>
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.RadioButton("SelectedGender", "Male", new { @class = "form-check-input" }) Male
+                </label>
+            </div>
+
+        </div>
+        Average Sales: @Html.TextBox("SelectedSales", null, new { @class = "form-control" }) <br />
+
+        <div class="form-group">
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.RadioButton("SalesParameter", "GreaterThan", true, new { @class = "form-check-input" }) Greater Than
+                </label>
+            </div>
+
+            <div class="form-check">
+                <label class="form-check-label">
+                    @Html.RadioButton("SalesParameter", "LessThan", new { @class = "form-check-input" }) Less Than
+                </label>
+            </div>
+        </div>
+        <input type="submit" value="Search" class="btn btn-default" />
+</p>
+}

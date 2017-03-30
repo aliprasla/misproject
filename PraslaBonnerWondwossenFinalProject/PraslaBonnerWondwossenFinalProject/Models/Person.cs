@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.ComponentModel.DataAnnotations;
 
-namespace LonghornBank.Models
+namespace PraslaBonnerWondwossenFinalProject.Models
 {
+    public enum Postion { Customer, Employee, Manager }
+
     public class Person
     {
         public int CustomerID { get; set; }
@@ -30,12 +32,6 @@ namespace LonghornBank.Models
         [Required]
         public DateTime Birthday { get; set; }
 
-        public bool? isCustomer { get; set; }
-
-        public bool? isEmployee { get; set; }
-
-        public bool? isManager { get; set; }
-
-        public bool? isDeactive { get; set; }
+        public bool? isActive { get; set; }
     }
 }

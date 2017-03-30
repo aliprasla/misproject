@@ -22,6 +22,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Decimal Amount { get; set; }
         public String Description { get; set; }
         //define one to many relationships - One customer can have many transactions - need a customer class
-        public virtual Customer Customer { get; set; }
+        public virtual Person Customer { get; set; }
     }
 }
