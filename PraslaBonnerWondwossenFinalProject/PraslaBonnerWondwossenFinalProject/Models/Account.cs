@@ -14,6 +14,14 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //primary key
         public Int32 AccountID { get; set; }
         
+        private Int32 _decAccountNumber
+        public Int32 AccountNumber 
+        { 
+            get{ return _intAccountNumber; } 
+            set{ _intAccountNumber=9999999999 + AccountID; } 
+        }
+  
+        
         public static DateTime Today { get; }
         
         [Required(ErrorMessage = "You must select an account type")]
