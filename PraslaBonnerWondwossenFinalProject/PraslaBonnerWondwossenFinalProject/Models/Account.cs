@@ -13,11 +13,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
     {
         //primary key
         public Int32 AccountID { get; set; }
-<<<<<<< HEAD
-
-=======
-        
-        private Int32 _decAccountNumber
+        private Int32 _decAccountNumber;
         public Int32 AccountNumber 
         { 
             get{ return _intAccountNumber; } 
