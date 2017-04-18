@@ -10,7 +10,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
     public class Person
     {
-        public int CustomerID { get; set; }
+        public int PersonID { get; set; }
         
         [Required]
         public string FName { get; set; }
@@ -33,5 +33,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public DateTime Birthday { get; set; }
 
         public bool? isActive { get; set; }
+
+        public List<Account> Accounts { get; set; }
     }
 }
