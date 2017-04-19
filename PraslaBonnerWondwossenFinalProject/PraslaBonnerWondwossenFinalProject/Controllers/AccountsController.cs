@@ -18,8 +18,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // GET: Accounts
         public ActionResult Index()
         {
+
             return View(db.Accounts.ToList());
         }
+
+
+        public ActionResult TransferFunds()
+        {
+            List<Account> accounts = new List<Account>();
+            foreach (Account a in User.Identity.Accounts)
+            {
+                accounts.Add(a);
+            }
+            ViewBag.allAccounts = new SelectList(accounts,"AccountID","Name");
+            return View();
+        } 
+
 
         // GET: Accounts/Details/5
         public ActionResult Details(int? id)
@@ -89,7 +103,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             return View(account);
         }
-
+        
         // GET: Accounts/Delete/5
         public ActionResult Delete(int? id)
         {
