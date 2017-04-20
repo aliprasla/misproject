@@ -79,6 +79,12 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name = "Middle Initial")]
         public string Middle { get; set; }
 
+
+        [Display(Name = "Last Name")]
+        [Required]
+        public string LName { get; set; }
+
+
         [Required]
         public string Address { get; set; }
 
@@ -91,9 +97,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Required]
         public Int32 Zip { get; set; }
 
-        [Display(Name ="Last Name")]
-        [Required]
-        public string LName { get; set; }
 
 
         [Required]

@@ -30,8 +30,10 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         //For instance
         [Required]
+        [Display(Name = "First Name")]
         public string FName { get; set; }
 
+        [Display(Name = "Middle Initial")]
         public string Middle { get; set; }
 
         [Required]
