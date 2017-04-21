@@ -13,6 +13,7 @@ using System.ComponentModel.DataAnnotations;
 using System;
 
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PraslaBonnerWondwossenFinalProject.Models
 
@@ -56,8 +57,10 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public string Phone { get; set; }
 
         [Required]
-        [DataType(DataType.DateTime)]
+        [Column(TypeName = "DateTime2")]
         public DateTime Birthday { get; set; }
+
+        public String SSN { get; set; }
 
         public bool? isActive { get; set; }
 
