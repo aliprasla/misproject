@@ -11,7 +11,7 @@ using Microsoft.AspNet.Identity;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
-    public class PersonsController : Controller
+    public class CustomersController : Controller
     {
         private AppDbContext db = new AppDbContext();
 

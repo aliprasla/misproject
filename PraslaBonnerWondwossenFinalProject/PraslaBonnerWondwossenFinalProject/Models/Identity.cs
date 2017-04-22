@@ -14,6 +14,8 @@ using System;
 
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Net;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace PraslaBonnerWondwossenFinalProject.Models
 
@@ -76,9 +78,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         {
 
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
-
+            await manager.UpdateSecurityStampAsync(this.Id);
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
-
             // Add custom user claims here
 
             return userIdentity;
@@ -91,7 +92,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
     // Here's your db context for the project.  All of your db sets should go in here
 
-    public class AppDbContext : IdentityDbContext<AppUser>
+    public partial class AppDbContext : IdentityDbContext<AppUser>
 
     {
 
@@ -125,8 +126,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
             return new AppDbContext();
 
         }
-
-
 
         public DbSet<AppRole> AppRoles { get; set; }
 
