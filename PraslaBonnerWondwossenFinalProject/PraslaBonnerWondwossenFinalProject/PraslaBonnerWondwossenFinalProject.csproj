@@ -203,7 +203,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PersonsController.cs" />
-    <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\BankAccountsController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -231,6 +231,22 @@
     <Compile Include="Migrations\201704220153349_addedBankAccountClass.cs" />
     <Compile Include="Migrations\201704220153349_addedBankAccountClass.Designer.cs">
       <DependentUpon>201704220153349_addedBankAccountClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704221434572_changedProductsToBankAccounts.cs" />
+    <Compile Include="Migrations\201704221434572_changedProductsToBankAccounts.Designer.cs">
+      <DependentUpon>201704221434572_changedProductsToBankAccounts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704221446183_EnumChange.cs" />
+    <Compile Include="Migrations\201704221446183_EnumChange.Designer.cs">
+      <DependentUpon>201704221446183_EnumChange.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704221532123_idontremember.cs" />
+    <Compile Include="Migrations\201704221532123_idontremember.Designer.cs">
+      <DependentUpon>201704221532123_idontremember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704221600094_removedStreetProperty.cs" />
+    <Compile Include="Migrations\201704221600094_removedStreetProperty.Designer.cs">
+      <DependentUpon>201704221600094_removedStreetProperty.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -303,6 +319,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704220153349_addedBankAccountClass.resx">
       <DependentUpon>201704220153349_addedBankAccountClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704221434572_changedProductsToBankAccounts.resx">
+      <DependentUpon>201704221434572_changedProductsToBankAccounts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704221446183_EnumChange.resx">
+      <DependentUpon>201704221446183_EnumChange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704221532123_idontremember.resx">
+      <DependentUpon>201704221532123_idontremember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704221600094_removedStreetProperty.resx">
+      <DependentUpon>201704221600094_removedStreetProperty.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

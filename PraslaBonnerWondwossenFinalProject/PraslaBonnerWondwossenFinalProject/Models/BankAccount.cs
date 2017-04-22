@@ -16,7 +16,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
 {
 
-    public enum AccountTypes { Saving, Checking, IRA, StockPortfolio }
+    public enum AccountTypes { Savings, Checking, IRA, Stock }
 
     public class BankAccount
 
@@ -28,19 +28,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public Int32 BankAccountID { get; set; }
 
-        
-
-        private Int32 _decBankAccountNumber { get; set; }
-
-        public Int32 ProductNumber
-
-        {
-
-            get { return _decBankAccountNumber; }
-
-            set { _decBankAccountNumber = Convert.ToInt32(9999999999 + BankAccountID); }
-
-        }
+     
+        //we'll work on the AccountNumber thing in the controller. 
+        public Int32 AccountNumber {get; set;}
 
   
 

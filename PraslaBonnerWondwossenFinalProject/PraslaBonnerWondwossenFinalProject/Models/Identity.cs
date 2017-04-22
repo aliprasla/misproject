@@ -30,6 +30,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         // Put any additional fields that you need for your user here
 
         //For instance
+
         [Required]
         [Display(Name = "First Name")]
         public string FName { get; set; }
@@ -99,7 +100,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //Remember, Identity adds a db set for users, so you shouldn't add that one - you will get an error
 
         public DbSet<Payee> Payees { get; set; }
-        public DbSet<BankAccount> Products { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Dispute> Disputes { get; set; }
         public DbSet<BankAccount> BankAccounts { get; set; }

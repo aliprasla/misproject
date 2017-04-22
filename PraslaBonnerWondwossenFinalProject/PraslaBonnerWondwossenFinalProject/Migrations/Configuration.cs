@@ -34,7 +34,6 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
             var hasher = new PasswordHasher();
             String strEmail = "";
             //chunks
-            /*
             String roleName = "Customer";
             strEmail = "cbaker@freezing.co.uk";
             AppUser user2 = new AppUser()
@@ -1713,8 +1712,328 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
             {
                 userManager.AddToRole(userManager.FindByEmail(strEmail).Id, roleName);
             }
-            */
-            
+
+            strEmail = "Dixon@aool.com";
+            BankAccount Account2 = new BankAccount
+            {
+                Name = "Shan's Stock",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Stock,
+                Balance = 0m,
+                AccountNumber = 1000000000
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account2);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "willsheff@email.com";
+            BankAccount Account3 = new BankAccount
+            {
+                Name = "William's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 40035.5m,
+                AccountNumber = 1000000001
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account3);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "smartinmartin.Martin@aool.com";
+            BankAccount Account4 = new BankAccount
+            {
+                Name = "Gregory's Checking",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Checking,
+                Balance = 39779.49m,
+                AccountNumber = 1000000002
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account4);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "avelasco@yaho.com";
+            BankAccount Account5 = new BankAccount
+            {
+                Name = "Allen's Checking",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Checking,
+                Balance = 47277.33m,
+                AccountNumber = 1000000003
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account5);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "rwood@voyager.net";
+            BankAccount Account6 = new BankAccount
+            {
+                Name = "Reagan's Checking",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Checking,
+                Balance = 70812.15m,
+                AccountNumber = 1000000004
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account6);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "nelson.Kelly@aool.com";
+            BankAccount Account7 = new BankAccount
+            {
+                Name = "Kelly's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 21901.97m,
+                AccountNumber = 1000000005
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account7);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "erynrice@aool.com";
+            BankAccount Account8 = new BankAccount
+            {
+                Name = "Eryn's Checking",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Checking,
+                Balance = 70480.99m,
+                AccountNumber = 1000000006
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account8);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "westj@pioneer.net";
+            BankAccount Account9 = new BankAccount
+            {
+                Name = "Jake's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 7916.4m,
+                AccountNumber = 1000000007
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account9);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "mb@aool.com";
+            BankAccount Account10 = new BankAccount
+            {
+                Name = "Michelle's Stock",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Stock,
+                Balance = 0m,
+                AccountNumber = 1000000008
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account10);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "jeff@ggmail.com";
+            BankAccount Account11 = new BankAccount
+            {
+                Name = "Jeffrey's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 69576.83m,
+                AccountNumber = 1000000009
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account11);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "nelson.Kelly@aool.com";
+            BankAccount Account12 = new BankAccount
+            {
+                Name = "Kelly's Stock",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Stock,
+                Balance = 0m,
+                AccountNumber = 1000000010
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account12);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "erynrice@aool.com";
+            BankAccount Account13 = new BankAccount
+            {
+                Name = "Eryn's Checking 2",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Checking,
+                Balance = 30279.33m,
+                AccountNumber = 1000000011
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account13);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "mackcloud@pimpdaddy.com";
+            BankAccount Account14 = new BankAccount
+            {
+                Name = "Jennifer's IRA",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.IRA,
+                Balance = 53177.21m,
+                AccountNumber = 1000000012
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account14);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "ss34@ggmail.com";
+            BankAccount Account15 = new BankAccount
+            {
+                Name = "Sarah's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 11958.08m,
+                AccountNumber = 1000000013
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account15);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "tanner@ggmail.com";
+            BankAccount Account16 = new BankAccount
+            {
+                Name = "Jeremy's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 72990.47m,
+                AccountNumber = 1000000014
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account16);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "liz@ggmail.com";
+            BankAccount Account17 = new BankAccount
+            {
+                Name = "Elizabeth's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 7417.2m,
+                AccountNumber = 1000000015
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account17);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "ra@aoo.com";
+            BankAccount Account18 = new BankAccount
+            {
+                Name = "Allen's IRA",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.IRA,
+                Balance = 75866.69m,
+                AccountNumber = 1000000016
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account18);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "johnsmith187@aool.com";
+            BankAccount Account19 = new BankAccount
+            {
+                Name = "John's Stock",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Stock,
+                Balance = 0m,
+                AccountNumber = 1000000017
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account19);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "mclarence@aool.com";
+            BankAccount Account20 = new BankAccount
+            {
+                Name = "Clarence's Savings",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Savings,
+                Balance = 1642.82m,
+                AccountNumber = 1000000018
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account20);
+            base.Seed(db);
+            db.SaveChanges();
+            strEmail = "ss34@ggmail.com";
+            BankAccount Account21 = new BankAccount
+            {
+                Name = "Sarah's Checking",
+                Customer = userManager.FindByEmail(strEmail),
+                Type = AccountTypes.Checking,
+                Balance = 84421.45m,
+                AccountNumber = 1000000019
+            };
+            db.BankAccounts.AddOrUpdate(u => u.AccountNumber, Account21);
+            base.Seed(db);
+            db.SaveChanges();
+
+            Payee payee2 = new Payee()
+            {
+                Name = "City of Austin Water",
+                Type = PayeeTypes.Utilities,
+                Address = "113 South Congress Ave.",
+                City = "Austin",
+                State = "TX",
+                ZipCode = 78710,
+                Phone = "5126645558"
+            };
+            db.Payees.AddOrUpdate(u => u.Phone, payee2);
+            base.Seed(db);
+            db.SaveChanges();
+            Payee payee3 = new Payee()
+            {
+                Name = "Reliant Energy",
+                Type = PayeeTypes.Utilities,
+                Address = "3500 E. Interstate 10",
+                City = "Houston",
+                State = "TX",
+                ZipCode = 77099,
+                Phone = "7135546697"
+            };
+            db.Payees.AddOrUpdate(u => u.Phone, payee3);
+            base.Seed(db);
+            db.SaveChanges();
+            Payee payee4 = new Payee()
+            {
+                Name = "Lee Properties",
+                Type = PayeeTypes.Rent,
+                Address = "2500 Salado",
+                City = "Austin",
+                State = "TX",
+                ZipCode = 78705,
+                Phone = "5124453312"
+            };
+            db.Payees.AddOrUpdate(u => u.Phone, payee4);
+            base.Seed(db);
+            db.SaveChanges();
+            Payee payee5 = new Payee()
+            {
+                Name = "Capital One",
+                Type = PayeeTypes.CreditCard,
+                Address = "1299 Fargo Blvd.",
+                City = "Cheyenne",
+                State = "WY",
+                ZipCode = 82001,
+                Phone = "5302215542"
+            };
+            db.Payees.AddOrUpdate(u => u.Phone, payee5);
+            base.Seed(db);
+            db.SaveChanges();
+            Payee payee6 = new Payee()
+            {
+                Name = "Vanguard Title",
+                Type = PayeeTypes.Mortgage,
+                Address = "10976 Interstate 35 South",
+                City = "Austin",
+                State = "TX",
+                ZipCode = 78745,
+                Phone = "5128654951"
+            };
+            db.Payees.AddOrUpdate(u => u.Phone, payee6);
+            base.Seed(db);
+            db.SaveChanges();
+            Payee payee7 = new Payee()
+            {
+                Name = "Lawn Care of Texas",
+                Type = PayeeTypes.Other,
+                Address = "4473 W. 3rd Street",
+                City = "Austin",
+                State = "TX",
+                ZipCode = 78712,
+                Phone = "5123365247"
+            };
+            db.Payees.AddOrUpdate(u => u.Phone, payee7);
+            base.Seed(db);
+            db.SaveChanges();
+
+
         }
     }
 }

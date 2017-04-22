@@ -37,13 +37,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public String Name { get; set; }
 
-
-
-        [Required(ErrorMessage = "Street Required")]
-
-        [Display(Name = "Street")]
-
-        public String Street { get; set; }
+        [Required(ErrorMessage = "Address Required")]
+        public String Address { get; set; }
 
 
 
@@ -75,7 +70,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         [Display(Name = "Phone Number")]
 
-        public Int32 Phone { get; set; }
+        public String Phone { get; set; }
 
 
 
