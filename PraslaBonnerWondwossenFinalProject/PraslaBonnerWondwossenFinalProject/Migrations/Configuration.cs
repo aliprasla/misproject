@@ -34,7 +34,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
             var hasher = new PasswordHasher();
             String strEmail = "";
             //chunks
-
+            /*
             String roleName = "Customer";
             strEmail = "cbaker@freezing.co.uk";
             AppUser user2 = new AppUser()
@@ -1713,8 +1713,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
             {
                 userManager.AddToRole(userManager.FindByEmail(strEmail).Id, roleName);
             }
-
-
+            */
+            
         }
     }
 }

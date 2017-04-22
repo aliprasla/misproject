@@ -64,7 +64,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public bool? isActive { get; set; }
 
-        public virtual List<Product> Products { get; set; }
+        public virtual List<BankAccount> BankAccounts { get; set; }
         public virtual List<Transaction> Transactions { get; set; }
         public virtual List<Dispute> Disputes { get; set; }
 
@@ -99,11 +99,10 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //Remember, Identity adds a db set for users, so you shouldn't add that one - you will get an error
 
         public DbSet<Payee> Payees { get; set; }
-        public DbSet<Product> Products { get; set; }
+        public DbSet<BankAccount> Products { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Dispute> Disputes { get; set; }
-
-
+        public DbSet<BankAccount> BankAccounts { get; set; }
 
 
 

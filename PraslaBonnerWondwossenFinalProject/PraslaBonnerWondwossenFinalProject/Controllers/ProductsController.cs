@@ -56,7 +56,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             }
 
-            Product product = db.Products.Find(id);
+            BankAccount product = db.Products.Find(id);
 
             if (product == null)
 
@@ -94,7 +94,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         [ValidateAntiForgeryToken]
 
-        public ActionResult Create([Bind(Include = "ProductID,ProductNumber,Type,Name,Balance")] Product product)
+        public ActionResult Create([Bind(Include = "ProductID,ProductNumber,Type,Name,Balance")] BankAccount product)
 
         {
 
@@ -132,7 +132,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             }
 
-            Product product = db.Products.Find(id);
+            BankAccount product = db.Products.Find(id);
 
             if (product == null)
 
@@ -158,7 +158,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         [ValidateAntiForgeryToken]
 
-        public ActionResult Edit([Bind(Include = "ProductID,ProductNumber,Type,Name,Balance")] Product product)
+        public ActionResult Edit([Bind(Include = "ProductID,ProductNumber,Type,Name,Balance")] BankAccount product)
 
         {
 
@@ -194,7 +194,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             }
 
-            Product product = db.Products.Find(id);
+            BankAccount product = db.Products.Find(id);
 
             if (product == null)
 
@@ -220,7 +220,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         {
 
-            Product product = db.Products.Find(id);
+            BankAccount product = db.Products.Find(id);
 
             db.Products.Remove(product);
 
