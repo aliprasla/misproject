@@ -14,10 +14,18 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     public class CustomersController : Controller
     {
         private AppDbContext db = new AppDbContext();
-
+        [Authorize(Roles = "Customer")]
         public ActionResult Index()
         {
-            return View();
+            AppUser AppUser = db.Users.Find(User.Identity.GetUserId());
+            if (AppUser.BankAccounts.Count() == 0)
+            {
+                ViewBag.hasAccounts = false;
+            }
+            else {
+                ViewBag.hasAccounts = true;
+            }
+            return View(AppUser);
         }
 
         // GET: persons/Edit/5
