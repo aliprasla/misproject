@@ -129,7 +129,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public DbSet<AppRole> AppRoles { get; set; }
 
-        
+        public System.Data.Entity.DbSet<PraslaBonnerWondwossenFinalProject.Models.AppUser> AppUsers { get; set; }
     }
 
 }
