@@ -13,7 +13,7 @@ using System.Web;
 using System.Web.Mvc;
 
 using Microsoft.AspNet.Identity;
-
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 
 using Microsoft.Owin.Security;
@@ -25,12 +25,12 @@ using PraslaBonnerWondwossenFinalProject.Models;
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 
 {
-
     [Authorize]
 
     public class AccountController : Controller
 
     {
+        private AppDbContext db = new AppDbContext();
 
         private ApplicationSignInManager _signInManager;
 
@@ -169,15 +169,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
 
                 case SignInStatus.Success:
-
-                    return RedirectToLocal(returnUrl);
+                    AppUserManager manager = new AppUserManager(new UserStore<AppUser>(db));
+                    var user = await manager.FindAsync(model.Email, model.Password);
+                    if (manager.IsInRole(user.Id,"Customer"))
+                    {
+                        return RedirectToAction("Index", "Customers");
+                    } else if (manager.IsInRole(user.Id,"Employee"))
+                    {
+                        //TO DO: Once we have other controllers for different roles, change this to "Index","Employees"
+                        return RedirectToAction("Index", "BankAccounts");
+                    }
+                    return RedirectToAction("Index","RoleAdmin");
 
                 case SignInStatus.Failure:
 
                 default:
-
-                    ModelState.AddModelError("", "Invalid login attempt.");
-
+                    ModelState.AddModelError("", "Incorrect Email or Password");
                     return View(model);
 
             }

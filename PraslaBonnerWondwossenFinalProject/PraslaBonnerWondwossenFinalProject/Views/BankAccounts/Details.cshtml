@@ -1,99 +1,50 @@
-﻿@model PraslaBonnerWondwossenFinalProject.Models.Product
-
-
+﻿@model PraslaBonnerWondwossenFinalProject.Models.BankAccount
 
 @{
-
     ViewBag.Title = "Details";
-
 }
-
-
 
 <h2>Details</h2>
 
-
-
 <div>
-
-    <h4>Product</h4>
-
+    <h4>BankAccount</h4>
     <hr />
-
     <dl class="dl-horizontal">
-
         <dt>
-
-            @Html.DisplayNameFor(model => model.ProductNumber)
-
+            @Html.DisplayNameFor(model => model.AccountNumber)
         </dt>
 
-
-
         <dd>
-
-            @Html.DisplayFor(model => model.ProductNumber)
-
+            @Html.DisplayFor(model => model.AccountNumber)
         </dd>
 
-
-
         <dt>
-
             @Html.DisplayNameFor(model => model.Type)
-
         </dt>
 
-
-
         <dd>
-
             @Html.DisplayFor(model => model.Type)
-
         </dd>
 
-
-
         <dt>
-
             @Html.DisplayNameFor(model => model.Name)
-
         </dt>
 
-
-
         <dd>
-
             @Html.DisplayFor(model => model.Name)
-
         </dd>
-
-
 
         <dt>
-
             @Html.DisplayNameFor(model => model.Balance)
-
         </dt>
 
-
-
         <dd>
-
             @Html.DisplayFor(model => model.Balance)
-
         </dd>
-
-
 
     </dl>
-
 </div>
-
 <p>
-
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProductID }) |
-
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BankAccountID }) |
     @Html.ActionLink("Back to List", "Index")
-
 </p>

@@ -30,6 +30,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
      
         //we'll work on the AccountNumber thing in the controller. 
+        [Display(Name = "Account Number")]
         public Int32 AccountNumber {get; set;}
 
   

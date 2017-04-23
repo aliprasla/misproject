@@ -10,7 +10,8 @@
 <div>
     <h4>Account</h4>
     <hr />
-
+        
+    
     <table class="table table-bordered">
         <tr>
             <th>
@@ -24,25 +25,9 @@
             </th>
         </tr>
 
-        @foreach (var item in Model.BankAccounts)
-        {
-            <tr>
-                <td>@Html.DisplayFor(modelItem => item.ProductNumber)</td>
-                <td>@Html.DisplayFor(modelItem => item.Name)</td>
-                <td>@Html.DisplayFor(modelItem => item.Type)</td>
-                <td>
-                    @Html.ActionLink("Edit", "Edit","Products", new { id = item.ProductID })
-                    @Html.ActionLink("Details","Details","Products",new{id=item.ProductID})
-                </td>
-            </tr>
-        }
+       
     </table>
 
 </div>
-<p>
-    @Html.ActionLink("Edit Profile", "Edit", new { id = Model.Id })
-    @Html.ActionLink("Account Details","Details",new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
 
 
