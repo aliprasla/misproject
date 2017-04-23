@@ -1,4 +1,4 @@
-﻿@model PraslaBonnerWondwossenFinalProject.Models.AppUser
+﻿@model  PraslaBonnerWondwossenFinalProject.Models.AppUser
 
 
 @{
@@ -8,10 +8,10 @@
 <h2>Accounts</h2>
 
 <div>
-    <h4>Account</h4>
     <hr />
         
-    
+    @if (ViewBag.hasAccounts)
+    {
     <table class="table table-bordered">
         <tr>
             <th>
@@ -24,9 +24,19 @@
                 Account Type
             </th>
         </tr>
-
-       
+        @foreach (var item in Model.BankAccounts)
+        {
+        <tr>
+                <td>@Html.DisplayFor(modelItem => item.AccountNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.Name)</td>
+                <td>@Html.DisplayFor(modelItem => item.Type)</td>
+        </tr>
+        }
     </table>
+    }
+    else{
+        <p> You have no Accounts. Would you like to open an account?</p>
+    }
 
 </div>
 
