@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
 using Microsoft.AspNet.Identity;
+using System.Web.Security;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -26,6 +27,13 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 ViewBag.hasAccounts = true;
             }
             return View(AppUser);
+        }
+
+        // GET: Customers
+        public ActionResult List()
+        {
+            return View(Roles.GetUsersInRole("Customer"));
+            //return View(db.Users.ToList());
         }
 
         // GET: persons/Edit/5

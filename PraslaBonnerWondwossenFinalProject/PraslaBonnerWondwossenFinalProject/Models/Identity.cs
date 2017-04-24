@@ -135,6 +135,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public DbSet<AppRole> AppRoles { get; set; }
 
+        
     }
 
 }

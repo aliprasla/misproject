@@ -14,9 +14,13 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
         
+        public ActionResult Index()
+        {
+            return View();
+        }
 
         // GET: Employees
-        public ActionResult Index()
+        public ActionResult List()
         {
             return View(db.Users.ToList());
         }
