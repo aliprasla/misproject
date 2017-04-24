@@ -22,10 +22,27 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public string PhoneNumber { get; set; }
 
-        public bool TwoFactor { get; set; }
-
         public bool BrowserRemembered { get; set; }
 
+        [Display(Name = "First Name")]
+        public string FName { get; set; }
+
+        [Display(Name = "Middle Initial")]
+        public string Middle { get; set; }
+
+        [Display(Name = "Last Name")]
+        public string LName { get; set; }
+
+        public string Email { get; set; }
+
+        public string Phone { get; set; }
+
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string State { get; set; }
+        public int Zip { get; set; }
+
+        
     }
 
 

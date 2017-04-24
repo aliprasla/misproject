@@ -27,6 +27,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     public class ManageController : Controller
 
     {
+        private AppDbContext db = new AppDbContext();
 
         private ApplicationSignInManager _signInManager;
 
@@ -106,10 +107,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         // GET: /Manage/Index
 
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public ActionResult Index(ManageMessageId? message)
 
         {
-
+            /*
             ViewBag.StatusMessage =
 
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
@@ -129,6 +130,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
 
             var userId = User.Identity.GetUserId();
+            var user = db.Users.Find(userId);
 
             var model = new IndexViewModel
 
@@ -136,17 +138,25 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 HasPassword = HasPassword(),
 
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
+                PhoneNumber = UserManager.FindById(userId).Phone,
 
                 Logins = await UserManager.GetLoginsAsync(userId),
 
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId),
 
-            };
+                FName = user.FName,
+                Middle = user.Middle,
+                LName = user.LName,
+                Email = user.Email,
+                Phone = user.Phone,
+                Address = user.Address,
+                City = user.City,
+                State = user.State,
+                Zip = user.Zip
 
-            return View(model);
+            }; */
+
+            return RedirectToAction("Edit", "Customers");
 
         }
 

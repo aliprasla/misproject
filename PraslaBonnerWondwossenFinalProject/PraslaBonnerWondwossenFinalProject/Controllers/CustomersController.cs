@@ -29,8 +29,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         // GET: persons/Edit/5
-        public ActionResult Edit(string id)
+        [Authorize(Roles = "Customer,Manager,Employee")]
+        public ActionResult Edit()
         {
+            string id = User.Identity.GetUserId();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
@@ -48,16 +50,17 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         // POST: persons/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+
+
+            //Customers/Edits allows users to update their own profiles
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,PhoneNumber,Address,City,State,Zip")] AppUser person)
+        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip")] AppUser person)
         {
             if (ModelState.IsValid)
             {
                 //Find associated person
-                AppUser personToChange = db.Users.Find(person.Id);
+                AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
 
 
                 //update the rest of the fields

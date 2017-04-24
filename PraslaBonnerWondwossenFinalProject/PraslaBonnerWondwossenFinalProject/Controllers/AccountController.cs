@@ -172,6 +172,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     var user = await manager.FindAsync(model.Email, model.Password);
                     if (manager.IsInRole(user.Id,"Customer"))
                     {
+                        //redirects user to Create A bank account page if User nodernot have a bank account
                         if (user.BankAccounts.Count() == 0) {
                             return RedirectToAction("Create", "BankAccounts");
                         }

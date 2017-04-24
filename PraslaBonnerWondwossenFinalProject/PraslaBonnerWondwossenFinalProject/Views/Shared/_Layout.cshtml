@@ -20,8 +20,8 @@
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #0000;
-    min-width: 160px;
+    background-color: white;
+    min-width: 20px;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
     z-index: 1;
 }
@@ -42,6 +42,12 @@
 .dropdown:hover .dropbtn {
     background-color: #666699;
 }
+div.sidebyside{
+    float:right;
+    display:inline;
+    vertical-align:top
+
+}
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,23 +65,25 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Longhorn Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                </ul>
-                @Html.Partial("_LoginPartial")
+                @if (User.IsInRole("Customer"))
+                {
+                    @Html.ActionLink("Longhorn Bank", "Index", "Customers", new { area = "" }, new { @class = "navbar-brand" })
+                }
+                else
+                {               
+                    @Html.ActionLink("Longhorn Bank", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                }
             </div>
             @if (Request.IsAuthenticated && User.IsInRole("Customer"))
             {
                 //TODO: Change this such that new logins don't have navigation options. Either do this, or include bank account checks in controllers for each menu option
-                    <div class="dropdown">
-                        <button class="dropbtn">Manage Accounts</button>
-                        <div class="dropdown-content">
-                            <a href=@Url.Action("Create", "BankAccounts")>Open a new Account</a>
-                            <a href=@Url.Action("Edit", "Customer")>Edit Account Details</a>
-                        </div>
+                <div class="dropdown">
+                    <button class="dropbtn">Manage Accounts</button>
+                    <div class="dropdown-content">
+                        <a href=@Url.Action("Create", "BankAccounts")>Open a new Account</a>
+                        <a href=@Url.Action("Edit", "Customer")>Edit Profile Details</a>
                     </div>
+                </div>
                     <div class="dropdown">
                         <button class="dropbtn">Transactions</button>
                         <div class="dropdown-content">
@@ -85,13 +93,30 @@
                             <a href=@Url.Action("Edit", "Customer")>Withdraw Funds</a>
                         </div>
                     </div>
-                    <div class="dropdown">
-                        <button class="dropbtn">Investments</button>
-                        <div class="dropdown-content">
-                            <a href=@Url.Action("Edit", "Customer")>STOCKS</a>
+                    <nobr>
+                        <div class="dropdown">
+                            <button class="dropbtn">Investments</button>
+                            <div class="dropdown-content">
+                                <a href=@Url.Action("Edit", "Customer")>STOCKS</a>
+                            </div>
                         </div>
+                        <div class="navbar-collapse collapse">
+                            <ul class="nav navbar-nav"></ul>
+                            <div class="sidebyside">
+                                @Html.Partial("_LoginPartial")
+                            </div>
+                        </div>
+                    </nobr>
+            }
+            else
+            {
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav"></ul>
+                    <div class="sidebyside">
+                        @Html.Partial("_LoginPartial")
                     </div>
-                    }
+                </div>
+            }
         </div>
     </div>
 
