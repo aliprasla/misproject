@@ -41,6 +41,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public string Middle { get; set; }
 
         [Required]
+        [Display(Name = "Last Name")]
         public string LName { get; set; }
 
         [Required]
@@ -57,10 +58,11 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         [Required]
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Phone Number")]
         public string Phone { get; set; }
 
-        [Required]
         [Column(TypeName = "DateTime2")]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-YYYY}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
 
         public String SSN { get; set; }

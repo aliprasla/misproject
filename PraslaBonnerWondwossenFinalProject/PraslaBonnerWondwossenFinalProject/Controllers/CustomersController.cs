@@ -63,7 +63,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             //Customers/Edits allows users to update their own profiles
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip")] AppUser person)
+        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip,Birthday")] AppUser person)
         {
             if (ModelState.IsValid)
             {
@@ -81,6 +81,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 personToChange.Zip = person.Zip;
                 personToChange.PhoneNumber = person.PhoneNumber;
                 personToChange.Email = person.Email;
+                personToChange.Birthday = person.Birthday;
                 db.Entry(personToChange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
