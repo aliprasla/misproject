@@ -167,6 +167,10 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public string Email { get; set; }
 
+        [Required]
+        [Display(Name = "Year of Birth")]
+        public int YearOfBirth { get; set; }
+
     }
 
 }
