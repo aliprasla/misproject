@@ -123,7 +123,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 return View("Error", new string[] { "Access Denied" });
 
             }
-
             AuthenticationManager.SignOut(); //this removes any old cookies hanging around
 
             ViewBag.ReturnUrl = returnUrl;
@@ -173,10 +172,13 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     var user = await manager.FindAsync(model.Email, model.Password);
                     if (manager.IsInRole(user.Id,"Customer"))
                     {
+                        if (user.BankAccounts.Count() == 0) {
+                            return RedirectToAction("Create", "BankAccounts");
+                        }
                         return RedirectToAction("Index", "Customers");
                     } else if (manager.IsInRole(user.Id,"Employee"))
                     {
-                        //TO DO: Once we have other controllers for different roles, change this to "Index","Employees"
+                        //TODO: Once we have other controllers for different roles, change this to "Index","Employees"
                         return RedirectToAction("Index", "BankAccounts");
                     }
                     return RedirectToAction("Index","RoleAdmin");
@@ -231,7 +233,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 //Add fields to user here so they will be saved to do the database
 
-                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, LName=model.LName, Address=model.Address, PhoneNumber=model.Phone, Birthday=model.Birthday, isActive=model.isActive, Middle=model.Middle, State=model.State, City=model.City, Zip=model.Zip };
+                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, LName=model.LName, Address=model.Address, Phone =model.Phone, Birthday=model.Birthday, isActive=model.isActive, Middle=model.Middle, State=model.State, City=model.City, Zip=model.Zip };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
 
@@ -243,7 +245,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 // --OR--
 
-                // await UserManager.AddToRoleAsync(user.Id, "Employee");
+                await UserManager.AddToRoleAsync(user.Id, "Customer");
 
 
 
@@ -267,9 +269,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-
-
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToAction("Create", "BankAccounts");
 
                 }
 

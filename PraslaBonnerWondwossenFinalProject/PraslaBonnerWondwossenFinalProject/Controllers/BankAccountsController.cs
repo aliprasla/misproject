@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -36,8 +37,18 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         // GET: BankAccounts/Create
+        [Authorize(Roles = "Customer")]
         public ActionResult Create()
         {
+            AppUser AppUser = db.Users.Find(User.Identity.GetUserId());
+            if (AppUser.hasAccount())
+            {
+                ViewBag.hasAccounts = false;
+            }
+            else
+            {
+                ViewBag.hasAccounts = true;
+            }
             return View();
         }
 
@@ -46,13 +57,18 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BankAccountID,AccountNumber,Type,Name,Balance")] BankAccount bankAccount)
+        public ActionResult Create([Bind(Include = "BankAccountID,Type,Name,Balance")] BankAccount bankAccount)
         {
             if (ModelState.IsValid)
             {
+                var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
+                bankAccount.AccountNumber = item.AccountNumber + 1;
+                AppUser current = db.Users.Find(User.Identity.GetUserId());
+                bankAccount.Customer = current;
+                current.BankAccounts.Add(bankAccount);
                 db.BankAccounts.Add(bankAccount);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Customers");
             }
 
             return View(bankAccount);

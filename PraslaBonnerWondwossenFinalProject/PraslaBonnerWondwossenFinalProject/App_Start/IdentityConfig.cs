@@ -72,15 +72,15 @@ namespace PraslaBonnerWondwossenFinalProject
 
             {
 
-                RequiredLength = 6,
+                RequiredLength = 4,
 
-                RequireNonLetterOrDigit = true,
+                RequireNonLetterOrDigit = false,
 
-                RequireDigit = true,
+                RequireDigit = false,
 
-                RequireLowercase = true,
+                RequireLowercase = false,
 
-                RequireUppercase = true,
+                RequireUppercase = false,
 
             };
 

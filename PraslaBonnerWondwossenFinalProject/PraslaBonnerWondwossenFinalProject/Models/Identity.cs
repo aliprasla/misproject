@@ -71,6 +71,12 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public virtual List<Transaction> Transactions { get; set; }
         public virtual List<Dispute> Disputes { get; set; }
 
+        public Boolean hasAccount() {
+            if (BankAccounts.Count == 0) {
+                return false;
+            }
+            return true;
+        }
         //This method allows you to create a new user
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)
@@ -129,7 +135,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public DbSet<AppRole> AppRoles { get; set; }
 
-        //public System.Data.Entity.DbSet<PraslaBonnerWondwossenFinalProject.Models.AppUser> AppUsers { get; set; }
     }
 
 }

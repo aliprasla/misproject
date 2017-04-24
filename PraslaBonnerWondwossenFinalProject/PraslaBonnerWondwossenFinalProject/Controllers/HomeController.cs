@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Microsoft.AspNet.Identity;
+using PraslaBonnerWondwossenFinalProject.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -9,6 +11,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        private AppDbContext db = new AppDbContext();
         public ActionResult Index()
         {
             return View();
