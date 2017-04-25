@@ -1,180 +1,3 @@
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csprojResolveAssemblyReference.cache
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\ApplicationInsights.config
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.exe
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\vbc.exe
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\VBCSCompiler.exe
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\PraslaBonnerWondwossenFinalProject.dll.config
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\PraslaBonnerWondwossenFinalProject.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\PraslaBonnerWondwossenFinalProject.pdb
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Antlr3.Runtime.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.SqlServer.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.Web.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.ApplicationInsights.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Newtonsoft.Json.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Owin.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Helpers.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Mvc.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Optimization.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Razor.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Deployment.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Razor.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\WebGrease.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Antlr3.Runtime.pdb
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.SqlServer.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.Web.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.ApplicationInsights.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Newtonsoft.Json.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Optimization.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Razor.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Deployment.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Razor.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Helpers.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Mvc.xml
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.dll
-C:\Users\MSBStudent\Documents\MIS313\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.pdb
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\ApplicationInsights.config
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.exe
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CSharp.Core.targets
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.VisualBasic.Core.targets
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Collections.Immutable.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Reflection.Metadata.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\vbc.exe
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\VBCSCompiler.exe
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\PraslaBonnerWondwossenFinalProject.dll.config
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\PraslaBonnerWondwossenFinalProject.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\PraslaBonnerWondwossenFinalProject.pdb
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Antlr3.Runtime.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.SqlServer.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.Agent.Intercept.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.DependencyCollector.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.PerfCounterCollector.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.ServerTelemetryChannel.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.Web.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.WindowsServer.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.ApplicationInsights.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Core.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.EntityFramework.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Owin.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Host.SystemWeb.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.Cookies.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.OAuth.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Newtonsoft.Json.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Owin.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Helpers.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Mvc.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Optimization.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Razor.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Deployment.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Razor.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\WebGrease.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Antlr3.Runtime.pdb
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\EntityFramework.SqlServer.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.DependencyCollector.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.ServerTelemetryChannel.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.Web.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AI.WindowsServer.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.ApplicationInsights.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Core.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.AspNet.Identity.Owin.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Host.SystemWeb.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.Cookies.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Microsoft.Owin.Security.OAuth.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\Newtonsoft.Json.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Optimization.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Razor.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Deployment.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Razor.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Helpers.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Mvc.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csprojResolveAssemblyReference.cache
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.pdb
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.firstUpdate.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csproj.GenerateResource.Cache
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations._420.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.updatedSeed.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedSSNFieldForAppUser.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedDateTime.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedBankAccountClass.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedProductsToBankAccounts.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.EnumChange.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.idontremember.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.removedStreetProperty.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.securityStamp.resources
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.ChangedAccountNumberDisplayAnnotation.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csprojResolveAssemblyReference.cache
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.firstUpdate.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations._420.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.updatedSeed.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedSSNFieldForAppUser.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedDateTime.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedBankAccountClass.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedProductsToBankAccounts.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.EnumChange.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.idontremember.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.removedStreetProperty.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.securityStamp.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.ChangedAccountNumberDisplayAnnotation.resources
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csproj.GenerateResource.Cache
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.dll
-C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.pdb
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\ApplicationInsights.config
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.exe
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.exe.config
@@ -282,45 +105,21 @@ C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProjec
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Webpages.Razor.xml
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Helpers.xml
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Mvc.xml
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.exe.config
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.rsp
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csi.exe
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csi.exe.config
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csi.rsp
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\Microsoft.Win32.Primitives.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.AppContext.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Console.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Diagnostics.FileVersionInfo.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Diagnostics.Process.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Diagnostics.StackTrace.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.IO.Compression.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.IO.FileSystem.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.IO.FileSystem.DriveInfo.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.IO.FileSystem.Primitives.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.IO.Pipes.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.AccessControl.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.Claims.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.Cryptography.Algorithms.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.Cryptography.Encoding.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.Cryptography.Primitives.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.Cryptography.X509Certificates.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Security.Principal.Windows.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Text.Encoding.CodePages.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Threading.Thread.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.ValueTuple.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Xml.ReaderWriter.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Xml.XmlDocument.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Xml.XPath.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\System.Xml.XPath.XDocument.dll
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\vbc.exe.config
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\vbc.rsp
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.loosedPasswordRequirements.resources
-<<<<<<< HEAD
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csprojResolveAssemblyReference.cache
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.firstUpdate.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations._420.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.updatedSeed.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedSSNFieldForAppUser.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedDateTime.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedBankAccountClass.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedProductsToBankAccounts.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.EnumChange.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.idontremember.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.removedStreetProperty.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.securityStamp.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.ChangedAccountNumberDisplayAnnotation.resources
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.loosedPasswordRequirements.resources
-=======
-C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedBirthdayFormat.resources
->>>>>>> origin/master
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.changedBirthdayFormat.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csproj.GenerateResource.Cache
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.dll
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.pdb

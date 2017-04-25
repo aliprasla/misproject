@@ -179,8 +179,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         return RedirectToAction("Index", "Customers");
                     } else if (manager.IsInRole(user.Id,"Employee"))
                     {
-                        //TODO: Once we have other controllers for different roles, change this to "Index","Employees"
-                        return RedirectToAction("Index", "BankAccounts");
+                        return RedirectToAction("Index", "Employees");
                     }
                     return RedirectToAction("Index","RoleAdmin");
 

@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
 using Microsoft.AspNet.Identity;
 using System.Web.Security;
+using Microsoft.AspNet.Identity.EntityFramework;
+using System.Threading.Tasks;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -32,7 +34,17 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // GET: Customers
         public ActionResult List()
         {
-            return View(Roles.GetUsersInRole("Customer"));
+            List<AppUser> appUsers = new List<AppUser>();
+            appUsers = db.Users.ToList();
+            List<AppUser> customers = new List<AppUser>();
+            AppUserManager man = new AppUserManager(new UserStore<AppUser>(db));
+            foreach (var item in appUsers) {
+                if (man.IsInRole(item.Id, "Customer")){
+                    customers.Add(item);       
+                }
+            }
+            //bool to see if uses is in a certain role: User.IsInRole("Customer")
+            return View(customers);
             //return View(db.Users.ToList());
         }
 
@@ -40,54 +52,106 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [Authorize(Roles = "Customer,Manager,Employee")]
         public ActionResult Edit()
         {
-            string id = User.Identity.GetUserId();
+                string id = User.Identity.GetUserId();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                AppUser user = db.Users.Find(id);
+                if (user == null)
+                {
+                    return HttpNotFound();
+                }
+                if (user.Id != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+                {
+                    return RedirectToAction("Login", "Account");
+                }
+                return View(user);
+        }
+
+        //edit from employee or manager
+        //TODO: add authorization for managers and employees 
+
+        
+        public ActionResult EmployeeEdit(string id)
+        {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AppUser user = db.Users.Find(id);
-            if (user == null)
+            AppUser customer = db.Users.Find(id);
+            if (customer==null)
             {
                 return HttpNotFound();
             }
-            if (user.Id != User.Identity.GetUserId() && !User.IsInRole("Admin"))
-            {
-                return RedirectToAction("Login", "Account");
-            }
-            return View(user);
+            return View("Edit",customer);
         }
+
+
+
 
         // POST: persons/Edit/5
 
 
-            //Customers/Edits allows users to update their own profiles
+        //Customers/Edits allows users to update their own profiles or employees/managers to edit customers
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip,Birthday")] AppUser person)
+        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip,Birthday,Password")] AppUser person)
         {
-            if (ModelState.IsValid)
+            if (User.IsInRole("Customer"))
             {
-                //Find associated person
-                AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
+                if (ModelState.IsValid)
+                {
+                    //Find associated person
+                    AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
 
 
-                //update the rest of the fields
-                personToChange.FName = person.FName;
-                personToChange.LName = person.LName;
-                personToChange.Middle = person.Middle;
-                personToChange.Address = person.Address;
-                personToChange.City = person.City;
-                personToChange.State = person.State;
-                personToChange.Zip = person.Zip;
-                personToChange.PhoneNumber = person.PhoneNumber;
-                personToChange.Email = person.Email;
-                personToChange.Birthday = person.Birthday;
-                db.Entry(personToChange).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                    //update the rest of the fields
+                    personToChange.FName = person.FName;
+                    personToChange.LName = person.LName;
+                    personToChange.Middle = person.Middle;
+                    personToChange.Address = person.Address;
+                    personToChange.City = person.City;
+                    personToChange.State = person.State;
+                    personToChange.Zip = person.Zip;
+                    personToChange.PhoneNumber = person.PhoneNumber;
+                    personToChange.Email = person.Email;
+                    personToChange.Birthday = person.Birthday;
+                    db.Entry(personToChange).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+
+            }
+            else
+            {
+                if (ModelState.IsValid)
+                {
+                    //Find associated person
+                    AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
+
+
+                    //update the rest of the fields
+                    personToChange.FName = person.FName;
+                    personToChange.LName = person.LName;
+                    personToChange.Middle = person.Middle;
+                    personToChange.Address = person.Address;
+                    personToChange.City = person.City;
+                    personToChange.State = person.State;
+                    personToChange.Zip = person.Zip;
+                    personToChange.PhoneNumber = person.PhoneNumber;
+                    personToChange.Email = person.Email;
+                    personToChange.Birthday = person.Birthday;
+                    personToChange.PasswordHash = person.PasswordHash;
+                    db.Entry(personToChange).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
             }
             return View(person);
         }
+
+
         public ActionResult Details(string Id)
         {
             if (Id == null)
@@ -102,6 +166,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(user);
         }
 
-
+        
     }
 }

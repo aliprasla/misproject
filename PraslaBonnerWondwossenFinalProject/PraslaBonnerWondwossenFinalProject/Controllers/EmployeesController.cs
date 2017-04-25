@@ -7,6 +7,8 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -22,7 +24,20 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // GET: Employees
         public ActionResult List()
         {
-            return View(db.Users.ToList());
+            List<AppUser> appUsers = new List<AppUser>();
+            appUsers = db.Users.ToList();
+            List<AppUser> employees = new List<AppUser>();
+            AppUserManager man = new AppUserManager(new UserStore<AppUser>(db));
+            foreach (var item in appUsers)
+            {
+                if (man.IsInRole(item.Id, "Employee"))
+                {
+                    employees.Add(item);
+                }
+            }
+            //bool to see if uses is in a certain role: User.IsInRole("Customer")
+            return View(employees);
+            //return View(db.Users.ToList());
         }
 
         // GET: Employees/Details/5
