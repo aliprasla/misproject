@@ -98,8 +98,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip,Birthday,Password")] AppUser person)
         {
-            if (User.IsInRole("Customer"))
-            {
                 if (ModelState.IsValid)
                 {
                     //Find associated person
@@ -122,32 +120,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     return RedirectToAction("Index");
                 }
 
-            }
-            else
-            {
-                if (ModelState.IsValid)
-                {
-                    //Find associated person
-                    AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
-
-
-                    //update the rest of the fields
-                    personToChange.FName = person.FName;
-                    personToChange.LName = person.LName;
-                    personToChange.Middle = person.Middle;
-                    personToChange.Address = person.Address;
-                    personToChange.City = person.City;
-                    personToChange.State = person.State;
-                    personToChange.Zip = person.Zip;
-                    personToChange.PhoneNumber = person.PhoneNumber;
-                    personToChange.Email = person.Email;
-                    personToChange.Birthday = person.Birthday;
-                    personToChange.PasswordHash = person.PasswordHash;
-                    db.Entry(personToChange).State = EntityState.Modified;
-                    db.SaveChanges();
-                    return RedirectToAction("Index");
-                }
-            }
+            
+           
             return View(person);
         }
 

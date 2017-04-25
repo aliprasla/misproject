@@ -3,7 +3,9 @@
 @{
     ViewBag.Title = "Edit";
 }
+
 @using (Html.BeginForm())
+{
 
 
     //if customer editing themself
@@ -109,7 +111,7 @@
 
     @Html.ActionLink("Change Password?", "ChangePassword", "Manage")
 
-        } 
+    }
 
     //if manager or employee trying to edit customer
     else
@@ -195,13 +197,7 @@
                         @Html.ValidationMessageFor(model => model.Birthday, "", new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.PasswordHash, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.PasswordHash, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.PasswordHash, "", new { @class = "text-danger" })
-                    </div>
-                </div>
+                
 
 
                 <div class="form-group">
@@ -211,7 +207,10 @@
                 </div>
             </div>
         }
-    
+
+        @Html.ActionLink("Change Password?", "SetPasswordEmployee", "Manage", new { id = item.Id }) //the , new { id=item.Id } isnt working
+    }
+}
 
 
 <script src="~/Scripts/jquery-1.10.2.min.js"></script>
