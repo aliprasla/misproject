@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -17,8 +18,11 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
-            return View();
+            return View(new Transaction());
         }
+
+        //TO DO: Add another Index Controller. 
+
 
         // GET: Transactions/Details/5
         public ActionResult Details(int? id)

@@ -1,17 +1,27 @@
-﻿@model IEnumerable<PraslaBonnerWondwossenFinalProject.Models.Transaction>
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Transaction
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Select a transaction type</h2>
+<h2>Transaction</h2>
 
 @using (Html.BeginForm())
-        {
+{
+        <h2> Select a Transaction Type</h2>
         <div class="form-horizontal">
             <div class="form-group">
-                     Hello World
+                <dl class="dl-horizontal">
+                    <dd>
+                        @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
+                    </dd>
+                </dl>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Next" class="btn btn-default" />
+                    </div>
+                </div>
             </div>
-       </div>    
-    
+        </div>
     }
+}
