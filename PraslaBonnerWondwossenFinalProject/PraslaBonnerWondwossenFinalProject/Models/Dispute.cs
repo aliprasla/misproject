@@ -9,17 +9,19 @@ using System.Linq;
 
 using System.Web;
 
+using PraslaBonnerWondwossenFinalProject.Controllers;
+
 
 
 namespace PraslaBonnerWondwossenFinalProject.Models
 
 {
 
-    public enum Status { WaitingOnManager, Approved, NotApproved }
 
     public class Dispute
 
     {
+        public Decimal DisputeAmount { get; set; }
 
         public int DisputeID { get; set; }
 
