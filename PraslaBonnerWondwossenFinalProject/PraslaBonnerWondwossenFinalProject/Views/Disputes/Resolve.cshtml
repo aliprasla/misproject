@@ -1,0 +1,62 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Dispute
+@using PraslaBonnerWondwossenFinalProject.Controllers
+@{
+    ViewBag.Title = "Resolve";
+}
+
+<h2>Resolve</h2>
+
+<div>
+
+    <h4>Resolve Dispute</h4>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+
+        <dt>Customer Comment:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerDescription)
+        </dd>
+
+        <dt>Transaction Amount:</dt>
+        <dd>
+            @Html.DisplayFor(model => Model.Transaction.Amount)
+        </dd>
+
+        <dt>Dispute Amount</dt>
+        <dd>
+            @Html.DisplayFor(model => Model.DisputeAmount)
+        </dd>
+    </dl>
+        <p class="form-group">
+        Name: @Html.TextBox("SearchString", null, new { @class = "form-control" })
+        <br />
+        @Html.DropDownList("SelectedFrequency", (SelectList)ViewBag.AllFrequency, new { @class = "form-control" })
+        <br />
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @Html.RadioButton("SelectedResponse", Status.Approved, true, new { @class = "form-check-input" }) Approved
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @Html.RadioButton("SelectedResponse", Status.NotApproved, new { @class = "form-check-input" }) Not Approved
+                    </label>
+                </div>
+                Adjust request: @Html.TextBox("AdjustedAmount", null, new { @class = "form-control" })
+                Manager Comment: @Html.TextBox("commentString", null, new { @class = "form-control" })
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            <div>
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+</div>
+

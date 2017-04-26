@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PraslaBonnerWondwossenFinalProject.Models.Dispute>
+
+@{
+    ViewBag.Title = "Dispute";
+}
+
+<h2>Disputes</h2>
+
+<p>
+    @Html.ActionLink("View All Disputes","ViewAll")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Transaction.Customer.FName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transaction.Customer.LName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transaction.Customer.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Transaction.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DisputeAmount)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.Customer.FName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.Customer.LName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.Customer.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Transaction.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DisputeAmount)
+            </td>
+            <td>
+                @Html.ActionLink("Resolve", "Resolve", new { Id = item.DisputeID })
+            </td>
+        </tr>
+    }
+
+</table>
+
