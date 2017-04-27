@@ -66,7 +66,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,FName,Middle,LName,Address,City,State,Zip,Phone,Birthday,SSN,isActive,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AppUser appUser)
+        public ActionResult Create([Bind(Include = "Id,FName,Middle,LName,Address,City,State,Zip,PhoneNumber,Birthday,SSN,isActive,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AppUser appUser)
         {
             if (ModelState.IsValid)
             {
@@ -79,18 +79,24 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         // GET: Employees/Edit/5
-        public ActionResult Edit(string id)
+        public ActionResult Edit()
         {
+
+            string id = User.Identity.GetUserId();
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            AppUser appUser = db.Users.Find(id);
-            if (appUser == null)
+            AppUser user = db.Users.Find(id);
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(appUser);
+            if (user.Id != User.Identity.GetUserId() && !User.IsInRole("Admin"))
+            {
+                return RedirectToAction("Login", "Account");
+            }
+            return View(user);
         }
 
         // POST: Employees/Edit/5
@@ -98,17 +104,32 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FName,Middle,LName,Address,City,State,Zip,Phone,Birthday,SSN,isActive,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName")] AppUser appUser)
+
+        public ActionResult Edit([Bind(Include = "Id,Address,City,State,Zip,PhoneNumber")] AppUser person)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(appUser).State = EntityState.Modified;
+
+                //Find associated person
+                AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
+
+
+                //update the rest of the fields
+              
+                personToChange.Address = person.Address;
+                personToChange.City = person.City;
+                personToChange.State = person.State;
+                personToChange.Zip = person.Zip;
+                personToChange.PhoneNumber = person.PhoneNumber;
+                db.Entry(personToChange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
+
             }
-            return View(appUser);
+            return View(person);
         }
 
-        
+
+
     }
 }

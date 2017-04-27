@@ -297,7 +297,9 @@
             <param name="user"></param>
             <returns></returns>
         </member>
-        <member name="M:Microsoft.AspNet.Identity.EntityFramework.UserStore`6.SetPasswordHashAsync(`0,System.String)">
+        <member name="M:Microsoft.AspNet.Identity.EntityFramework.UserStore`6.Set
+                
+hAsync(`0,System.String)">
             <summary>
                 Set the password hash for a user
             </summary>

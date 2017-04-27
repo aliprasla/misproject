@@ -348,7 +348,7 @@
         </member>
         <member name="T:Microsoft.ApplicationInsights.DependencyCollector.Implementation.Operation.CacheProvider`1">
             <summary>
-            The implementation of cache provider for Windows Phone and Windows Store as MemoryCache is not available there.
+            The implementation of cache provider for Windows PhoneNumber and Windows Store as MemoryCache is not available there.
             </summary>
             <typeparam name="TValue">Type of items to store in the cache.</typeparam>
         </member>
