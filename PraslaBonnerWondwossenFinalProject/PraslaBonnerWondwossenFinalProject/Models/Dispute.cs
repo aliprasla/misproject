@@ -16,7 +16,8 @@ using PraslaBonnerWondwossenFinalProject.Controllers;
 namespace PraslaBonnerWondwossenFinalProject.Models
 
 {
-
+    //TODO:NATE--i made this because i needed to add a migration so that i could work on my stuff and there was an error on this file. I assumed you were going for an enum but idk you can edit this
+    public enum Status {resolved,underConsideration};
 
     public class Dispute
 
