@@ -64,7 +64,10 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                         isActive = c.Boolean(),
                         Email = c.String(maxLength: 256),
                         EmailConfirmed = c.Boolean(nullable: false),
-                        PasswordHash = c.String(),
+
+
+
+                    h = c.String(),
                         SecurityStamp = c.String(),
                         PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),

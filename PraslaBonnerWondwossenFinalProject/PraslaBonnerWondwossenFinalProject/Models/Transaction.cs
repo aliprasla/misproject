@@ -46,7 +46,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public String Description { get; set; }
 
         //define one to many relationships - One customer can have many transactions - need a customer class
-
         public virtual AppUser Customer { get; set; }
 
         public virtual Dispute Dispute { get; set; }

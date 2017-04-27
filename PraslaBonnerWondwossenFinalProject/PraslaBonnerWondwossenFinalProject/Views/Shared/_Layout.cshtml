@@ -3,7 +3,7 @@
 <html>
 <head>
     <style>
-        .dropbtn {
+.dropbtn {
     background-color: #666699;
     color: white;
     padding: 16px;
@@ -33,7 +33,6 @@
     display: block;
 }
 
-.dropdown-content a:hover {background-color: #0000}
 
 .dropdown:hover .dropdown-content {
     display: block;
@@ -42,12 +41,12 @@
 .dropdown:hover .dropbtn {
     background-color: #666699;
 }
-div.sidebyside{
-    float:right;
-    display:inline;
-    vertical-align:top
-
+ div.align-Login {
+     display:inline;
+     margin:0px;
+     padding:0px;
 }
+
 </style>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,33 +76,54 @@ div.sidebyside{
             @if (Request.IsAuthenticated && User.IsInRole("Customer"))
             {
                 //TODO: Change this such that new logins don't have navigation options. Either do this, or include bank account checks in controllers for each menu option
-                <div class="dropdown">
-                    <button class="dropbtn">Manage Accounts</button>
-                    <div class="dropdown-content">
-                        <a href=@Url.Action("Create", "BankAccounts")>Open a new Account</a>
-                        <a href=@Url.Action("Edit", "Customers")>Edit Profile Details</a>
-                    </div>
-                </div>
                     <div class="dropdown">
                         <button class="dropbtn">Transactions</button>
                         <div class="dropdown-content">
-                            <a href=@Url.Action("Index", "Transactions")>View Transactions</a>
+                            <a href=@Url.Action("Index", "Transactions")>Deposit</a>
+                            <a href=@Url.Action("Index", "Transactions")>Withdrawal</a>
+                            <a href=@Url.Action("Index", "Transactions")>Transfer Funds</a>
+                            <a href=@Url.Action("Index", "Transactions")>Transaction History</a>
                         </div>
                     </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Pay Bills</button>
+                        <div class="dropdown-content">
+                            <a href=@Url.Action("Index", "Transactions")>Pay Bills</a>
+                            <a href=@Url.Action("Index", "Transactions")>Edit Payees </a>
+                            <a href=@Url.Action("Index", "Transactions")>Transfer Funds</a>
+                        </div>
+                    </div>
+                    <div class="dropdown">
+                        <button class="dropbtn">Disputes</button>
+                        <div class="dropdown-content">
+                            <a href=@Url.Action("Index", "Transactions")>Dispute a Transaction</a>
+                            <a href=@Url.Action("Index", "Transactions")>View Dispute Status</a>
+                        </div>
+                    </div>
+
                     <nobr>
                         <div class="dropdown">
                             <button class="dropbtn">Investments</button>
                             <div class="dropdown-content">
-                                <a href=@Url.Action("Edit", "Customer")>STOCKS</a>
+                                <a href=@Url.Action("Edit", "Customers")>STOCKS</a>
                             </div>
                         </div>
-                        <div class="navbar-collapse collapse">
-                            <ul class="nav navbar-nav"></ul>
-                            <div class="sidebyside">
-                                @Html.Partial("_LoginPartial")
+                        <div class="dropdown">
+                            <button class="dropbtn">Manage Account</button>
+                             <div class="dropdown-content">
+                                <a href=@Url.Action("Create", "BankAccounts")>Apply for a new Account</a>
+                             </div>
+                        </div>      
+                        </nobr>
+                        <div class="align-Login">
+                            <div class="navbar-collapse collapse">
+                                <ul class="nav navbar-nav"></ul>
+                                <div class="sidebyside">
+                                    @Html.Partial("_LoginPartial")
+                                </div>
                             </div>
                         </div>
-                    </nobr>
+
             }
             else
             {

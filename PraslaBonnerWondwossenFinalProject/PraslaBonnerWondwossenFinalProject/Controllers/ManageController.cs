@@ -121,9 +121,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 : message == ManageMessageId.Error ? "An error has occurred."
 
-                : message == ManageMessageId.AddPhoneSuccess ? "Your phone number was added."
+                : message == ManageMessageId.AddPhoneNumberSuccess ? "Your PhoneNumber number was added."
 
-                : message == ManageMessageId.RemovePhoneSuccess ? "Your phone number was removed."
+                : message == ManageMessageId.RemovePhoneNumberSuccess ? "Your PhoneNumber number was removed."
 
                 : "";
 
@@ -138,7 +138,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 HasPassword = HasPassword(),
 
-                PhoneNumber = UserManager.FindById(userId).Phone,
+                PhoneNumber = UserManager.FindById(userId).PhoneNumber,
 
                 Logins = await UserManager.GetLoginsAsync(userId),
 
@@ -148,7 +148,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 Middle = user.Middle,
                 LName = user.LName,
                 Email = user.Email,
-                Phone = user.Phone,
+                PhoneNumber = user.PhoneNumber,
                 Address = user.Address,
                 City = user.City,
                 State = user.State,
@@ -228,96 +228,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         ///
 
-        // GET: /Manage/SetPassword
-        ///THis is what i'm working on right now
-        ///need to make a view for this
-        ///and make sure when posting we look at users id not at editor's id
-        ///maybe by passing user id through the actionlink
-        public ActionResult SetPasswordEmployee()
-
-        {
-
-            return View();
-
-        }
 
 
-
-        //
-
-        // POST: /Manage/SetPassword
-
-        [HttpPost]
-
-        [ValidateAntiForgeryToken]
-
-        public async Task<ActionResult> SetPasswordEmployee(SetPasswordViewModel model)
-
-        {
-
-            if (ModelState.IsValid)
-
-            {
-
-                var result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-
-                if (result.Succeeded)
-
-                {
-
-                    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-
-                    if (user != null)
-
-                    {
-
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    }
-
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
-
-                }
-
-                AddErrors(result);
-
-            }
-
-
-
-            // If we got this far, something failed, redisplay form
-
-            return View(model);
-
-        }
-
-
-
-        //
-
-
-
-
-
-        protected override void Dispose(bool disposing)
-
-        {
-
-            if (disposing && _userManager != null)
-
-            {
-
-                _userManager.Dispose();
-
-                _userManager = null;
-
-            }
-
-
-
-            base.Dispose(disposing);
-
-        }
+    
 
         // GET: /Manage/SetPassword
 
@@ -381,9 +294,37 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
 
 
-        //
+        ////EmployeeChangePassword
+
+        //public ActionResult EmployeeChangePassword(string Id)
+
+        //{
+
+        //    return View(Id);
+
+        //}
 
 
+        //[HttpPost]
+
+        //[ValidateAntiForgeryToken]
+
+        //public async Task<ActionResult> EmployeeChangePassword(EmployeeChangePasswordViewModel model, string Id)
+
+        //{
+
+        //   if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    AppUser customer = db.Users.Find(id);
+        //    if (customer==null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    return View("Edit",customer);
+
+        //}
 
 
 
@@ -489,7 +430,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         {
 
-            AddPhoneSuccess,
+            AddPhoneNumberSuccess,
 
             ChangePasswordSuccess,
 
@@ -499,7 +440,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             RemoveLoginSuccess,
 
-            RemovePhoneSuccess,
+            RemovePhoneNumberSuccess,
 
             Error
 
