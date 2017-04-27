@@ -114,6 +114,8 @@
 
                     <th>Remove From Role</th>
 
+                    <th>Terminate</th>
+
                 </tr>
 
                 foreach (AppUser user in Model.Members)
@@ -127,11 +129,14 @@
                         <td>@user.UserName</td>
 
                         <td>
-
                             <input type="checkbox" name="IdsToDelete" value="@user.Id" />
-
                         </td>
 
+                        <td>
+                            <input type="checkbox" name="IdsToTerminate" value="@user.Id" />
+                        </td>
+                        @Html.ActionLink("RoleAdmin", "EditEmployee", new { Id = user.Id })
+                        
                     </tr>
 
                 }
