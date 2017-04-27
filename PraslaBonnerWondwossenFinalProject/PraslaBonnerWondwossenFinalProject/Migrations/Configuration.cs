@@ -47,7 +47,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78733,
-                Phone = "5125571146",
+                PhoneNumber = "5125571146",
                 Birthday = DateTime.Parse("2/7/1991"),
                 PasswordHash = hasher.HashPassword("hello")
             };
@@ -71,7 +71,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78261,
-                Phone = "2102678873",
+                PhoneNumber = "2102678873",
                 Birthday = DateTime.Parse("6/23/1990"),
                 PasswordHash = hasher.HashPassword("banquet")
             };
@@ -95,7 +95,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77019,
-                Phone = "8175659699",
+                PhoneNumber = "8175659699",
                 Birthday = DateTime.Parse("5/6/1986"),
                 PasswordHash = hasher.HashPassword("666666")
             };
@@ -119,7 +119,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78713,
-                Phone = "5125943222",
+                PhoneNumber = "5125943222",
                 Birthday = DateTime.Parse("12/21/1964"),
                 PasswordHash = hasher.HashPassword("texas")
             };
@@ -143,7 +143,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78266,
-                Phone = "2107724599",
+                PhoneNumber = "2107724599",
                 Birthday = DateTime.Parse("6/14/1950"),
                 PasswordHash = hasher.HashPassword("austin")
             };
@@ -167,7 +167,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75208,
-                Phone = "2142643255",
+                PhoneNumber = "2142643255",
                 Birthday = DateTime.Parse("5/9/1930"),
                 PasswordHash = hasher.HashPassword("mailbox")
             };
@@ -191,7 +191,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77010,
-                Phone = "8172556749",
+                PhoneNumber = "8172556749",
                 Birthday = DateTime.Parse("2/24/1930"),
                 PasswordHash = hasher.HashPassword("aggies")
             };
@@ -215,7 +215,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77009,
-                Phone = "8173255687",
+                PhoneNumber = "8173255687",
                 Birthday = DateTime.Parse("9/1/1935"),
                 PasswordHash = hasher.HashPassword("raiders")
             };
@@ -239,7 +239,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77003,
-                Phone = "8176593544",
+                PhoneNumber = "8176593544",
                 Birthday = DateTime.Parse("7/3/1990"),
                 PasswordHash = hasher.HashPassword("mustangs")
             };
@@ -263,7 +263,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75261,
-                Phone = "2148475583",
+                PhoneNumber = "2148475583",
                 Birthday = DateTime.Parse("9/17/1985"),
                 PasswordHash = hasher.HashPassword("mydog")
             };
@@ -287,7 +287,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5126978613",
+                PhoneNumber = "5126978613",
                 Birthday = DateTime.Parse("1/23/1995"),
                 PasswordHash = hasher.HashPassword("jeffh")
             };
@@ -311,7 +311,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75237,
-                Phone = "2148965621",
+                PhoneNumber = "2148965621",
                 Birthday = DateTime.Parse("1/8/1994"),
                 PasswordHash = hasher.HashPassword("logicon")
             };
@@ -335,7 +335,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78239,
-                Phone = "2105788965",
+                PhoneNumber = "2105788965",
                 Birthday = DateTime.Parse("10/6/1990"),
                 PasswordHash = hasher.HashPassword("doofus")
             };
@@ -359,7 +359,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78736,
-                Phone = "5124678821",
+                PhoneNumber = "5124678821",
                 Birthday = DateTime.Parse("4/12/1984"),
                 PasswordHash = hasher.HashPassword("mother")
             };
@@ -383,7 +383,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78731,
-                Phone = "5124653365",
+                PhoneNumber = "5124653365",
                 Birthday = DateTime.Parse("4/4/1983"),
                 PasswordHash = hasher.HashPassword("whimsical")
             };
@@ -407,7 +407,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78761,
-                Phone = "5129457399",
+                PhoneNumber = "5129457399",
                 Birthday = DateTime.Parse("2/3/1961"),
                 PasswordHash = hasher.HashPassword("nothing")
             };
@@ -431,7 +431,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78293,
-                Phone = "2102449976",
+                PhoneNumber = "2102449976",
                 Birthday = DateTime.Parse("9/3/1946"),
                 PasswordHash = hasher.HashPassword("GoodFellow")
             };
@@ -455,7 +455,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78279,
-                Phone = "2105344627",
+                PhoneNumber = "2105344627",
                 Birthday = DateTime.Parse("2/7/1992"),
                 PasswordHash = hasher.HashPassword("Elbow")
             };
@@ -479,7 +479,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78268,
-                Phone = "2106983548",
+                PhoneNumber = "2106983548",
                 Birthday = DateTime.Parse("10/25/1942"),
                 PasswordHash = hasher.HashPassword("LuceyDucey")
             };
@@ -503,7 +503,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78731,
-                Phone = "5124748138",
+                PhoneNumber = "5124748138",
                 Birthday = DateTime.Parse("8/6/1965"),
                 PasswordHash = hasher.HashPassword("cloudyday")
             };
@@ -527,7 +527,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78732,
-                Phone = "5124579845",
+                PhoneNumber = "5124579845",
                 Birthday = DateTime.Parse("4/13/1959"),
                 PasswordHash = hasher.HashPassword("emarkbark")
             };
@@ -551,7 +551,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77045,
-                Phone = "8174955201",
+                PhoneNumber = "8174955201",
                 Birthday = DateTime.Parse("1/6/1990"),
                 PasswordHash = hasher.HashPassword("smartinmartin")
             };
@@ -575,7 +575,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77030,
-                Phone = "8178746718",
+                PhoneNumber = "8178746718",
                 Birthday = DateTime.Parse("10/9/1987"),
                 PasswordHash = hasher.HashPassword("grego")
             };
@@ -599,7 +599,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77031,
-                Phone = "8177458615",
+                PhoneNumber = "8177458615",
                 Birthday = DateTime.Parse("7/21/1984"),
                 PasswordHash = hasher.HashPassword("chucky33")
             };
@@ -623,7 +623,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78703,
-                Phone = "5122926966",
+                PhoneNumber = "5122926966",
                 Birthday = DateTime.Parse("7/4/1956"),
                 PasswordHash = hasher.HashPassword("orange")
             };
@@ -647,7 +647,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75238,
-                Phone = "2143125897",
+                PhoneNumber = "2143125897",
                 Birthday = DateTime.Parse("1/29/1963"),
                 PasswordHash = hasher.HashPassword("victorious")
             };
@@ -671,7 +671,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78260,
-                Phone = "2103450925",
+                PhoneNumber = "2103450925",
                 Birthday = DateTime.Parse("1/7/1983"),
                 PasswordHash = hasher.HashPassword("billyboy")
             };
@@ -695,7 +695,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75260,
-                Phone = "2142345566",
+                PhoneNumber = "2142345566",
                 Birthday = DateTime.Parse("3/31/1980"),
                 PasswordHash = hasher.HashPassword("radicalone")
             };
@@ -719,7 +719,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78707,
-                Phone = "5123744746",
+                PhoneNumber = "5123744746",
                 Birthday = DateTime.Parse("8/12/1944"),
                 PasswordHash = hasher.HashPassword("gohorns")
             };
@@ -743,7 +743,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5123876657",
+                PhoneNumber = "5123876657",
                 Birthday = DateTime.Parse("8/2/1934"),
                 PasswordHash = hasher.HashPassword("iloveme")
             };
@@ -767,7 +767,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77057,
-                Phone = "8178904374",
+                PhoneNumber = "8178904374",
                 Birthday = DateTime.Parse("8/11/1989"),
                 PasswordHash = hasher.HashPassword("greedy")
             };
@@ -791,7 +791,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78732,
-                Phone = "5128752943",
+                PhoneNumber = "5128752943",
                 Birthday = DateTime.Parse("8/27/1967"),
                 PasswordHash = hasher.HashPassword("familiar")
             };
@@ -815,7 +815,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78292,
-                Phone = "2104145678",
+                PhoneNumber = "2104145678",
                 Birthday = DateTime.Parse("7/8/1950"),
                 PasswordHash = hasher.HashPassword("historical")
             };
@@ -839,7 +839,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5123497810",
+                PhoneNumber = "5123497810",
                 Birthday = DateTime.Parse("10/29/1977"),
                 PasswordHash = hasher.HashPassword("guiltless")
             };
@@ -863,7 +863,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78709,
-                Phone = "5124510084",
+                PhoneNumber = "5124510084",
                 Birthday = DateTime.Parse("4/21/1941"),
                 PasswordHash = hasher.HashPassword("frequent")
             };
@@ -887,7 +887,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5125479167",
+                PhoneNumber = "5125479167",
                 Birthday = DateTime.Parse("11/10/1937"),
                 PasswordHash = hasher.HashPassword("history")
             };
@@ -911,7 +911,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78280,
-                Phone = "2108321888",
+                PhoneNumber = "2108321888",
                 Birthday = DateTime.Parse("10/26/1954"),
                 PasswordHash = hasher.HashPassword("squirrel")
             };
@@ -935,7 +935,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75221,
-                Phone = "2142346667",
+                PhoneNumber = "2142346667",
                 Birthday = DateTime.Parse("9/1/1932"),
                 PasswordHash = hasher.HashPassword("snakes")
             };
@@ -959,7 +959,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78746,
-                Phone = "5128178335",
+                PhoneNumber = "5128178335",
                 Birthday = DateTime.Parse("12/28/1930"),
                 PasswordHash = hasher.HashPassword("loaf")
             };
@@ -983,7 +983,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77018,
-                Phone = "8174560903",
+                PhoneNumber = "8174560903",
                 Birthday = DateTime.Parse("8/13/1989"),
                 PasswordHash = hasher.HashPassword("rhythm")
             };
@@ -1007,7 +1007,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77044,
-                Phone = "8174590929",
+                PhoneNumber = "8174590929",
                 Birthday = DateTime.Parse("5/21/1982"),
                 PasswordHash = hasher.HashPassword("kindly")
             };
@@ -1031,7 +1031,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5124748452",
+                PhoneNumber = "5124748452",
                 Birthday = DateTime.Parse("1/8/1960"),
                 PasswordHash = hasher.HashPassword("instrument")
             };
@@ -1055,7 +1055,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5124512631",
+                PhoneNumber = "5124512631",
                 Birthday = DateTime.Parse("7/27/1975"),
                 PasswordHash = hasher.HashPassword("deep")
             };
@@ -1079,7 +1079,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77004,
-                Phone = "8178765543",
+                PhoneNumber = "8178765543",
                 Birthday = DateTime.Parse("4/6/1968"),
                 PasswordHash = hasher.HashPassword("rest")
             };
@@ -1103,7 +1103,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75315,
-                Phone = "2148471154",
+                PhoneNumber = "2148471154",
                 Birthday = DateTime.Parse("5/19/1978"),
                 PasswordHash = hasher.HashPassword("approval")
             };
@@ -1127,7 +1127,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75207,
-                Phone = "2143985638",
+                PhoneNumber = "2143985638",
                 Birthday = DateTime.Parse("10/6/1963"),
                 PasswordHash = hasher.HashPassword("decorate")
             };
@@ -1151,7 +1151,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75323,
-                Phone = "2148475244",
+                PhoneNumber = "2148475244",
                 Birthday = DateTime.Parse("10/14/1993"),
                 PasswordHash = hasher.HashPassword("geese")
             };
@@ -1175,7 +1175,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75220,
-                Phone = "2145650098",
+                PhoneNumber = "2145650098",
                 Birthday = DateTime.Parse("5/31/1952"),
                 PasswordHash = hasher.HashPassword("sturdy")
             };
@@ -1199,7 +1199,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78746,
-                Phone = "5124545242",
+                PhoneNumber = "5124545242",
                 Birthday = DateTime.Parse("4/24/1992"),
                 PasswordHash = hasher.HashPassword("decorous")
             };
@@ -1225,7 +1225,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77003,
-                Phone = "8176593544",
+                PhoneNumber = "8176593544",
                 SSN = "222222222",
                 PasswordHash = hasher.HashPassword("society")
             };
@@ -1250,7 +1250,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75261,
-                Phone = "2148475583",
+                PhoneNumber = "2148475583",
                 SSN = "111111111",
                 PasswordHash = hasher.HashPassword("ricearoni")
             };
@@ -1275,7 +1275,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78705,
-                Phone = "5126978613",
+                PhoneNumber = "5126978613",
                 SSN = "545454545",
                 PasswordHash = hasher.HashPassword("ingram45")
             };
@@ -1300,7 +1300,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75237,
-                Phone = "2148965621",
+                PhoneNumber = "2148965621",
                 SSN = "645889563",
                 PasswordHash = hasher.HashPassword("nostalgic")
             };
@@ -1325,7 +1325,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78239,
-                Phone = "2105788965",
+                PhoneNumber = "2105788965",
                 SSN = "574677829",
                 PasswordHash = hasher.HashPassword("marty")
             };
@@ -1350,7 +1350,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78736,
-                Phone = "5124678821",
+                PhoneNumber = "5124678821",
                 SSN = "334557278",
                 PasswordHash = hasher.HashPassword("longhorns")
             };
@@ -1375,7 +1375,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78731,
-                Phone = "5124653365",
+                PhoneNumber = "5124653365",
                 SSN = "886719249",
                 PasswordHash = hasher.HashPassword("smitty")
             };
@@ -1400,7 +1400,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78761,
-                Phone = "5129457399",
+                PhoneNumber = "5129457399",
                 SSN = "888887878",
                 PasswordHash = hasher.HashPassword("tanman")
             };
@@ -1425,7 +1425,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78293,
-                Phone = "2102449976",
+                PhoneNumber = "2102449976",
                 SSN = "999990909",
                 PasswordHash = hasher.HashPassword("countryrhodes")
             };
@@ -1450,7 +1450,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78279,
-                Phone = "2105344627",
+                PhoneNumber = "2105344627",
                 SSN = "212121212",
                 PasswordHash = hasher.HashPassword("stewboy")
             };
@@ -1475,7 +1475,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78268,
-                Phone = "2106983548",
+                PhoneNumber = "2106983548",
                 SSN = "333333333",
                 PasswordHash = hasher.HashPassword("lisssa")
             };
@@ -1500,7 +1500,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78731,
-                Phone = "5124748138",
+                PhoneNumber = "5124748138",
                 SSN = "444444444",
                 PasswordHash = hasher.HashPassword("swansong")
             };
@@ -1525,7 +1525,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78732,
-                Phone = "5124579845",
+                PhoneNumber = "5124579845",
                 SSN = "555555555",
                 PasswordHash = hasher.HashPassword("lottery")
             };
@@ -1550,7 +1550,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77045,
-                Phone = "8174955201",
+                PhoneNumber = "8174955201",
                 SSN = "666666666",
                 PasswordHash = hasher.HashPassword("evanescent")
             };
@@ -1575,7 +1575,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77030,
-                Phone = "8178746718",
+                PhoneNumber = "8178746718",
                 SSN = "676767676",
                 PasswordHash = hasher.HashPassword("monty3")
             };
@@ -1600,7 +1600,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 Zip = 77031,
-                Phone = "8177458615",
+                PhoneNumber = "8177458615",
                 SSN = "898989898",
                 PasswordHash = hasher.HashPassword("hecktour")
             };
@@ -1625,7 +1625,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 Zip = 78703,
-                Phone = "5122926966",
+                PhoneNumber = "5122926966",
                 SSN = "999888777",
                 PasswordHash = hasher.HashPassword("rankmary")
             };
@@ -1650,7 +1650,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75238,
-                Phone = "2143125897",
+                PhoneNumber = "2143125897",
                 SSN = "323232323",
                 PasswordHash = hasher.HashPassword("walkamile")
             };
@@ -1675,7 +1675,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "San Antonio",
                 State = "TX",
                 Zip = 78260,
-                Phone = "2103450925",
+                PhoneNumber = "2103450925",
                 SSN = "111222233",
                 PasswordHash = hasher.HashPassword("changalang")
             };
@@ -1700,7 +1700,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Dallas",
                 State = "TX",
                 Zip = 75260,
-                Phone = "2142345566",
+                PhoneNumber = "2142345566",
                 SSN = "499551454",
                 PasswordHash = hasher.HashPassword("offbeat")
             };
@@ -1962,9 +1962,9 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 ZipCode = 78710,
-                Phone = "5126645558"
+                PhoneNumber = "5126645558"
             };
-            db.Payees.AddOrUpdate(u => u.Phone, payee2);
+            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee2);
             base.Seed(db);
             db.SaveChanges();
             Payee payee3 = new Payee()
@@ -1975,9 +1975,9 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Houston",
                 State = "TX",
                 ZipCode = 77099,
-                Phone = "7135546697"
+                PhoneNumber = "7135546697"
             };
-            db.Payees.AddOrUpdate(u => u.Phone, payee3);
+            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee3);
             base.Seed(db);
             db.SaveChanges();
             Payee payee4 = new Payee()
@@ -1988,9 +1988,9 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 ZipCode = 78705,
-                Phone = "5124453312"
+                PhoneNumber = "5124453312"
             };
-            db.Payees.AddOrUpdate(u => u.Phone, payee4);
+            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee4);
             base.Seed(db);
             db.SaveChanges();
             Payee payee5 = new Payee()
@@ -2001,9 +2001,9 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Cheyenne",
                 State = "WY",
                 ZipCode = 82001,
-                Phone = "5302215542"
+                PhoneNumber = "5302215542"
             };
-            db.Payees.AddOrUpdate(u => u.Phone, payee5);
+            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee5);
             base.Seed(db);
             db.SaveChanges();
             Payee payee6 = new Payee()
@@ -2014,9 +2014,9 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 ZipCode = 78745,
-                Phone = "5128654951"
+                PhoneNumber = "5128654951"
             };
-            db.Payees.AddOrUpdate(u => u.Phone, payee6);
+            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee6);
             base.Seed(db);
             db.SaveChanges();
             Payee payee7 = new Payee()
@@ -2027,9 +2027,9 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 City = "Austin",
                 State = "TX",
                 ZipCode = 78712,
-                Phone = "5123365247"
+                PhoneNumber = "5123365247"
             };
-            db.Payees.AddOrUpdate(u => u.Phone, payee7);
+            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee7);
             base.Seed(db);
             db.SaveChanges();
 
