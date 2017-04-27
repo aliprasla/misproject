@@ -8,7 +8,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
         public override void Up()
         {
             AddColumn("dbo.Payees", "PhoneNumber", c => c.String(nullable: false));
-            AlterColumn("dbo.AspNetUsers", "PhoneNumber", c => c.String(nullable: false));
+            AlterColumn("dbo.AspNetUsers", "PhoneNumber", c => c.String(nullable: true));
             DropColumn("dbo.AspNetUsers", "Phone");
             DropColumn("dbo.Payees", "Phone");
         }
@@ -16,7 +16,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
         public override void Down()
         {
             AddColumn("dbo.Payees", "Phone", c => c.String(nullable: false));
-            AddColumn("dbo.AspNetUsers", "Phone", c => c.String(nullable: false));
+            AddColumn("dbo.AspNetUsers", "Phone", c => c.String(nullable: true));
             AlterColumn("dbo.AspNetUsers", "PhoneNumber", c => c.String());
             DropColumn("dbo.Payees", "PhoneNumber");
         }

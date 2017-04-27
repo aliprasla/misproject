@@ -14,6 +14,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         private AppDbContext db = new AppDbContext();
         public ActionResult Index()
         {
+            if (User.IsInRole("Customer")) {
+                return RedirectToAction("Index", "Customers");
+            }
             return View();
         }
     }

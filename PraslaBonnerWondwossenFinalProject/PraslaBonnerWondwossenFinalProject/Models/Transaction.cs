@@ -50,6 +50,11 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public virtual Dispute Dispute { get; set; }
 
+        [Display(Name = "To Account")]
+        public virtual BankAccount ToAccount { get; set; }
+        [Display(Name = "From Account")]
+        public virtual BankAccount FromAccount { get; set; }
+
     }
 
 }

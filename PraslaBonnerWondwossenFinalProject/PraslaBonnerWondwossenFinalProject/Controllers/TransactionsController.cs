@@ -16,6 +16,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         private AppDbContext db = new AppDbContext();
 
         // GET: Transactions
+        [Authorize(Roles = "Customer,Manager,Employee")]
         public ActionResult Index()
         {
             var transactions = db.Transactions.Include(t => t.Dispute);

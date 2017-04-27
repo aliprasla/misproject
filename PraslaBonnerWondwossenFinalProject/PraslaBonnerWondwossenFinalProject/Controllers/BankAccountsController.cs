@@ -83,10 +83,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         //TODO: Assign to Manager
 
                     };
-                    transactionDescrip = "Account Opening Initial Deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + " Waiting on Manager approval.";
+                    transactionDescrip = "Account Opening Initial Deposit of $" +   Convert.ToString(originalDepo) + " Waiting on Manager approval.";
                 }
                 else {
-                    transactionDescrip = "Initial Deposit of " + String.Format("{0:#.00}", Convert.ToString(originalDepo)) + "";
+                    transactionDescrip = "Initial Deposit of $" + Convert.ToString(originalDepo) + "";
                 }
                 AppUser current = db.Users.Find(User.Identity.GetUserId());
                 bankAccount.Customer = current;
@@ -100,10 +100,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     Amount = bankAccount.Balance,
                     Description = transactionDescrip,
                     Customer = current,
-                    Dispute = now
+                    Dispute = now,
+                    ToAccount = bankAccount
                 };
                 db.Transactions.Add(deposit);
-                db.Disputes.Add(now);
+                if (now != null)
+                {
+                    db.Disputes.Add(now);
+                }
                 db.SaveChanges();
                 return RedirectToAction("Index","Customers");
             }

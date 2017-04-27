@@ -387,6 +387,14 @@
     <Compile Include="Migrations\201704271937351_helloWorld.Designer.cs">
       <DependentUpon>201704271937351_helloWorld.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704272151258_newWorld.cs" />
+    <Compile Include="Migrations\201704272151258_newWorld.Designer.cs">
+      <DependentUpon>201704272151258_newWorld.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201704272214387_addedTOandFROMAccountToTransactions.cs" />
+    <Compile Include="Migrations\201704272214387_addedTOandFROMAccountToTransactions.Designer.cs">
+      <DependentUpon>201704272214387_addedTOandFROMAccountToTransactions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -514,6 +522,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201704271937351_helloWorld.resx">
       <DependentUpon>201704271937351_helloWorld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704272151258_newWorld.resx">
+      <DependentUpon>201704272151258_newWorld.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704272214387_addedTOandFROMAccountToTransactions.resx">
+      <DependentUpon>201704272214387_addedTOandFROMAccountToTransactions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
