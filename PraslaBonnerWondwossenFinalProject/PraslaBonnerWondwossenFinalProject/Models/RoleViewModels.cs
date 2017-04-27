@@ -42,6 +42,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public string[] IdsToDelete { get; set; }
 
+        public string[] IdsToTerminate { get; set; }
+
     }
 
 }

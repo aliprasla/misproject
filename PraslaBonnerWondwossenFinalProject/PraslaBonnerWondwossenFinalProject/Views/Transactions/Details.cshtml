@@ -10,13 +10,37 @@
     <h4>Transaction</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Dispute.CustomerDescription)
-        </dt>
+        @if (Model.Dispute != null)
+        {
+            if (Model.Dispute.AssignedManager != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Dispute.AssignedManager)
+                </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Dispute.CustomerDescription)
-        </dd>
+                <dd>
+                    @Html.DisplayFor(model => model.Dispute.AssignedManager.Email)
+                </dd>
+            }
+            <dt>
+                @Html.DisplayNameFor(model => model.Dispute.CustomerDescription)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Dispute.CustomerDescription)
+            </dd>
+
+            if (Model.Dispute.ManagerDescription != null)
+            {
+                <dt>
+                    @Html.DisplayNameFor(model => model.Dispute.ManagerDescription)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Dispute.ManagerDescription)
+                </dd>
+            }
+        }
 
         <dt>
             @Html.DisplayNameFor(model => model.Date)

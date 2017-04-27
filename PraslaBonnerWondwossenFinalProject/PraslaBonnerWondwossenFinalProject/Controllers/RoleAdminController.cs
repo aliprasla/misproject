@@ -12,6 +12,10 @@ using System.ComponentModel.DataAnnotations;
 
 using Microsoft.AspNet.Identity;
 
+using System.Data.Entity;
+
+using PraslaBonnerWondwossenFinalProject.Models;
+
 using Microsoft.AspNet.Identity.EntityFramework;
 
 using Microsoft.AspNet.Identity.Owin;
@@ -20,7 +24,6 @@ using Microsoft.AspNet.Identity.Owin;
 
 //Change this reference to your project name
 
-using PraslaBonnerWondwossenFinalProject.Models;
 
 
 
@@ -31,7 +34,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     public class RoleAdminController : Controller
 
     {
-
+        private AppDbContext db = new AppDbContext();
         //
 
         // GET: /RoleAdmin/
@@ -144,6 +147,24 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 }
 
+                //terminate employee
+                foreach (string userId in model.IdsToTerminate ?? new string[] { })
+
+                {
+                    AppUser employee = db.Users.Find(userId);
+                    employee.isActive = false;
+                    result = UserManager.RemoveFromRole(userId, model.RoleName);
+
+                    if (!result.Succeeded)
+
+                    {
+
+                        return View("Error", result.Errors);
+
+                    }
+
+                }
+
 
 
                 foreach (string userId in model.IdsToDelete ?? new string[] { })
@@ -170,7 +191,42 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         }
 
+        //edit employee information
+        public ActionResult EditEmployee(string Id)
+        {
+            AppUser employee = db.Users.Find(Id);
+            return View(employee);    
+         }
 
+        [HttpPost]
+        public ActionResult EditEmployee([Bind(Include = "Id,SSN,FName,LName,Middle,Email,PhoneNumber,Address,City,State,Zip,Birthday")] AppUser employee)
+        {
+            if (ModelState.IsValid)
+            {
+
+                //Find associated person
+                AppUser employeeToChange = db.Users.Find(User.Identity.GetUserId());
+
+
+                //update the rest of the fields
+                employeeToChange.FName = employee.FName;
+                employeeToChange.LName = employee.LName;
+                employeeToChange.Middle = employee.Middle;
+                employeeToChange.Address = employee.Address;
+                employeeToChange.City = employee.City;
+                employeeToChange.State = employee.State;
+                employeeToChange.Zip = employee.Zip;
+                employeeToChange.PhoneNumber = employee.PhoneNumber;
+                employeeToChange.Email = employee.Email;
+                employeeToChange.Birthday = employee.Birthday;
+                employeeToChange.SSN = employee.SSN;
+                db.Entry(employeeToChange).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("Edit");
+
+            }
+            return View(employee);
+        }
 
 
 
