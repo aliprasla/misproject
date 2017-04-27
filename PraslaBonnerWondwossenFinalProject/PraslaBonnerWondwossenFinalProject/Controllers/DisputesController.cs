@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -77,7 +78,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             if (ModelState.IsValid)
             {
                 Dispute disputeToChange = db.Disputes.Find(dispute.DisputeID);
-
+                AppUser manager = db.Users.Find(User.Identity.GetUserId());
+                disputeToChange.AssignedManager = manager;
                 //If manager comments
                 if (commentString != null)
                 {
@@ -88,14 +90,17 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 {
                     disputeToChange.Transaction.Amount = AdjustedAmount;
                     disputeToChange.Status = Status.Resolved;
+                    disputeToChange.Transaction.Description = "Dispute Adjusted - " + disputeToChange.Transaction.Description;
                 }
                 if (SelectedResponse == Status.Approved)
                 {
                     disputeToChange.Transaction.Amount = disputeToChange.DisputeAmount;
                     disputeToChange.Status = Status.Resolved;
+                    disputeToChange.Transaction.Description = "Dispute Approved - " + disputeToChange.Transaction.Description;
                 }
                 if (SelectedResponse == Status.NotApproved)
                 {
+                    disputeToChange.Transaction.Description = "Dispute Rejected - " + disputeToChange.Transaction.Description;
                     disputeToChange.Status = Status.Resolved;
                 }
                 db.Entry(disputeToChange).State = EntityState.Modified;
