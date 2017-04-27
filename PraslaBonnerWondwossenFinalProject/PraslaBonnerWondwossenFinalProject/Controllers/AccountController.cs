@@ -233,7 +233,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 //Add fields to user here so they will be saved to do the database
 
-                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, LName=model.LName, Address=model.Address, PhoneNumber =model.PhoneNumber, Birthday=model.Birthday, isActive=model.isActive, Middle=model.Middle, State=model.State, City=model.City, Zip=model.Zip };
+                var user = new AppUser { UserName = model.Email, Email = model.Email, FName = model.FName, LName=model.LName, Address=model.Address, Phone =model.Phone, Birthday=model.Birthday, isActive=model.isActive, Middle=model.Middle, State=model.State, City=model.City, Zip=model.Zip };
 
                 var result = await UserManager.CreateAsync(user, model.Password);
 

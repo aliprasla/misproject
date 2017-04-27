@@ -31,7 +31,7 @@
             @Html.DisplayNameFor(model => model.Zip)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.PhoneNumber)
+            @Html.DisplayNameFor(model => model.Phone)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Birthday)
@@ -74,7 +74,7 @@
             @Html.DisplayFor(modelItem => item.Zip)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.PhoneNumber)
+            @Html.DisplayFor(modelItem => item.Phone)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Birthday)
@@ -91,7 +91,6 @@
         <td>
             @Html.ActionLink("Edit", "EmployeeEdit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @*@Html.ActionLink("Change Password?", "EmployeeChangePassword", "Manage", new { id = item.Id }) |*@
            
     </tr>
 }

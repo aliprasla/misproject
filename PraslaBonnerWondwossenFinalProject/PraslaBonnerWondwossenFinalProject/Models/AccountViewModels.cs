@@ -101,7 +101,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         [Required]
         [DataType(DataType.PhoneNumber)]
-        public string PhoneNumber { get; set; }
+        public string Phone { get; set; }
 
         [Required]
         [DataType(DataType.DateTime)]
