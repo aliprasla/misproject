@@ -94,6 +94,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
 
         //Customers/Edits allows users to update their own profiles or employees/managers to edit customers
+
+        //TODO:allow employees to make customer inactive
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip,Birthday,Password")] AppUser person)
