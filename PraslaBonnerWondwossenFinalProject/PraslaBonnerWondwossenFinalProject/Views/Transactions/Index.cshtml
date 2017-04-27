@@ -1,27 +1,47 @@
-﻿@model PraslaBonnerWondwossenFinalProject.Models.Transaction
+﻿@model IEnumerable<PraslaBonnerWondwossenFinalProject.Models.Transaction>
 
 @{
     ViewBag.Title = "Index";
 }
 
-<h2>Transaction</h2>
+<h2>My Transactions</h2>
 
-@using (Html.BeginForm())
-{
-        <h2> Select a Transaction Type</h2>
-        <div class="form-horizontal">
-            <div class="form-group">
-                <dl class="dl-horizontal">
-                    <dd>
-                        @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
-                    </dd>
-                </dl>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Next" class="btn btn-default" />
-                    </div>
-                </div>
-            </div>
-        </div>
-    }
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Amount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.TransactionID })
+        </td>
+    </tr>
 }
+
+</table>
