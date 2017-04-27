@@ -16,7 +16,8 @@ using PraslaBonnerWondwossenFinalProject.Controllers;
 namespace PraslaBonnerWondwossenFinalProject.Models
 
 {
-
+    //TODO: Status needs Status types
+    public enum Status { WaitingOnManager}
 
     public class Dispute
 

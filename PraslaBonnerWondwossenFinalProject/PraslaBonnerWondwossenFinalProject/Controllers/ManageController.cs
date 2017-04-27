@@ -384,9 +384,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         //
 
 
+        //TODO: Figure out why Dispose method was duplicated
 
-
-
+        /*
         protected override void Dispose(bool disposing)
 
         {
@@ -406,7 +406,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             base.Dispose(disposing);
 
         }
-
+        */
 
 
         #region Helpers

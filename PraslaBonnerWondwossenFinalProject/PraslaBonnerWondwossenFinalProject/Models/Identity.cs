@@ -74,7 +74,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public virtual List<Dispute> Disputes { get; set; }
 
         public Boolean hasAccount() {
-            if (BankAccounts.Count == 0) {
+            if (this.BankAccounts.Count == 0) {
                 return false;
             }
             return true;

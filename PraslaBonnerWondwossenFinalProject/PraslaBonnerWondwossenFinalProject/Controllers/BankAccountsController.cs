@@ -40,15 +40,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [Authorize(Roles = "Customer")]
         public ActionResult Create()
         {
-            AppUser AppUser = db.Users.Find(User.Identity.GetUserId());
-            if (AppUser.hasAccount())
-            {
-                ViewBag.hasAccounts = false;
-            }
-            else
-            {
-                ViewBag.hasAccounts = true;
-            }
             return View();
         }
 
@@ -57,16 +48,62 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "BankAccountID,Type,Name,Balance")] BankAccount bankAccount)
+        public ActionResult Create([Bind(Include = "BankAccountID,Type,Balance")] BankAccount bankAccount)
         {
             if (ModelState.IsValid)
             {
                 var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
                 bankAccount.AccountNumber = item.AccountNumber + 1;
+                //default names
+                if ((int)bankAccount.Type == 0) {
+                    bankAccount.Name = "Longhorn Savings";
+                }
+                else if ((int)bankAccount.Type == 1) {
+                    bankAccount.Name = "Longhorn Checking";
+                }
+                else if ((int)bankAccount.Type == 2)
+                {
+                    bankAccount.Name = "Longhorn IRA";
+                }
+               else if ((int)bankAccount.Type == 3) {
+                    bankAccount.Name = "Longhorn Stock";
+                }
+                Decimal originalDepo = bankAccount.Balance;
+                Dispute now = null;
+                String transactionDescrip;
+                if (bankAccount.Balance > 5000)
+                {
+                    bankAccount.Balance = 0;
+                    //create dispute
+                    now = new Dispute()
+                    {
+                        Status = Status.WaitingOnManager,
+                        CustomerDescription = "Customer " + User.Identity.Name + "has submitted a deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + ". Please approve or deny this deposit.",
+                        DisputeAmount = originalDepo
+                        //TODO: Assign to Manager
+
+                    };
+                    transactionDescrip = "Account Opening Initial Deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + " Waiting on Manager approval.";
+                }
+                else {
+                    transactionDescrip = "Initial Deposit of " + String.Format("{0:#.00}", Convert.ToString(originalDepo)) + "";
+                }
                 AppUser current = db.Users.Find(User.Identity.GetUserId());
                 bankAccount.Customer = current;
                 current.BankAccounts.Add(bankAccount);
                 db.BankAccounts.Add(bankAccount);
+                //create transaction
+                Transaction deposit = new Transaction()
+                {
+                    Date = DateTime.Now,
+                    Type = TransactionTypes.Deposit,
+                    Amount = bankAccount.Balance,
+                    Description = transactionDescrip,
+                    Customer = current,
+                    Dispute = now
+                };
+                db.Transactions.Add(deposit);
+                db.Disputes.Add(now);
                 db.SaveChanges();
                 return RedirectToAction("Index","Customers");
             }

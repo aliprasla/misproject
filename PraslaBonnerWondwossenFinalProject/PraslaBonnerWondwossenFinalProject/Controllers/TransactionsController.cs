@@ -18,11 +18,15 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // GET: Transactions
         public ActionResult Index()
         {
-            return View(new Transaction());
+            var transactions = db.Transactions.Include(t => t.Dispute);
+            AppUser current = db.Users.Find(User.Identity.GetUserId());
+            
+            if (User.IsInRole("Customer"))
+            {
+                transactions = transactions.Where(t => t.Customer.Email == current.Email);
+            }
+            return View(transactions.ToList());
         }
-
-        //TO DO: Add another Index Controller. 
-
 
         // GET: Transactions/Details/5
         public ActionResult Details(int? id)
