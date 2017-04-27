@@ -56,11 +56,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Required]
         public Int32 Zip { get; set; }
 
-        [Required]
-        [DataType(DataType.PhoneNumber)]
-        [Display(Name = "PhoneNumber Number")]
-        public string PhoneNumber { get; set; }
-
         [Column(TypeName = "DateTime2")]
         [DisplayFormat(DataFormatString = "{0:MM-dd-YYYY}", ApplyFormatInEditMode = true)]
         public DateTime Birthday { get; set; }
