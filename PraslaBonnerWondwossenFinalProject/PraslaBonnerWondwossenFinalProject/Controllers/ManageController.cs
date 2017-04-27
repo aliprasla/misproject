@@ -228,96 +228,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         ///
 
-        // GET: /Manage/SetPassword
-        ///THis is what i'm working on right now
-        ///need to make a view for this
-        ///and make sure when posting we look at users id not at editor's id
-        ///maybe by passing user id through the actionlink
-        public ActionResult SetPasswordEmployee()
-
-        {
-
-            return View();
-
-        }
 
 
-
-        //
-
-        // POST: /Manage/SetPassword
-
-        [HttpPost]
-
-        [ValidateAntiForgeryToken]
-
-        public async Task<ActionResult> SetPasswordEmployee(SetPasswordViewModel model)
-
-        {
-
-            if (ModelState.IsValid)
-
-            {
-
-                var result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-
-                if (result.Succeeded)
-
-                {
-
-                    var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-
-                    if (user != null)
-
-                    {
-
-                        await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
-
-                    }
-
-                    return RedirectToAction("Index", new { Message = ManageMessageId.SetPasswordSuccess });
-
-                }
-
-                AddErrors(result);
-
-            }
-
-
-
-            // If we got this far, something failed, redisplay form
-
-            return View(model);
-
-        }
-
-
-
-        //
-
-
-
-
-
-        protected override void Dispose(bool disposing)
-
-        {
-
-            if (disposing && _userManager != null)
-
-            {
-
-                _userManager.Dispose();
-
-                _userManager = null;
-
-            }
-
-
-
-            base.Dispose(disposing);
-
-        }
+    
 
         // GET: /Manage/SetPassword
 
