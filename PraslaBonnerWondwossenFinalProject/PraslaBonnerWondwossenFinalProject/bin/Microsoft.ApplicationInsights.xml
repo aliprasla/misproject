@@ -382,7 +382,7 @@
             Encapsulates platform-specific functionality required by the API.
             </summary>
             <remarks>
-            This type is public to enable mocking on Windows Phone.
+            This type is public to enable mocking on Windows PhoneNumber.
             </remarks>
         </member>
         <member name="M:Microsoft.ApplicationInsights.Extensibility.Implementation.IPlatform.ReadConfigurationXml">
@@ -409,7 +409,7 @@
         </member>
         <member name="T:Microsoft.ApplicationInsights.Extensibility.Implementation.JsonSerializer">
             <summary>
-            Serializes and compress the telemetry items into a JSON string. Compression will be done using GZIP, for Windows Phone 8 compression will be disabled because there
+            Serializes and compress the telemetry items into a JSON string. Compression will be done using GZIP, for Windows PhoneNumber 8 compression will be disabled because there
             is API support for it. 
             </summary>    
         </member>
@@ -471,7 +471,7 @@
         </member>
         <member name="M:Microsoft.ApplicationInsights.Extensibility.Implementation.JsonSerializer.CreateCompressedStream(System.IO.Stream)">
             <summary>
-            Creates a GZIP compression stream that wraps <paramref name="stream"/>. For windows phone 8.0 it returns <paramref name="stream"/>. 
+            Creates a GZIP compression stream that wraps <paramref name="stream"/>. For windows PhoneNumber 8.0 it returns <paramref name="stream"/>. 
             </summary>
         </member>
         <member name="M:Microsoft.ApplicationInsights.Extensibility.Implementation.JsonSerializer.SeializeToStream(System.Collections.Generic.IEnumerable{Microsoft.ApplicationInsights.Channel.ITelemetry},System.IO.TextWriter)">

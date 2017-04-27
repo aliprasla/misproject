@@ -2557,7 +2557,7 @@ input[type="button"].btn-block {
   content: "\e034";
 }
 
-.glyphicon-headphones:before {
+.glyphicon-headPhoneNumbers:before {
   content: "\e035";
 }
 
@@ -2949,7 +2949,7 @@ input[type="button"].btn-block {
   content: "\e144";
 }
 
-.glyphicon-phone:before {
+.glyphicon-PhoneNumber:before {
   content: "\e145";
 }
 
@@ -3089,11 +3089,11 @@ input[type="button"].btn-block {
   content: "\e181";
 }
 
-.glyphicon-earphone:before {
+.glyphicon-earPhoneNumber:before {
   content: "\e182";
 }
 
-.glyphicon-phone-alt:before {
+.glyphicon-PhoneNumber-alt:before {
   content: "\e183";
 }
 

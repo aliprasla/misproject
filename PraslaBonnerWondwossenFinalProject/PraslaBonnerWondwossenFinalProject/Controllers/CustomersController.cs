@@ -51,7 +51,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // GET: persons/Edit/5
         [Authorize(Roles = "Customer,Manager,Employee")]
         public ActionResult Edit()
+
         {
+
                 string id = User.Identity.GetUserId();
                 if (id == null)
                 {
@@ -96,12 +98,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         //Customers/Edits allows users to update their own profiles or employees/managers to edit customers
 
         //TODO:allow employees to make customer inactive
+        //TODO: Isn't saving
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,Phone,Address,City,State,Zip,Birthday,Password")] AppUser person)
+        public ActionResult Edit([Bind(Include = "Id,FName,LName,Middle,Email,PhoneNumber,Address,City,State,Zip,Birthday")] AppUser person)
         {
-                if (ModelState.IsValid)
-                {
+            if (ModelState.IsValid)
+            {
+               
                     //Find associated person
                     AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
 
@@ -120,14 +124,46 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     db.Entry(personToChange).State = EntityState.Modified;
                     db.SaveChanges();
                     return RedirectToAction("Index");
-                }
-
-            
-           
+               
+            }
             return View(person);
         }
 
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult EmployeeEdit([Bind(Include = "Id,FName,LName,Middle,Email,PhoneNumber,Address,City,State,Zip,Birthday")] AppUser person)
+        {
+            if (ModelState.IsValid)
+            {
+
+                //Find associated person
+                AppUser personToChange = db.Users.Find(person.Id);
+
+
+                //update the rest of the fields
+                personToChange.FName = person.FName;
+                personToChange.LName = person.LName;
+                personToChange.Middle = person.Middle;
+                personToChange.Address = person.Address;
+                personToChange.City = person.City;
+                personToChange.State = person.State;
+                personToChange.Zip = person.Zip;
+                personToChange.PhoneNumber = person.PhoneNumber;
+                personToChange.Email = person.Email;
+                personToChange.Birthday = person.Birthday;
+
+                db.Entry(personToChange).State = EntityState.Modified;
+                db.SaveChanges();
+                return RedirectToAction("List");
+
+            }
+            return View(person);
+        }
+         
+
+
+        //TODO: make so 
         public ActionResult Details(string Id)
         {
             if (Id == null)
