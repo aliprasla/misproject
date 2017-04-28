@@ -468,11 +468,8 @@
     <Content Include="Views\Disputes\Index.cshtml" />
     <Content Include="Views\Disputes\Resolve.cshtml" />
     <Content Include="Views\RoleAdmin\EditEmployee.cshtml" />
-<<<<<<< Updated upstream
     <Content Include="Views\Account\InactiveAccountError.cshtml" />
-=======
     <Content Include="Views\Transactions\Deposit.cshtml" />
->>>>>>> Stashed changes
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
