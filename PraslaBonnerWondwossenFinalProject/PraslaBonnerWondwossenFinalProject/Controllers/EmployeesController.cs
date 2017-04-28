@@ -105,9 +105,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
 
-        public ActionResult Edit([Bind(Include = "Id,Address,City,State,Zip,PhoneNumber")] AppUser person)
+        public ActionResult Edit([Bind(Include = "Id,FName,LName,Address,City,State,Zip,PhoneNumber")] AppUser person)
         {
             if (ModelState.IsValid)
+
             {
 
                 //Find associated person
@@ -126,6 +127,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 return RedirectToAction("Index");
 
             }
+            //var errors = ModelState.Values.SelectMany(v => v.Errors);
             return View(person);
         }
 

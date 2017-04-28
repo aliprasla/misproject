@@ -461,7 +461,7 @@ window.Modernizr = (function( window, document, undefined ) {
      * The Modernizr.touch test only indicates if the browser supports
      *    touch events, which does not necessarily reflect a touchscreen
      *    device, as evidenced by tablets running Windows 7 or, alas,
-     *    the Palm Pre / WebOS (touch) PhoneNumbers.
+     *    the Palm Pre / WebOS (touch) Phone.
      *
      * Additionally, Chrome (desktop) used to lie about its support on this,
      *    but that has since been rectified: crbug.com/36415
@@ -780,7 +780,7 @@ window.Modernizr = (function( window, document, undefined ) {
 
                 // Mimetypes accepted:
                 //   developer.mozilla.org/En/Media_formats_supported_by_the_audio_and_video_elements
-                //   bit.ly/iPhoneNumberoscodecs
+                //   bit.ly/iPhoneoscodecs
                 bool.wav  = elem.canPlayType('audio/wav; codecs="1"')     .replace(/^no$/,'');
                 bool.m4a  = ( elem.canPlayType('audio/x-m4a;')            ||
                               elem.canPlayType('audio/aac;'))             .replace(/^no$/,'');
