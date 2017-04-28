@@ -491,6 +491,11 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         }
 
+        public ActionResult InactiveAccountError()
+        {
+            return View();
+        }
+
 
 
         protected override void Dispose(bool disposing)

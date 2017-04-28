@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -40,7 +41,16 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [Authorize(Roles = "Customer")]
         public ActionResult Create()
         {
-            return View();
+            AppUser person = db.Users.Find(User.Identity.GetUserId());
+            if (person.isActive == true)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("InactiveAccountError", "Account");
+            }
+
         }
 
         // POST: BankAccounts/Create
@@ -50,69 +60,75 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BankAccountID,Type,Balance")] BankAccount bankAccount)
         {
-            if (ModelState.IsValid)
-            {
-                var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
-                bankAccount.AccountNumber = item.AccountNumber + 1;
-                //default names
-                if ((int)bankAccount.Type == 0) {
-                    bankAccount.Name = "Longhorn Savings";
-                }
-                else if ((int)bankAccount.Type == 1) {
-                    bankAccount.Name = "Longhorn Checking";
-                }
-                else if ((int)bankAccount.Type == 2)
+            
+                if (ModelState.IsValid)
                 {
-                    bankAccount.Name = "Longhorn IRA";
-                }
-               else if ((int)bankAccount.Type == 3) {
-                    bankAccount.Name = "Longhorn Stock";
-                }
-                Decimal originalDepo = bankAccount.Balance;
-                Dispute now = null;
-                String transactionDescrip;
-                if (bankAccount.Balance > 5000)
-                {
-                    bankAccount.Balance = 0;
-                    //create dispute
-                    now = new Dispute()
+                    var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
+                    bankAccount.AccountNumber = item.AccountNumber + 1;
+                    //default names
+                    if ((int)bankAccount.Type == 0)
                     {
-                        Status = Status.WaitingOnManager,
-                        CustomerDescription = "Customer " + User.Identity.Name + "has submitted a deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + ". Please approve or deny this deposit.",
-                        DisputeAmount = originalDepo
-                        //TODO: Assign to Manager
+                        bankAccount.Name = "Longhorn Savings";
+                    }
+                    else if ((int)bankAccount.Type == 1)
+                    {
+                        bankAccount.Name = "Longhorn Checking";
+                    }
+                    else if ((int)bankAccount.Type == 2)
+                    {
+                        bankAccount.Name = "Longhorn IRA";
+                    }
+                    else if ((int)bankAccount.Type == 3)
+                    {
+                        bankAccount.Name = "Longhorn Stock";
+                    }
+                    Decimal originalDepo = bankAccount.Balance;
+                    Dispute now = null;
+                    String transactionDescrip;
+                    if (bankAccount.Balance > 5000)
+                    {
+                        bankAccount.Balance = 0;
+                        //create dispute
+                        now = new Dispute()
+                        {
+                            Status = Status.WaitingOnManager,
+                            CustomerDescription = "Customer " + User.Identity.Name + "has submitted a deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + ". Please approve or deny this deposit.",
+                            DisputeAmount = originalDepo
+                            //TODO: Assign to Manager
 
+                        };
+                        transactionDescrip = "Account Opening Initial Deposit of $" + Convert.ToString(originalDepo) + " Waiting on Manager approval.";
+                    }
+                    else
+                    {
+                        transactionDescrip = "Initial Deposit of $" + Convert.ToString(originalDepo) + "";
+                    }
+                    AppUser current = db.Users.Find(User.Identity.GetUserId());
+                    bankAccount.Customer = current;
+                    current.BankAccounts.Add(bankAccount);
+                    db.BankAccounts.Add(bankAccount);
+                    //create transaction
+                    Transaction deposit = new Transaction()
+                    {
+                        Date = DateTime.Now,
+                        Type = TransactionTypes.Deposit,
+                        Amount = bankAccount.Balance,
+                        Description = transactionDescrip,
+                        Customer = current,
+                        Dispute = now,
+                        ToAccount = bankAccount
                     };
-                    transactionDescrip = "Account Opening Initial Deposit of $" +   Convert.ToString(originalDepo) + " Waiting on Manager approval.";
+                    db.Transactions.Add(deposit);
+                    if (now != null)
+                    {
+                        db.Disputes.Add(now);
+                    }
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Customers");
                 }
-                else {
-                    transactionDescrip = "Initial Deposit of $" + Convert.ToString(originalDepo) + "";
-                }
-                AppUser current = db.Users.Find(User.Identity.GetUserId());
-                bankAccount.Customer = current;
-                current.BankAccounts.Add(bankAccount);
-                db.BankAccounts.Add(bankAccount);
-                //create transaction
-                Transaction deposit = new Transaction()
-                {
-                    Date = DateTime.Now,
-                    Type = TransactionTypes.Deposit,
-                    Amount = bankAccount.Balance,
-                    Description = transactionDescrip,
-                    Customer = current,
-                    Dispute = now,
-                    ToAccount = bankAccount
-                };
-                db.Transactions.Add(deposit);
-                if (now != null)
-                {
-                    db.Disputes.Add(now);
-                }
-                db.SaveChanges();
-                return RedirectToAction("Index","Customers");
-            }
 
-            return View(bankAccount);
+                return View(bankAccount);
+            
         }
 
         // GET: BankAccounts/Edit/5
@@ -137,13 +153,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "BankAccountID,AccountNumber,Type,Name,Balance")] BankAccount bankAccount)
         {
-            if (ModelState.IsValid)
+            AppUser person = db.Users.Find(User.Identity.GetUserId());
+            if (person.isActive == true)
             {
-                db.Entry(bankAccount).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                if (ModelState.IsValid)
+                {
+                    db.Entry(bankAccount).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                return View(bankAccount);
             }
-            return View(bankAccount);
+            else
+            {
+                //TODO:change so reditexts to error: inactive page
+                return RedirectToAction("InactiveAccountError", "Account");
+            }
         }
 
         // GET: BankAccounts/Delete/5

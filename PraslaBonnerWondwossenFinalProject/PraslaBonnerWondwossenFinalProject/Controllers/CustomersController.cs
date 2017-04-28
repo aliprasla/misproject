@@ -132,7 +132,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EmployeeEdit([Bind(Include = "Id,FName,LName,Middle,Email,PhoneNumber,Address,City,State,Zip,Birthday")] AppUser person)
+        public ActionResult EmployeeEdit([Bind(Include = "Id,FName,LName,Middle,Email,PhoneNumber,Address,City,State,Zip,Birthday,isActive")] AppUser person)
         {
             if (ModelState.IsValid)
             {
@@ -152,6 +152,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 personToChange.PhoneNumber = person.PhoneNumber;
                 personToChange.Email = person.Email;
                 personToChange.Birthday = person.Birthday;
+                personToChange.isActive = person.isActive;
 
                 db.Entry(personToChange).State = EntityState.Modified;
                 db.SaveChanges();

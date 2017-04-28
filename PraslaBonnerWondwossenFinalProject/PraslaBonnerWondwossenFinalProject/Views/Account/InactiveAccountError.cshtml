@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Error";
+}
+<h2>Error</h2>
+
+<h4>Error: Cannot complete action because account is inactive</h4>
+
+
+@if (User.IsInRole("Customer"))
+{
+@Html.ActionLink("OK", "Index", "Customers", null, new { @class = "btn btn-success" })
+}
+else if (User.IsInRole("Employee"))
+{
+    @Html.ActionLink("OK", "Index", "Employees", null, new { @class = "btn btn-success" })
+}
+else if (User.IsInRole("Manager"))
+{
+    @*//TODO:Change to manager index once we have one*@
+    @Html.ActionLink("OK", "Index", "Employees", null, new { @class = "btn btn-success" })
+}
