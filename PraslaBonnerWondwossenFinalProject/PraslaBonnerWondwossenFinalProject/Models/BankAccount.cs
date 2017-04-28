@@ -55,15 +55,17 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         [Required]
 
-        //[Display(Name = "Initial Deposit")]
-
         public Decimal Balance { get; set; }
 
 
 
         public virtual AppUser Customer { get; set; }
 
+        public string NameNo
+        {
 
+           get { return "( " + Convert.ToString(this.AccountNumber) + " ) " + this.Name; }
+        }
     }
 
 }

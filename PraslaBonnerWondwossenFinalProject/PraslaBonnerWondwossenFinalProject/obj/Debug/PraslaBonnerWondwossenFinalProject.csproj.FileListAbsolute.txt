@@ -199,6 +199,7 @@ C:\Users\MSBStudent\Documents\MIS313\FINAL FINAL\PraslaBonnerWondwossenFinalProj
 C:\Users\MSBStudent\Documents\MIS313\FINAL FINAL\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.newWorld.resources
 C:\Users\MSBStudent\Documents\MIS313\FINAL FINAL\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedTOandFROMAccountToTransactions.resources
 C:\Users\MSBStudent\Documents\MIS313\FINAL FINAL\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.disputes_done.resources
+<<<<<<< Updated upstream
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\ApplicationInsights.config
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.exe.config
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\roslyn\csc.rsp
@@ -301,3 +302,9 @@ C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProjec
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.csproj.GenerateResource.Cache
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.dll
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.pdb
+=======
+C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.newWorld.resources
+C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedTOandFROMAccountToTransactions.resources
+C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.disputes_done.resources
+C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.addedFieldToBankAccount.resources
+>>>>>>> Stashed changes

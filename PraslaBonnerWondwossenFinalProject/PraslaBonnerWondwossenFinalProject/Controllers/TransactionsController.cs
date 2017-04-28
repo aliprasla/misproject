@@ -116,6 +116,62 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             return View(transaction);
         }
+        [Authorize(Roles = "Customer")]
+        public ActionResult Deposit() {
+
+            AppUser current = db.Users.Find(User.Identity.GetUserId());
+            ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
+            ViewBag.Message = "";
+            return View();
+        }
+        [HttpPost]
+        public ActionResult Deposit([Bind(Include = "Amount,Description")] Transaction transaction,int BankAccountID)
+        {
+            if (ModelState.IsValid)
+            {
+                AppUser current = db.Users.Find(User.Identity.GetUserId());
+                if (transaction.Amount < 0)
+                {
+                    //Negative Deposit amount Validation
+                    ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
+                    ViewBag.Message = "Deposit Amount Must Be a Positive Number";
+                    return View();
+                }
+                else {
+                    transaction.Customer = current;
+                    transaction.Type = TransactionTypes.Deposit;
+                    if (transaction.Amount > 5000)
+                    {
+                        transaction.Description = transaction.Description + ". Pending Manager Approval. Original Amount = $" + Convert.ToString(transaction.Amount);
+                        transaction.Amount = 0;
+                        transaction.ToAccount = current.BankAccounts.Find(x => x.BankAccountID == BankAccountID);
+                        //Create dispute
+                        Dispute now = new Dispute()
+                        {
+                            Status = Status.WaitingOnManager,
+                            CustomerDescription = "Customer " + User.Identity.Name + "has submitted a deposit of " + String.Format("{0:C}", Convert.ToString(transaction.Amount)) + ". Please approve or deny this deposit.",
+                            DisputeAmount = transaction.Amount,
+                            Transaction = transaction
+                            //TODO: Assign to Manager
+
+                        };
+                        db.Disputes.Add(now);
+                    }
+                    else {
+                        current.BankAccounts.Find(x => x.BankAccountID == BankAccountID).Balance += transaction.Amount;
+                        transaction.ToAccount = current.BankAccounts.Find(x => x.BankAccountID == BankAccountID);
+                    }
+                    transaction.Date = DateTime.Now;
+                    db.Transactions.Add(transaction);
+                    db.SaveChanges();
+                    return RedirectToAction("Index", "Customers");
+                }
+            }
+            return View();
+
+        }
+
+
 
         // POST: Transactions/Delete/5
         [HttpPost, ActionName("Delete")]
