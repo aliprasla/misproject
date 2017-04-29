@@ -160,7 +160,36 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         }
 
+        // Get: /Manage/ManagerChangePassword
+        public ActionResult ManagerChangePassword(string Id)
+        {
+            return View();
+        }
 
+        //Post /Manage/ManagerChangePassword
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> ManagerChangePassword(ManagerChangePasswordViewModel model, string Id)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            UserManager.RemovePassword(Id);
+            var result = await UserManager.AddPasswordAsync(Id, model.NewPassword);
+            if (result.Succeeded)
+            {
+                var user = await UserManager.FindByIdAsync(Id);
+                if (user != null)
+                {
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                }
+                return RedirectToAction("EditEmployee","RoleAdmin", new {Id = Id });
+            }
+            AddErrors(result);
+            return View(model);
+        }
 
 
 
@@ -171,9 +200,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         public ActionResult ChangePassword()
 
         {
-
             return View();
-
         }
 
 
@@ -259,15 +286,11 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             if (ModelState.IsValid)
 
             {
-
                 var result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
-
                 if (result.Succeeded)
-
                 {
-
                     var user = await UserManager.FindByIdAsync(User.Identity.GetUserId());
-
+      
                     if (user != null)
 
                     {

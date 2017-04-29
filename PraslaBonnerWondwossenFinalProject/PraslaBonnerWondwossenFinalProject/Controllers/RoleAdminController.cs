@@ -205,7 +205,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
 
                 //Find associated person
-                AppUser employeeToChange = db.Users.Find(User.Identity.GetUserId());
+                AppUser employeeToChange = db.Users.Find(employee.Id);
 
 
                 //update the rest of the fields
@@ -222,7 +222,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 employeeToChange.SSN = employee.SSN;
                 db.Entry(employeeToChange).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Edit");
+                return RedirectToAction("Index");
 
             }
             return View(employee);

@@ -139,8 +139,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
                 //Find associated person
                 AppUser personToChange = db.Users.Find(person.Id);
-
-
+ 
                 //update the rest of the fields
                 personToChange.FName = person.FName;
                 personToChange.LName = person.LName;

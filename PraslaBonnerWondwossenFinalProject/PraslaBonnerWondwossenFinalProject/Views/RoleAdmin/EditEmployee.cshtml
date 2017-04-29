@@ -3,7 +3,7 @@
     ViewBag.Title = "EditEmployee";
 }
 
-<h2>EditEmployee</h2>
+<h2>Edit Employee</h2>
 
 @using (Html.BeginForm())
 {
@@ -110,6 +110,10 @@
         </div>
     </div>
 }
+
+<div>
+    @Html.ActionLink("Change Password", "ManagerChangePassword","Manage", new { Id= Model.Id }, null)
+</div>
 
 <div>
     @Html.ActionLink("Back to List", "Index")

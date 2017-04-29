@@ -135,8 +135,9 @@
                         <td>
                             <input type="checkbox" name="IdsToTerminate" value="@user.Id" />
                         </td>
-                        @Html.ActionLink("RoleAdmin", "EditEmployee", new { Id = user.Id })
-                        
+                        <td>
+                            @Html.ActionLink("Edit", "EditEmployee", new { Id = user.Id })
+                        </td>
                     </tr>
 
                 }
