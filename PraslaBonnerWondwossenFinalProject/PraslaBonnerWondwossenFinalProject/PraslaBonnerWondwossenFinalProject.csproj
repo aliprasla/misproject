@@ -470,6 +470,8 @@
     <Content Include="Views\RoleAdmin\EditEmployee.cshtml" />
     <Content Include="Views\Account\InactiveAccountError.cshtml" />
     <Content Include="Views\Transactions\Deposit.cshtml" />
+    <Content Include="Views\Transactions\Withdraw.cshtml" />
+    <Content Include="Views\Transactions\TransferFunds.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

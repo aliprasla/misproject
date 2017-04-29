@@ -1,36 +1,48 @@
-﻿@model PraslaBonnerWondwossenFinalProject.Models.Transaction
+﻿
+@model PraslaBonnerWondwossenFinalProject.Models.Transaction
 
 @{
-    ViewBag.Title = "Deposit";
+    ViewBag.Title = "Transfer Funds";
 }
 
 <script>
     function validate() {
-        $("#form").submit();
+        if (confirm("Are you sure you want to initiate this funds transfer?") == true) {
+            $("#form").submit();
+        }
+        
     }
 
 </script>
-@using (Html.BeginForm(null,null,FormMethod.Post,new { id = "form" }))
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>Enter your deposit</h4>
+        <h4>Enter your Funds Transfer</h4>
         <hr />
+
+        <div class="form-group">
+            @Html.Label("From Account ", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("FBankAccountID", (SelectList)ViewBag.AccountList, new { @class = "form-control" })
+            </div>
+        </div>
 
         <div class="form-group">
             @Html.Label("To Account ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-               @Html.DropDownList("BankAccountID", (SelectList)ViewBag.AccountList, new { @class = "form-control" })
+                @Html.DropDownList("TBankAccountID" , (SelectList)ViewBag.AccountList, new { @class = "form-control" })
             </div>
         </div>
+
         <div class="form-group">
             <!---TODO: Make this error message Prettier-->
             <div class="col-md-10">
                 @Html.Label((string)ViewBag.Message, new { @class = "text-danger" })
             </div>
         </div>
-            
+
         <div class="form-group">
             @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -49,7 +61,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" onclick="validate()" value="Deposit" class="btn btn-default" />
+                <input type="submit" onclick="validate()" value="Transfer" class="btn btn-default" />
             </div>
         </div>
     </div>
