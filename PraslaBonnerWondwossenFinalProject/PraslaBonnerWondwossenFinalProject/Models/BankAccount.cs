@@ -28,12 +28,12 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public Int32 BankAccountID { get; set; }
 
-     
+
         //we'll work on the AccountNumber thing in the controller. 
         [Display(Name = "Account Number")]
-        public Int32 AccountNumber {get; set;}
+        public Int32 AccountNumber { get; set; }
 
-  
+
 
         public static DateTime Today { get; }
 
@@ -51,6 +51,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public String Name { get; set; }
 
+        
+        public virtual StockType StockType { get; set; }
 
 
         [Required]
@@ -60,6 +62,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
 
         public virtual AppUser Customer { get; set; }
+
+        
+
 
         public string NameNo
         {
