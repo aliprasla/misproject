@@ -91,7 +91,7 @@
         <td>
             @Html.ActionLink("Edit", "EmployeeEdit", new { id=item.Id }) |
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Change Password?", "ManagerChangePassword", new { id = item.Id }) |
+            @Html.ActionLink("Change Password?", "ManagerChangePassword", new { controller="Manage", id = item.Id }) |
            
     </tr>
 }
