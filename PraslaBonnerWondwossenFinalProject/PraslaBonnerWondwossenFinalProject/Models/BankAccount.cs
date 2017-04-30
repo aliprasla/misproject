@@ -52,7 +52,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public String Name { get; set; }
 
         
-        public virtual StockType StockType { get; set; }
+        
 
 
         [Required]
