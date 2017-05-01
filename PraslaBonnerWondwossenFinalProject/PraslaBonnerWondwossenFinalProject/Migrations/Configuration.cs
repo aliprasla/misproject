@@ -49,7 +49,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78733,
                 PhoneNumber = "5125571146",
                 Birthday = DateTime.Parse("2/7/1991"),
-                PasswordHash = hasher.HashPassword("hello")
+                PasswordHash = hasher.HashPassword("hello"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user2);
             base.Seed(db);
@@ -73,7 +74,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78261,
                 PhoneNumber = "2102678873",
                 Birthday = DateTime.Parse("6/23/1990"),
-                PasswordHash = hasher.HashPassword("banquet")
+                PasswordHash = hasher.HashPassword("banquet"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user3);
             base.Seed(db);
@@ -97,7 +99,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77019,
                 PhoneNumber = "8175659699",
                 Birthday = DateTime.Parse("5/6/1986"),
-                PasswordHash = hasher.HashPassword("666666")
+                PasswordHash = hasher.HashPassword("666666"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user4);
             base.Seed(db);
@@ -121,7 +124,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78713,
                 PhoneNumber = "5125943222",
                 Birthday = DateTime.Parse("12/21/1964"),
-                PasswordHash = hasher.HashPassword("texas")
+                PasswordHash = hasher.HashPassword("texas"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user5);
             base.Seed(db);
@@ -145,7 +149,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78266,
                 PhoneNumber = "2107724599",
                 Birthday = DateTime.Parse("6/14/1950"),
-                PasswordHash = hasher.HashPassword("austin")
+                PasswordHash = hasher.HashPassword("austin"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user6);
             base.Seed(db);
@@ -169,7 +174,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75208,
                 PhoneNumber = "2142643255",
                 Birthday = DateTime.Parse("5/9/1930"),
-                PasswordHash = hasher.HashPassword("mailbox")
+                PasswordHash = hasher.HashPassword("mailbox"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user7);
             base.Seed(db);
@@ -193,7 +199,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77010,
                 PhoneNumber = "8172556749",
                 Birthday = DateTime.Parse("2/24/1930"),
-                PasswordHash = hasher.HashPassword("aggies")
+                PasswordHash = hasher.HashPassword("aggies"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user8);
             base.Seed(db);
@@ -217,7 +224,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77009,
                 PhoneNumber = "8173255687",
                 Birthday = DateTime.Parse("9/1/1935"),
-                PasswordHash = hasher.HashPassword("raiders")
+                PasswordHash = hasher.HashPassword("raiders"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user9);
             base.Seed(db);
@@ -241,7 +249,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77003,
                 PhoneNumber = "8176593544",
                 Birthday = DateTime.Parse("7/3/1990"),
-                PasswordHash = hasher.HashPassword("mustangs")
+                PasswordHash = hasher.HashPassword("mustangs"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user10);
             base.Seed(db);
@@ -265,7 +274,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75261,
                 PhoneNumber = "2148475583",
                 Birthday = DateTime.Parse("9/17/1985"),
-                PasswordHash = hasher.HashPassword("mydog")
+                PasswordHash = hasher.HashPassword("mydog"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user11);
             base.Seed(db);
@@ -289,7 +299,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78705,
                 PhoneNumber = "5126978613",
                 Birthday = DateTime.Parse("1/23/1995"),
-                PasswordHash = hasher.HashPassword("jeffh")
+                PasswordHash = hasher.HashPassword("jeffh"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user12);
             base.Seed(db);
@@ -313,7 +324,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75237,
                 PhoneNumber = "2148965621",
                 Birthday = DateTime.Parse("1/8/1994"),
-                PasswordHash = hasher.HashPassword("logicon")
+                PasswordHash = hasher.HashPassword("logicon"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user13);
             base.Seed(db);
@@ -337,7 +349,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78239,
                 PhoneNumber = "2105788965",
                 Birthday = DateTime.Parse("10/6/1990"),
-                PasswordHash = hasher.HashPassword("doofus")
+                PasswordHash = hasher.HashPassword("doofus"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user14);
             base.Seed(db);
@@ -361,7 +374,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78736,
                 PhoneNumber = "5124678821",
                 Birthday = DateTime.Parse("4/12/1984"),
-                PasswordHash = hasher.HashPassword("mother")
+                PasswordHash = hasher.HashPassword("mother"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user15);
             base.Seed(db);
@@ -385,7 +399,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78731,
                 PhoneNumber = "5124653365",
                 Birthday = DateTime.Parse("4/4/1983"),
-                PasswordHash = hasher.HashPassword("whimsical")
+                PasswordHash = hasher.HashPassword("whimsical"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user16);
             base.Seed(db);
@@ -409,7 +424,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78761,
                 PhoneNumber = "5129457399",
                 Birthday = DateTime.Parse("2/3/1961"),
-                PasswordHash = hasher.HashPassword("nothing")
+                PasswordHash = hasher.HashPassword("nothing"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user17);
             base.Seed(db);
@@ -433,7 +449,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78293,
                 PhoneNumber = "2102449976",
                 Birthday = DateTime.Parse("9/3/1946"),
-                PasswordHash = hasher.HashPassword("GoodFellow")
+                PasswordHash = hasher.HashPassword("GoodFellow"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user18);
             base.Seed(db);
@@ -457,7 +474,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78279,
                 PhoneNumber = "2105344627",
                 Birthday = DateTime.Parse("2/7/1992"),
-                PasswordHash = hasher.HashPassword("Elbow")
+                PasswordHash = hasher.HashPassword("Elbow"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user19);
             base.Seed(db);
@@ -481,7 +499,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78268,
                 PhoneNumber = "2106983548",
                 Birthday = DateTime.Parse("10/25/1942"),
-                PasswordHash = hasher.HashPassword("LuceyDucey")
+                PasswordHash = hasher.HashPassword("LuceyDucey"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user20);
             base.Seed(db);
@@ -505,7 +524,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78731,
                 PhoneNumber = "5124748138",
                 Birthday = DateTime.Parse("8/6/1965"),
-                PasswordHash = hasher.HashPassword("cloudyday")
+                PasswordHash = hasher.HashPassword("cloudyday"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user21);
             base.Seed(db);
@@ -529,7 +549,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78732,
                 PhoneNumber = "5124579845",
                 Birthday = DateTime.Parse("4/13/1959"),
-                PasswordHash = hasher.HashPassword("emarkbark")
+                PasswordHash = hasher.HashPassword("emarkbark"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user22);
             base.Seed(db);
@@ -553,7 +574,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77045,
                 PhoneNumber = "8174955201",
                 Birthday = DateTime.Parse("1/6/1990"),
-                PasswordHash = hasher.HashPassword("smartinmartin")
+                PasswordHash = hasher.HashPassword("smartinmartin"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user23);
             base.Seed(db);
@@ -577,7 +599,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77030,
                 PhoneNumber = "8178746718",
                 Birthday = DateTime.Parse("10/9/1987"),
-                PasswordHash = hasher.HashPassword("grego")
+                PasswordHash = hasher.HashPassword("grego"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user24);
             base.Seed(db);
@@ -601,7 +624,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77031,
                 PhoneNumber = "8177458615",
                 Birthday = DateTime.Parse("7/21/1984"),
-                PasswordHash = hasher.HashPassword("chucky33")
+                PasswordHash = hasher.HashPassword("chucky33"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user25);
             base.Seed(db);
@@ -625,7 +649,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78703,
                 PhoneNumber = "5122926966",
                 Birthday = DateTime.Parse("7/4/1956"),
-                PasswordHash = hasher.HashPassword("orange")
+                PasswordHash = hasher.HashPassword("orange"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user26);
             base.Seed(db);
@@ -649,7 +674,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75238,
                 PhoneNumber = "2143125897",
                 Birthday = DateTime.Parse("1/29/1963"),
-                PasswordHash = hasher.HashPassword("victorious")
+                PasswordHash = hasher.HashPassword("victorious"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user27);
             base.Seed(db);
@@ -673,7 +699,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78260,
                 PhoneNumber = "2103450925",
                 Birthday = DateTime.Parse("1/7/1983"),
-                PasswordHash = hasher.HashPassword("billyboy")
+                PasswordHash = hasher.HashPassword("billyboy"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user28);
             base.Seed(db);
@@ -697,7 +724,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75260,
                 PhoneNumber = "2142345566",
                 Birthday = DateTime.Parse("3/31/1980"),
-                PasswordHash = hasher.HashPassword("radicalone")
+                PasswordHash = hasher.HashPassword("radicalone"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user29);
             base.Seed(db);
@@ -721,7 +749,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78707,
                 PhoneNumber = "5123744746",
                 Birthday = DateTime.Parse("8/12/1944"),
-                PasswordHash = hasher.HashPassword("gohorns")
+                PasswordHash = hasher.HashPassword("gohorns"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user30);
             base.Seed(db);
@@ -745,7 +774,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78705,
                 PhoneNumber = "5123876657",
                 Birthday = DateTime.Parse("8/2/1934"),
-                PasswordHash = hasher.HashPassword("iloveme")
+                PasswordHash = hasher.HashPassword("iloveme"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user31);
             base.Seed(db);
@@ -769,7 +799,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77057,
                 PhoneNumber = "8178904374",
                 Birthday = DateTime.Parse("8/11/1989"),
-                PasswordHash = hasher.HashPassword("greedy")
+                PasswordHash = hasher.HashPassword("greedy"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user32);
             base.Seed(db);
@@ -793,6 +824,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78732,
                 PhoneNumber = "5128752943",
                 Birthday = DateTime.Parse("8/27/1967"),
+                isActive = true,
                 PasswordHash = hasher.HashPassword("familiar")
             };
             db.Users.AddOrUpdate(u => u.UserName, user33);
@@ -817,7 +849,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78292,
                 PhoneNumber = "2104145678",
                 Birthday = DateTime.Parse("7/8/1950"),
-                PasswordHash = hasher.HashPassword("historical")
+                PasswordHash = hasher.HashPassword("historical"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user34);
             base.Seed(db);
@@ -841,7 +874,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78705,
                 PhoneNumber = "5123497810",
                 Birthday = DateTime.Parse("10/29/1977"),
-                PasswordHash = hasher.HashPassword("guiltless")
+                PasswordHash = hasher.HashPassword("guiltless"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user35);
             base.Seed(db);
@@ -865,7 +899,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78709,
                 PhoneNumber = "5124510084",
                 Birthday = DateTime.Parse("4/21/1941"),
-                PasswordHash = hasher.HashPassword("frequent")
+                PasswordHash = hasher.HashPassword("frequent"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user36);
             base.Seed(db);
@@ -889,7 +924,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78705,
                 PhoneNumber = "5125479167",
                 Birthday = DateTime.Parse("11/10/1937"),
-                PasswordHash = hasher.HashPassword("history")
+                PasswordHash = hasher.HashPassword("history"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user37);
             base.Seed(db);
@@ -913,7 +949,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78280,
                 PhoneNumber = "2108321888",
                 Birthday = DateTime.Parse("10/26/1954"),
-                PasswordHash = hasher.HashPassword("squirrel")
+                PasswordHash = hasher.HashPassword("squirrel"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user38);
             base.Seed(db);
@@ -937,7 +974,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75221,
                 PhoneNumber = "2142346667",
                 Birthday = DateTime.Parse("9/1/1932"),
-                PasswordHash = hasher.HashPassword("snakes")
+                PasswordHash = hasher.HashPassword("snakes"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user39);
             base.Seed(db);
@@ -961,7 +999,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78746,
                 PhoneNumber = "5128178335",
                 Birthday = DateTime.Parse("12/28/1930"),
-                PasswordHash = hasher.HashPassword("loaf")
+                PasswordHash = hasher.HashPassword("loaf"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user40);
             base.Seed(db);
@@ -985,7 +1024,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77018,
                 PhoneNumber = "8174560903",
                 Birthday = DateTime.Parse("8/13/1989"),
-                PasswordHash = hasher.HashPassword("rhythm")
+                PasswordHash = hasher.HashPassword("rhythm"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user41);
             base.Seed(db);
@@ -1009,7 +1049,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77044,
                 PhoneNumber = "8174590929",
                 Birthday = DateTime.Parse("5/21/1982"),
-                PasswordHash = hasher.HashPassword("kindly")
+                PasswordHash = hasher.HashPassword("kindly"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user42);
             base.Seed(db);
@@ -1033,7 +1074,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78705,
                 PhoneNumber = "5124748452",
                 Birthday = DateTime.Parse("1/8/1960"),
-                PasswordHash = hasher.HashPassword("instrument")
+                PasswordHash = hasher.HashPassword("instrument"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user43);
             base.Seed(db);
@@ -1057,7 +1099,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78705,
                 PhoneNumber = "5124512631",
                 Birthday = DateTime.Parse("7/27/1975"),
-                PasswordHash = hasher.HashPassword("deep")
+                PasswordHash = hasher.HashPassword("deep"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user44);
             base.Seed(db);
@@ -1081,7 +1124,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 77004,
                 PhoneNumber = "8178765543",
                 Birthday = DateTime.Parse("4/6/1968"),
-                PasswordHash = hasher.HashPassword("rest")
+                PasswordHash = hasher.HashPassword("rest"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user45);
             base.Seed(db);
@@ -1105,7 +1149,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75315,
                 PhoneNumber = "2148471154",
                 Birthday = DateTime.Parse("5/19/1978"),
-                PasswordHash = hasher.HashPassword("approval")
+                PasswordHash = hasher.HashPassword("approval"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user46);
             base.Seed(db);
@@ -1129,7 +1174,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75207,
                 PhoneNumber = "2143985638",
                 Birthday = DateTime.Parse("10/6/1963"),
-                PasswordHash = hasher.HashPassword("decorate")
+                PasswordHash = hasher.HashPassword("decorate"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user47);
             base.Seed(db);
@@ -1153,7 +1199,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75323,
                 PhoneNumber = "2148475244",
                 Birthday = DateTime.Parse("10/14/1993"),
-                PasswordHash = hasher.HashPassword("geese")
+                PasswordHash = hasher.HashPassword("geese"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user48);
             base.Seed(db);
@@ -1177,7 +1224,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 75220,
                 PhoneNumber = "2145650098",
                 Birthday = DateTime.Parse("5/31/1952"),
-                PasswordHash = hasher.HashPassword("sturdy")
+                PasswordHash = hasher.HashPassword("sturdy"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user49);
             base.Seed(db);
@@ -1201,7 +1249,8 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 Zip = 78746,
                 PhoneNumber = "5124545242",
                 Birthday = DateTime.Parse("4/24/1992"),
-                PasswordHash = hasher.HashPassword("decorous")
+                PasswordHash = hasher.HashPassword("decorous"),
+                isActive = true
             };
             db.Users.AddOrUpdate(u => u.UserName, user50);
             base.Seed(db);

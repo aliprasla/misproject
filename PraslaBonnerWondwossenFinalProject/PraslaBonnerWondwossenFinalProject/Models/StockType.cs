@@ -14,6 +14,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name="Name of new stock type")]
         public String Name { get; set; }
 
-        public virtual List<BankAccount> BankAccounts { get; set; }
+        public virtual List<Stock> Stocks { get; set; }
     }
 }

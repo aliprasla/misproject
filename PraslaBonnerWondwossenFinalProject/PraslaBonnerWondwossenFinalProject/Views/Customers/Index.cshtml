@@ -2,7 +2,7 @@
 
 
 @{
-    ViewBag.Title = "CustomerAccounts";
+    ViewBag.Title = "My Accounts";
 }
 
 <h2>Accounts</h2>
@@ -26,6 +26,9 @@
             <th>
                 Balance
             </th>
+            <th>
+                Actions
+            </th>
         </tr>
         @foreach (var item in Model.BankAccounts)
         {
@@ -34,6 +37,7 @@
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.Type)</td>
                 <td>@Html.DisplayFor(modelItem => item.Balance)</td>
+                <td>@Html.ActionLink("Details","Details","BankAccounts", new { id = item.BankAccountID },null) @Html.ActionLink("Edit", "Edit","BankAccounts", new { id = item.BankAccountID },null)</td>
         </tr>
         }
     </table>

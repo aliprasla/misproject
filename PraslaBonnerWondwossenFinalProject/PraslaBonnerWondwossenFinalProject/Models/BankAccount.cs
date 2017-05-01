@@ -8,9 +8,10 @@ using System.Linq;
 using System.Web;
 
 using System.ComponentModel.DataAnnotations;
-
-
-
+using Microsoft.Ajax.Utilities;
+using System.Data.Entity.Infrastructure;
+using System.Data;
+using System.Collections;
 
 namespace PraslaBonnerWondwossenFinalProject.Models
 
@@ -23,7 +24,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
 
     {
-
+        private AppDbContext db = new AppDbContext();
         //primary key
 
         public Int32 BankAccountID { get; set; }
@@ -51,8 +52,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public String Name { get; set; }
 
-        
-        public virtual StockType StockType { get; set; }
+
+
 
 
         [Required]
@@ -63,7 +64,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public virtual AppUser Customer { get; set; }
 
-        
+        public virtual List<Transaction> Transactions {get;set;}
 
 
         public string NameNo

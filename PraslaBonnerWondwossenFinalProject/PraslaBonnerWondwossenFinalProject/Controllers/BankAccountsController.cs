@@ -34,6 +34,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 return HttpNotFound();
             }
+
+            //View All Transactions associated with account
+            bankAccount.Transactions = db.Transactions.Where(c => c.ToAccount.BankAccountID == bankAccount.BankAccountID || c.FromAccount.BankAccountID == bankAccount.BankAccountID).ToList();
             return View(bankAccount);
         }
 
@@ -106,7 +109,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     AppUser current = db.Users.Find(User.Identity.GetUserId());
                     bankAccount.Customer = current;
                     current.BankAccounts.Add(bankAccount);
-                    db.BankAccounts.Add(bankAccount);
+                    
                     //create transaction
                     Transaction deposit = new Transaction()
                     {
@@ -118,6 +121,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         Dispute = now,
                         ToAccount = bankAccount
                     };
+                    bankAccount.Transactions.Add(deposit);
+                    db.BankAccounts.Add(bankAccount);
                     db.Transactions.Add(deposit);
                     if (now != null)
                     {
