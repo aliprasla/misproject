@@ -192,7 +192,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     transaction.Type = TransactionTypes.Transfer;
                     currentB.Balance -= transaction.Amount;
                     currentD.Balance += transaction.Amount;
-                    db.Transactions.Add(transaction);
+                    db.BankAccounts.Where(c => c.BankAccountID == currentB.BankAccountID).ToList().First().Transactions.Add(transaction);
+                    //db.BankAccounts.Where(c => c.BankAccountID == currentD.BankAccountID).ToList().First().Transactions.Add(transaction);                    
                     db.SaveChanges();
 
                 }
@@ -244,6 +245,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     currentB.Balance -= transaction.Amount;
                     transaction.FromAccount = currentB;
                     db.Transactions.Add(transaction);
+                    currentB.Transactions.Add(transaction);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Customers");
                 }
@@ -302,6 +304,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         transaction.ToAccount = current.BankAccounts.Find(x => x.BankAccountID == BankAccountID);
                     }
                     transaction.Date = DateTime.Now;
+                    current.BankAccounts.Find(x => x.BankAccountID == BankAccountID).Transactions.Add(transaction);
                     db.Transactions.Add(transaction);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Customers");

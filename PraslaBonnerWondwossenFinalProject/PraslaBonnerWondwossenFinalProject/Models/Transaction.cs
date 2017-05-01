@@ -55,6 +55,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name = "From Account")]
         public virtual BankAccount FromAccount { get; set; }
 
+
     }
 
 }
