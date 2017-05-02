@@ -67,9 +67,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public virtual List<BankAccount> BankAccounts { get; set; }
         public virtual List<Transaction> Transactions { get; set; }
         public virtual List<Dispute> Disputes { get; set; }
-        public virtual List<StockPortfolio> StockPortfolios { get; set; }
+        public virtual StockPortfolio StockPortfolio { get; set; }
         
-
+   
         public Boolean hasAccount() {
             if (this.BankAccounts.Count == 0) {
                 return false;
@@ -111,6 +111,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public DbSet<BankAccount> BankAccounts { get; set; }
         public DbSet<StockPortfolio> StockPortfolios { get; set; }
         public DbSet<Stock> Stocks { get; set; }
+        public DbSet<StockQuote> StockQuotes { get; set; }
 
 
 

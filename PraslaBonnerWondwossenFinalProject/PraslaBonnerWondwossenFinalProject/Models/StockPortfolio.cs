@@ -8,7 +8,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
     public class StockPortfolio : BankAccount
     {
         //list of ticker symbols
-        List<Stock> Portfolio = new List<Stock>();
+        //List<Stock> Portfolio = new List<Stock>();
 
         public bool isApproved { get; set; }
 
@@ -18,6 +18,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public Decimal Balance { get; set; }
 
-        public virtual Stock stock { get; set; }
+        public virtual List<Stock> stocks { get; set; }
     }
 }

@@ -12,6 +12,9 @@ using PraslaBonnerWondwossenFinalProject.Models;
 
 using PraslaBonnerWondwossenFinalProject.StockUtilities;
 
+using Microsoft.AspNet.Identity;
+
+using System.Net;
 
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
@@ -19,7 +22,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
 
     public class StockController : Controller
-
     {
         private AppDbContext db = new AppDbContext();
 
@@ -116,8 +118,17 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         //Jessica --what to use instead of db?
 
         // GET: stocks/Create
-        public ActionResult Purchase()
+        public ActionResult Purchase(int? Id)
         {
+            if (Id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            StockQuote stockquote = db.StockQuotes.Find(Id);
+            if (stockquote == null)
+            {
+                return HttpNotFound();
+            }
             return View();
         }
 
@@ -126,12 +137,25 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Purchase([Bind(Include = "StockID,Amount")] Stock stock)
+        public ActionResult Purchase([Bind(Include = "Id,Amount")] Stock stock, int Id)
         {
+            StockQuote quoteToAdd = db.StockQuotes.Find(Id);
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            
+            //customer.StockPortfolio.stocks.Add(stock);
+            stock.StockPortfolio = customer.StockPortfolio;
+            stock.StockQuote = quoteToAdd;
+
+
+
             if (ModelState.IsValid)
             {
                 db.Stocks.Add(stock);
                 db.SaveChanges();
+                customer.StockPortfolio.stocks.Add(stock);
+                quoteToAdd.Stocks.Add(stock);
+
+
                 return RedirectToAction("Index");
             }
 
