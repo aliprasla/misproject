@@ -49,7 +49,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "BankAccountID")]BankAccount StockPortfolio)
+        public ActionResult Create([Bind(Include = "BankAccountID")]StockPortfolio StockPortfolio)
         {
             StockPortfolio.Type = AccountTypes.Stock;
             StockPortfolio.Name = "Longorn Stock";
@@ -80,10 +80,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 now.DisputeAmount = 0;
                 db.Disputes.Add(now);
 
-                AppUser current = db.Users.Find(User.Identity.GetUserId());
-                StockPortfolio.Customer = current;
-                current.StockPortfolio = (StockPortfolio);
-                db.StockPortfolios.Add(StockPortfolio);
+                //AppUser current = db.Users.Find(User.Identity.GetUserId());
+                //StockPortfolio.Customer = current;
+                //current.StockPortfolio = (StockPortfolio);
+                //db.StockPortfolios.Add(StockPortfolio);
                 db.SaveChanges();
 
                 return RedirectToAction("Index","Customers");
