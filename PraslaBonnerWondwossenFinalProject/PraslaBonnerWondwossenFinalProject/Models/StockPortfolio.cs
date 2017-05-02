@@ -17,5 +17,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Int32 CashBalance { get; set; }
 
         public Decimal Balance { get; set; }
+
+        public virtual Stock stock { get; set; }
     }
 }

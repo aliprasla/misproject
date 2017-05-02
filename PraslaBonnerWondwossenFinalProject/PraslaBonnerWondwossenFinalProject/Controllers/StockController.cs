@@ -130,7 +130,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                //db.Stocks.Add(stock);
+                db.Stocks.Add(stock);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

@@ -436,6 +436,10 @@
     <Compile Include="Migrations\201705020151144_ChangeStockTableRelationships.Designer.cs">
       <DependentUpon>201705020151144_ChangeStockTableRelationships.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705020158296_MoreStockRelationships.cs" />
+    <Compile Include="Migrations\201705020158296_MoreStockRelationships.Designer.cs">
+      <DependentUpon>201705020158296_MoreStockRelationships.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -599,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705020151144_ChangeStockTableRelationships.resx">
       <DependentUpon>201705020151144_ChangeStockTableRelationships.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705020158296_MoreStockRelationships.resx">
+      <DependentUpon>201705020158296_MoreStockRelationships.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

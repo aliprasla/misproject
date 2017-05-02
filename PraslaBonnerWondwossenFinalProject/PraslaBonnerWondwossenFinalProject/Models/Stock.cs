@@ -18,8 +18,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         
         //Jessica
 
-        public virtual StockPortfolio StockPortfolio { get; set;}
+        public List<StockPortfolio> StockPortfolios { get; set;}
 
-        public virtual StockQuote StockQuote { get; set; }
+        public List<StockQuote> StockQuotes { get; set; }
     }
 }
