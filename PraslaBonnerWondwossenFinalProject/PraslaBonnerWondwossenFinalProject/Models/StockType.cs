@@ -14,6 +14,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name="Name of new stock type")]
         public String Name { get; set; }
 
+        //Jessica
         public virtual List<Stock> Stocks { get; set; }
     }
 }

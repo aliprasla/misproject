@@ -16,6 +16,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
     public class StockQuote
 
     {
+        //Jessica
+        public Int32 StockQuoteId { get; set; }
 
         public String Symbol { get; set; }
 
@@ -26,6 +28,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Double LastTradePrice { get; set; }
 
         public Double Volume { get; set; }
+
+        //Jessica
+        public virtual Stock Stock { get; set; }
 
     }
 
