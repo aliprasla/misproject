@@ -8,10 +8,10 @@
     function over5000() {
         var e = document.getElementById("type");
         var text = e.options[e.selectedIndex].text;
-        if ('@ViewBag.Age' > 70) {
+        if ('@ViewBag.Age' > 70 && text == "IRA") {
             alert("A contribution to an IRA account cannot be made as you are above the age requirements")
         }
-        if (document.getElementById("depo").value > 5000) {
+        else if (document.getElementById("depo").value > 5000) {
             if (text == "IRA") {
                 alert("You may only contribute $5000 per year to an IRA account.");
             }
@@ -19,7 +19,8 @@
                 alert("A Manager Must approve an intitial deposit over $5000. Check your dispute status for updated information about this deposit transaction.");
                 $("#form").submit();
             }
-            
+        } else {
+            $("#form").submit();
         }
     }
 </script>

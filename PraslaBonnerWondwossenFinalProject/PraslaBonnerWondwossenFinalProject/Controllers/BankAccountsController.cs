@@ -149,6 +149,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         Dispute = now,
                         ToAccount = bankAccount
                     };
+                    //TODO: URGENT - Initial Depost not beeing added to bankAccount
                     bankAccount.Transactions =  new List <Transaction>();
                     bankAccount.Transactions.Add(deposit);
                     db.BankAccounts.Add(bankAccount);
