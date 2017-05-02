@@ -32,7 +32,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include="StockPortfolioID")]StockPortfolio StockPortfolio)
+        public ActionResult Create([Bind(Include = "StockPortfolioID")]StockPortfolio StockPortfolio)
         {
             StockPortfolio.Type = AccountTypes.Stock;
             StockPortfolio.Name = "Longorn Stock";
@@ -42,30 +42,29 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.Balance = 0;
             //StockPortfolio.BankAccountID = StockPortfolioID
 
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
                 StockPortfolio.AccountNumber = item.AccountNumber + 1;
+
+
+                //create a dispute for manager approval
+                Dispute now = new Dispute();
+                now.Status = Status.WaitingOnManager;
+                now.CustomerDescription = "Customer " + User.Identity.Name + "has applied for a stock portfolio. Please approve or deny this deposit.";
+                now.DisputeAmount = 0;
+                db.Disputes.Add(now);
+
+                AppUser current = db.Users.Find(User.Identity.GetUserId());
+                StockPortfolio.Customer = current;
+                current.StockPortfolios.Add(StockPortfolio);
+                db.StockPortfolios.Add(StockPortfolio);
+
+                 return RedirectToAction("Index", "Customers");
             }
-
-            //create a dispute for manager approval
-            Dispute now = new Dispute();
-            now.Status = Status.WaitingOnManager;
-            now.CustomerDescription = "Customer " + User.Identity.Name + "has applied for a stock portfolio. Please approve or deny this deposit.";
-            now.DisputeAmount = 0;
-            db.Disputes.Add(now);
-
-            AppUser current = db.Users.Find(User.Identity.GetUserId());
-            StockPortfolio.Customer = current;
-            current.StockPortfolios.Add(StockPortfolio);
-            db.StockPortfolios.Add(StockPortfolio);
-            
-      
-
-
 
 
             return View();
-        }
+                }
     }
 }
