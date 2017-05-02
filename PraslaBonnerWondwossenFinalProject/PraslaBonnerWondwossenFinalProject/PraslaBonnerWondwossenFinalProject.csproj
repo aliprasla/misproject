@@ -312,6 +312,7 @@
     <Compile Include="Controllers\ManagersController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockController.cs" />
+    <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -424,9 +425,9 @@
     <Compile Include="Migrations\201705020210378_somechange.Designer.cs">
       <DependentUpon>201705020210378_somechange.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705020326500_something.cs" />
-    <Compile Include="Migrations\201705020326500_something.Designer.cs">
-      <DependentUpon>201705020326500_something.cs</DependentUpon>
+    <Compile Include="Migrations\201705020338481_manage_stocks.cs" />
+    <Compile Include="Migrations\201705020338481_manage_stocks.Designer.cs">
+      <DependentUpon>201705020338481_manage_stocks.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -505,9 +506,7 @@
     <Content Include="Views\Managers\Index.cshtml" />
     <Content Include="Views\Account\InactiveAccountError.cshtml" />
     <Content Include="Views\Transactions\Deposit.cshtml" />
-    <Content Include="Views\Transactions\Withdraw.cshtml" />
-    <Content Include="Views\Transactions\TransferFunds.cshtml" />
-    <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
+    <Content Include="Views\Stock\Purchase.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -598,8 +597,8 @@
     <EmbeddedResource Include="Migrations\201705020210378_somechange.resx">
       <DependentUpon>201705020210378_somechange.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705020326500_something.resx">
-      <DependentUpon>201705020326500_something.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705020338481_manage_stocks.resx">
+      <DependentUpon>201705020338481_manage_stocks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
