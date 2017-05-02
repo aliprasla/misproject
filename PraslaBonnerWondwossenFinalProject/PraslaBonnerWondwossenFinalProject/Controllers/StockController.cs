@@ -162,6 +162,24 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(stock);
         }
 
+        public SelectList GetAllStocks()
+        {
+            var query = from q in db.StockQuotes
+                        orderby q.Name
+                        select q;
+
+            List<StockQuote> allQuotes = query.ToList();
+
+            foreach (StockQuote x in allQuotes)
+            {
+
+            }
+
+            SelectList allQuoteslist = new SelectList(allQuotes, "StockQuoteID", "Name","Symbol");
+
+            return allQuoteslist;
+        }
+
     }
 
 }

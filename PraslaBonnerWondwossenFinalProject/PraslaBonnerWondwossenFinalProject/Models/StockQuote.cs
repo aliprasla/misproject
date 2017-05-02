@@ -32,6 +32,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //Jessica
         public virtual List<Stock> Stocks { get; set; }
 
+        public virtual StockType StockType { get; set; }
+
     }
 
 }
