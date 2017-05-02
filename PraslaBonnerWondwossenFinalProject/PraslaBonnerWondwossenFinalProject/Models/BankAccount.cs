@@ -21,12 +21,15 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
     public class BankAccount
 
-
-
     {
         private AppDbContext db = new AppDbContext();
+        
+        public BankAccount(){
+            Transactions = new List<Transaction>();
+        
+        }
         //primary key
-
+        [Key]
         public Int32 BankAccountID { get; set; }
 
 

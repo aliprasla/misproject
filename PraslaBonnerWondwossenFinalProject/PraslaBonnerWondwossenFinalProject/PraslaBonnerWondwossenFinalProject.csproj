@@ -429,6 +429,10 @@
     <Compile Include="Migrations\201705020338481_manage_stocks.Designer.cs">
       <DependentUpon>201705020338481_manage_stocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705021708077_addedAgeField.cs" />
+    <Compile Include="Migrations\201705021708077_addedAgeField.Designer.cs">
+      <DependentUpon>201705021708077_addedAgeField.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -599,6 +603,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705020338481_manage_stocks.resx">
       <DependentUpon>201705020338481_manage_stocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705021708077_addedAgeField.resx">
+      <DependentUpon>201705021708077_addedAgeField.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

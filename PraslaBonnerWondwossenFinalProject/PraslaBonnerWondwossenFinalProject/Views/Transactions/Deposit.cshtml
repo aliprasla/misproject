@@ -4,20 +4,14 @@
     ViewBag.Title = "Deposit";
 }
 
-<script>
-    function validate() {
-        $("#form").submit();
-    }
-
-</script>
-@using (Html.BeginForm(null,null,FormMethod.Post,new { id = "form" }))
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
         <h4>Enter your deposit</h4>
         <hr />
-
+ 
         <div class="form-group">
             @Html.Label("To Account ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -49,7 +43,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" onclick="validate()" value="Deposit" class="btn btn-default" />
+                <input type="submit" value="Deposit" class="btn btn-default" />
             </div>
         </div>
     </div>

@@ -8,13 +8,13 @@ using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
 using Microsoft.AspNet.Identity;
+using System.Web.Routing;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
     public class TransactionsController : Controller
     {
         private AppDbContext db = new AppDbContext();
-
         // GET: Transactions
         [Authorize(Roles = "Customer,Manager,Employee")]
         public ActionResult Index()
@@ -28,6 +28,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             ViewBag.Selected = transactions.Count();
             ViewBag.All = transactions.Count();
+            transactions = transactions.OrderBy(c => c.Date);
             return View(transactions.ToList());
         }
         [HttpPost]
@@ -59,7 +60,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 return View(transactions.ToList());
             }
         }
-        
+        //TODO: Transactions detailed Search
         
         
         
@@ -192,6 +193,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     transaction.Type = TransactionTypes.Transfer;
                     currentB.Balance -= transaction.Amount;
                     currentD.Balance += transaction.Amount;
+                    //adds transaction to bank account
                     db.BankAccounts.Where(c => c.BankAccountID == currentB.BankAccountID).ToList().First().Transactions.Add(transaction);
                     //db.BankAccounts.Where(c => c.BankAccountID == currentD.BankAccountID).ToList().First().Transactions.Add(transaction);                    
                     db.SaveChanges();
@@ -208,8 +210,16 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [Authorize(Roles = "Customer")]
         public ActionResult Withdraw()
         {
-
+            //Pass through text list of IRA's name and NO
             AppUser current = db.Users.Find(User.Identity.GetUserId());
+            ViewBag.Age = current.Age;
+            List<string> nameList = new List<string>();
+            foreach (var item in current.BankAccounts) {
+                if (item.Type == AccountTypes.IRA) {
+                    nameList.Add(item.NameNo);
+                }
+            }
+            ViewBag.IRANames = nameList;
             ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
             ViewBag.Message = "";
             return View();
@@ -220,17 +230,17 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             if (ModelState.IsValid) {
 
                 //amount validation
+                AppUser current = db.Users.Find(User.Identity.GetUserId());
                 BankAccount currentB = db.BankAccounts.Find(BankAccountID);
                 if (currentB.Balance < transaction.Amount)
                 {
-                    AppUser current = db.Users.Find(User.Identity.GetUserId());
+                    
                     ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
                     ViewBag.Message = "Insufficient Funds in this account for this transaction";
                     return View();
                 }
                 else if (transaction.Amount < 0)
                 {
-                    AppUser current = db.Users.Find(User.Identity.GetUserId());
                     ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
                     ViewBag.Message = "Withdrawal Amount must be a positive number";
                     return View();
@@ -242,6 +252,13 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     //IRA Validation
                     if (currentB.Type == AccountTypes.IRA){
                         
+                        //if age < 65, you cannot withdraw
+                        if (current.Age < 65 && transaction.Amount > 3000) {
+                            ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
+                            ViewBag.Message = "Because you are not above 65 years old, this is an unqualified transaction. You can only withdraw a maximum of $3000.";
+                            return View();
+                        }
+
                     }
                     transaction.Customer = currentB.Customer;
                     transaction.Type = TransactionTypes.Withdrawal;
@@ -257,6 +274,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             return View();
         }
+
         public decimal maxContributionAmount(BankAccount bankAccount) {
             //getsAllContributions for this account
             var allTransactions = db.Transactions.Where(c => c.ToAccount.BankAccountID == bankAccount.BankAccountID);
@@ -264,6 +282,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             decimal outter = 0;
             foreach (var item in allContributions) {
                 outter += item.Amount;
+            }
+            if (5000- outter < 0) {
+                return 0;
             }
             return (5000 - outter);
         }
@@ -278,17 +299,19 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             ViewBag.Message = "";
             return View();
         }
+
+
         [HttpPost]
-        public ActionResult Deposit([Bind(Include = "Amount,Description")] Transaction transaction,int BankAccountID)
+        public ActionResult Deposit([Bind(Include = "TransactionID,Amount,Description")] Transaction transaction,int BankAccountID)
         {
             if (ModelState.IsValid)
             {
-                AppUser current = db.Users.Find(User.Identity.GetUserId());
-                BankAccount currentBank = current.BankAccounts.Where(c => c.BankAccountID == BankAccountID).First();
+                AppUser currentUser = db.Users.Find(User.Identity.GetUserId());
+                BankAccount currentBank = currentUser.BankAccounts.Where(c => c.BankAccountID == BankAccountID).First();
                 if (transaction.Amount < 0)
                 {
                     //Negative Deposit amount Validation
-                    ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
+                    ViewBag.AccountList = new SelectList(currentUser.BankAccounts, "BankAccountID", "NameNo");
                     ViewBag.Message = "Deposit Amount Must Be a Positive Number";
                     return View();
                 }
@@ -296,23 +319,33 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 else
                 {
 
-                    transaction.Customer = current;
+                    transaction.Customer = currentUser;
                     transaction.Type = TransactionTypes.Deposit;
 
                     //IRA Validation
-                    if (currentBank.Type == AccountTypes.IRA) {
+                    if (currentBank.Type == AccountTypes.IRA)
+                    {
                         decimal maxContributionAllow = maxContributionAmount(currentBank);
-                        if (transaction.Amount > maxContributionAllow) {
+                        if (transaction.Amount > maxContributionAllow)
+                        {
                             transaction.Amount = maxContributionAllow;
                             transaction.ToAccount = currentBank;
+                            transaction.Date = DateTime.Now;
                             currentBank.Balance += transaction.Amount;
-                            return View(transaction);
+                            db.Transactions.Add(transaction);
+                            db.SaveChanges(); 
+                            Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
+                            return RedirectToAction("RedirectedIRA",new { transactionID = trans.TransactionID });
+                           
                         }
                     }
+
+
+
                     if (transaction.Amount > 5000)
                     {
                         transaction.Description = transaction.Description + ". Pending Manager Approval. Original Amount = $" + Convert.ToString(transaction.Amount);
-                        transaction.ToAccount = current.BankAccounts.Find(x => x.BankAccountID == BankAccountID);
+                        transaction.ToAccount = currentUser.BankAccounts.Find(x => x.BankAccountID == BankAccountID);
                         //Create dispute
                         Dispute now = new Dispute()
                         {
@@ -328,27 +361,42 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     }
                     else {
                         currentBank.Balance += transaction.Amount;
+                        
                         transaction.ToAccount = currentBank;
+
+                        transaction.Date = DateTime.Now;
+
+
+                        currentBank.Transactions.Add(transaction);
+                        
+                        db.Transactions.Add(transaction);
+                        db.SaveChanges();
+                        return RedirectToAction("Index", "Customers");
                     }
-                    transaction.Date = DateTime.Now;
-                    currentBank.Transactions.Add(transaction);
-                    db.Transactions.Add(transaction);
-                    db.SaveChanges();
-                    return RedirectToAction("Index", "Customers");
                 }
             }
             return View();
 
         }
-
-        public ActionResult RedirectedIRA(Transaction transaction)
+        [HttpGet]
+        public ActionResult RedirectedIRA(int? transactionID)
         {
+            if (transactionID == null) {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Transaction transaction = db.Transactions.Find(transactionID);
             return View(transaction);
         }
         [HttpPost]
-        public ActionResult RedirectedIRA()
+        public ActionResult RedirectedIRA([Bind(Include = "TransactionID,Date,Type,Amount,Description")] Transaction transaction)
         {
             return RedirectToAction("Index","Customers");
+        }
+        public ActionResult Back() {
+            (from y in db.Transactions orderby y.Date descending select y).FirstOrDefault().ToAccount.Balance -= (from y in db.Transactions orderby y.Date descending select y).FirstOrDefault().Amount;
+            db.Transactions.Remove((from y in db.Transactions orderby y.Date descending select y).FirstOrDefault());
+            db.SaveChanges();
+            return RedirectToAction("Deposit");
         }
         // POST: Transactions/Delete/5
         [HttpPost, ActionName("Delete")]
