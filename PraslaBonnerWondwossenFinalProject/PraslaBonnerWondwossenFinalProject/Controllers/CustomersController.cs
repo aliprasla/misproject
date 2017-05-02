@@ -105,9 +105,12 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+
+                //Find associated person
+                AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
+
                
-                    //Find associated person
-                    AppUser personToChange = db.Users.Find(User.Identity.GetUserId());
+              
 
 
                     //update the rest of the fields

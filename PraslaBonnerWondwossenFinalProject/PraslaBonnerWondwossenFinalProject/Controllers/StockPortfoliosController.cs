@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
 using Microsoft.AspNet.Identity;
+using System.Net;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -16,6 +17,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult Details()
+        {
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            if (customer == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            StockPortfolio StockPortfolio = customer.StockPortfolio;
+            if (StockPortfolio == null)
+            {
+                return HttpNotFound();
+            }
+            //View All Transactions associated with account
+            
+            return View(StockPortfolio);
         }
 
         public ActionResult Create()
@@ -32,7 +49,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "StockPortfolioID")]StockPortfolio StockPortfolio)
+        public ActionResult Create([Bind(Include="StockPortfolioID")]StockPortfolio StockPortfolio)
         {
             StockPortfolio.Type = AccountTypes.Stock;
             StockPortfolio.Name = "Longorn Stock";
@@ -40,31 +57,34 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.isApproved = false;
             StockPortfolio.CashBalance = 0;
             StockPortfolio.Balance = 0;
-            //StockPortfolio.BankAccountID = StockPortfolioID
+            StockPortfolio.Gains = 0;
+            StockPortfolio.Fees = 0;
+            StockPortfolio.Bonuses = 0;
 
-            if (ModelState.IsValid)
+            if(ModelState.IsValid)
             {
                 var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
                 StockPortfolio.AccountNumber = item.AccountNumber + 1;
-
-
-                //create a dispute for manager approval
-                Dispute now = new Dispute();
-                now.Status = Status.WaitingOnManager;
-                now.CustomerDescription = "Customer " + User.Identity.Name + "has applied for a stock portfolio. Please approve or deny this deposit.";
-                now.DisputeAmount = 0;
-                db.Disputes.Add(now);
-
-                AppUser current = db.Users.Find(User.Identity.GetUserId());
-                StockPortfolio.Customer = current;
-                current.StockPortfolios.Add(StockPortfolio);
-                db.StockPortfolios.Add(StockPortfolio);
-
-                 return RedirectToAction("Index", "Customers");
             }
+
+            //create a dispute for manager approval
+            Dispute now = new Dispute();
+            now.Status = Status.WaitingOnManager;
+            now.CustomerDescription = "Customer " + User.Identity.Name + "has applied for a stock portfolio. Please approve or deny this deposit.";
+            now.DisputeAmount = 0;
+            db.Disputes.Add(now);
+
+            AppUser current = db.Users.Find(User.Identity.GetUserId());
+            StockPortfolio.Customer = current;
+            current.StockPortfolio=(StockPortfolio);
+            db.StockPortfolios.Add(StockPortfolio);
+            
+      
+
+
 
 
             return View();
-                }
+        }
     }
 }

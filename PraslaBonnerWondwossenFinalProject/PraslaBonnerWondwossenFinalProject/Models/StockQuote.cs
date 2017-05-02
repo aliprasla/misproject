@@ -30,7 +30,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Double Volume { get; set; }
 
         //Jessica
-        public virtual Stock Stock { get; set; }
+        public virtual List<Stock> Stocks { get; set; }
 
     }
 
