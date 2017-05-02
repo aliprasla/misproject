@@ -424,6 +424,10 @@
     <Compile Include="Migrations\201705020210378_somechange.Designer.cs">
       <DependentUpon>201705020210378_somechange.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705020326500_something.cs" />
+    <Compile Include="Migrations\201705020326500_something.Designer.cs">
+      <DependentUpon>201705020326500_something.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -501,6 +505,9 @@
     <Content Include="Views\Managers\Index.cshtml" />
     <Content Include="Views\Account\InactiveAccountError.cshtml" />
     <Content Include="Views\Transactions\Deposit.cshtml" />
+    <Content Include="Views\Transactions\Withdraw.cshtml" />
+    <Content Include="Views\Transactions\TransferFunds.cshtml" />
+    <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -590,6 +597,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705020210378_somechange.resx">
       <DependentUpon>201705020210378_somechange.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705020326500_something.resx">
+      <DependentUpon>201705020326500_something.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -228,7 +228,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     ViewBag.Message = "Insufficient Funds in this account for this transaction";
                     return View();
                 }
-                else if (transaction.Amount < 0) {
+                else if (transaction.Amount < 0)
+                {
                     AppUser current = db.Users.Find(User.Identity.GetUserId());
                     ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
                     ViewBag.Message = "Withdrawal Amount must be a positive number";
@@ -238,6 +239,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 //TODO: Add Account Status Validation -> Active, Inaction -> Withdrawal
                 else
                 {
+                    //IRA Validation
+                    if (currentB.Type == AccountTypes.IRA){
+                        
+                    }
                     transaction.Customer = currentB.Customer;
                     transaction.Type = TransactionTypes.Withdrawal;
                     transaction.Date = DateTime.Now;
@@ -252,7 +257,16 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             return View();
         }
-
+        public decimal maxContributionAmount(BankAccount bankAccount) {
+            //getsAllContributions for this account
+            var allTransactions = db.Transactions.Where(c => c.ToAccount.BankAccountID == bankAccount.BankAccountID);
+            List<Transaction> allContributions = allTransactions.ToList();
+            decimal outter = 0;
+            foreach (var item in allContributions) {
+                outter += item.Amount;
+            }
+            return (5000 - outter);
+        }
 
 
 
@@ -270,6 +284,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             if (ModelState.IsValid)
             {
                 AppUser current = db.Users.Find(User.Identity.GetUserId());
+                BankAccount currentBank = current.BankAccounts.Where(c => c.BankAccountID == BankAccountID).First();
                 if (transaction.Amount < 0)
                 {
                     //Negative Deposit amount Validation
@@ -280,8 +295,20 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 //TODO: Add Account Status Validation -> Active, Inaction -> Deposit
                 else
                 {
+
                     transaction.Customer = current;
                     transaction.Type = TransactionTypes.Deposit;
+
+                    //IRA Validation
+                    if (currentBank.Type == AccountTypes.IRA) {
+                        decimal maxContributionAllow = maxContributionAmount(currentBank);
+                        if (transaction.Amount > maxContributionAllow) {
+                            transaction.Amount = maxContributionAllow;
+                            transaction.ToAccount = currentBank;
+                            currentBank.Balance += transaction.Amount;
+                            return View(transaction);
+                        }
+                    }
                     if (transaction.Amount > 5000)
                     {
                         transaction.Description = transaction.Description + ". Pending Manager Approval. Original Amount = $" + Convert.ToString(transaction.Amount);
@@ -300,11 +327,11 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         transaction.Amount = 0;
                     }
                     else {
-                        current.BankAccounts.Find(x => x.BankAccountID == BankAccountID).Balance += transaction.Amount;
-                        transaction.ToAccount = current.BankAccounts.Find(x => x.BankAccountID == BankAccountID);
+                        currentBank.Balance += transaction.Amount;
+                        transaction.ToAccount = currentBank;
                     }
                     transaction.Date = DateTime.Now;
-                    current.BankAccounts.Find(x => x.BankAccountID == BankAccountID).Transactions.Add(transaction);
+                    currentBank.Transactions.Add(transaction);
                     db.Transactions.Add(transaction);
                     db.SaveChanges();
                     return RedirectToAction("Index", "Customers");
@@ -314,6 +341,15 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         }
 
+        public ActionResult RedirectedIRA(Transaction transaction)
+        {
+            return View(transaction);
+        }
+        [HttpPost]
+        public ActionResult RedirectedIRA()
+        {
+            return RedirectToAction("Index","Customers");
+        }
         // POST: Transactions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
