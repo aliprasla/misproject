@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
 using Microsoft.AspNet.Identity;
+using System.Net;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -16,6 +17,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+        public ActionResult Details()
+        {
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            if (customer == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            StockPortfolio StockPortfolio = customer.StockPortfolio;
+            if (StockPortfolio == null)
+            {
+                return HttpNotFound();
+            }
+            //View All Transactions associated with account
+            
+            return View(StockPortfolio);
         }
 
         public ActionResult Create()
@@ -40,6 +57,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.isApproved = false;
             StockPortfolio.CashBalance = 0;
             StockPortfolio.Balance = 0;
+            StockPortfolio.Gains = 0;
+            StockPortfolio.Fees = 0;
+            StockPortfolio.Bonuses = 0;
 
             if(ModelState.IsValid)
             {

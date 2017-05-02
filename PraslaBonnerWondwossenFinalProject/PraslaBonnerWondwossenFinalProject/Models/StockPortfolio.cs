@@ -14,7 +14,12 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public bool isBalanced { get; set;}
 
-        public Int32 CashBalance { get; set; }
+        public Decimal CashBalance { get; set; }
+
+        public Decimal Gains { get; set; }
+
+        public Decimal Fees { get; set; }
+        public Decimal Bonuses { get; set; }
 
         public Decimal Balance { get; set; }
 
