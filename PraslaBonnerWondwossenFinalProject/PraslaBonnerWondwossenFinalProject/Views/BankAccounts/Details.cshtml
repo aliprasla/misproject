@@ -42,6 +42,7 @@
             @Html.DisplayFor(model => model.Balance)
         </dd>
 </dl>
+    <h5>Transactions:</h5>
     <!-- Show Similar transactions-->
     <table class="table">
         <tr>
@@ -65,8 +66,6 @@
             </th>
 
         </tr>
-        <h2> Transactions: </h2>
-
         @foreach (var item in Model.Transactions)
         {
             <tr>

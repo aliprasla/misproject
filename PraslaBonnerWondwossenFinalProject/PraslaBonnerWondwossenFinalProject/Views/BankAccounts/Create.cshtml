@@ -6,22 +6,30 @@
 
 <script>
     function over5000() {
+        var e = document.getElementById("type");
+        var text = e.options[e.selectedIndex].text;
+        if ('@ViewBag.Age' > 70) {
+            alert("A contribution to an IRA account cannot be made as you are above the age requirements")
+        }
         if (document.getElementById("depo").value > 5000) {
-            alert("A Manager Must approve an intitial deposit over $5000. Check your dispute status for updated information about this deposit transaction.");
+            if (text == "IRA") {
+                alert("You may only contribute $5000 per year to an IRA account.");
+            }
+            else {
+                alert("A Manager Must approve an intitial deposit over $5000. Check your dispute status for updated information about this deposit transaction.");
+                $("#form").submit();
+            }
+            
         }
     }
 </script>
 
-<h2>Create</h2>
 
-@using (Html.BeginForm())
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
     @Html.AntiForgeryToken()
     <div class="form-horizontal">
         <h4>Apply for a New Bank Account</h4>
-        <p>
-
-        </p>
         <p>
 
         </p>
@@ -32,23 +40,21 @@
         <div class="form-group">
             @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control" })
+                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control", id = "type" })
                 @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
             </div>
         </div>
-
-
         <div class="form-group">
             @Html.Label("Initial Deposit", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Balance, new { id = "depo"})
+                @Html.TextBoxFor(model => model.Balance, new { @class = "form-control",id = "depo"})
                 @Html.ValidationMessageFor(model => model.Balance, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input onclick="over5000()" type ="submit" value="Apply" class="btn btn-default" />
+                <input onclick="over5000()" value="Apply" class="btn btn-default" />
             </div>
         </div>
     </div>

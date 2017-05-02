@@ -47,6 +47,15 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             AppUser person = db.Users.Find(User.Identity.GetUserId());
             if (person.isActive == true)
             {
+                
+                int age = 0;
+                age = DateTime.Now.Year - person.Birthday.Year;
+                if (DateTime.Now.DayOfYear < person.Birthday.DayOfYear)
+                {
+                    age = age - 1;
+                }
+                ViewBag.Age = age;
+                ViewBag.Message = "";
                 return View();
             }
             else
@@ -63,9 +72,29 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BankAccountID,Type,Balance")] BankAccount bankAccount)
         {
-            
+                ViewBag.Message = "";
                 if (ModelState.IsValid)
                 {
+                    AppUser current = db.Users.Find(User.Identity.GetUserId());
+                    if ((int)bankAccount.Type == 2)
+                    {                    
+                        //IRA validation - if age < 70 no contributions allowed
+                        int age = 0;
+                        age = DateTime.Now.Year - current.Birthday.Year;
+                        if (DateTime.Now.DayOfYear < current.Birthday.DayOfYear) {
+                            age = age - 1;
+                        }
+                        if (age > 70)
+                        {
+                            ViewBag.Message = "A contribution to an IRA account cannot be made as you are above the age requirements";
+                            return View();
+                        //contribution limit is 5000.
+                         } else if (bankAccount.Balance > 5000) {
+                            ViewBag.Message = "The maximum contribution for a year is $5000. Please contribute a lower amount.";
+                            return View();
+                         }
+                    }
+                    
                     var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
                     bankAccount.AccountNumber = item.AccountNumber + 1;
                     //default names
@@ -106,7 +135,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     {
                         transactionDescrip = "Initial Deposit of $" + Convert.ToString(originalDepo) + "";
                     }
-                    AppUser current = db.Users.Find(User.Identity.GetUserId());
                     bankAccount.Customer = current;
                     current.BankAccounts.Add(bankAccount);
                     
@@ -121,6 +149,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         Dispute = now,
                         ToAccount = bankAccount
                     };
+                    bankAccount.Transactions =  new List <Transaction>();
                     bankAccount.Transactions.Add(deposit);
                     db.BankAccounts.Add(bankAccount);
                     db.Transactions.Add(deposit);
@@ -156,16 +185,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "BankAccountID,AccountNumber,Type,Name,Balance")] BankAccount bankAccount)
+        public ActionResult Edit([Bind(Include = "BankAccountID,Name")] BankAccount bankAccount)
         {
             AppUser person = db.Users.Find(User.Identity.GetUserId());
             if (person.isActive == true)
             {
                 if (ModelState.IsValid)
                 {
-                    db.Entry(bankAccount).State = EntityState.Modified;
+                    BankAccount current = db.BankAccounts.Find(bankAccount.BankAccountID);
+                    bankAccount.AccountNumber = current.AccountNumber;
+                    bankAccount.Balance = current.Balance;
+                    bankAccount.Customer = current.Customer;
+                    bankAccount.Transactions = current.Transactions;
+                    db.BankAccounts.Remove(current);
+                    db.BankAccounts.Add(bankAccount);
                     db.SaveChanges();
-                    return RedirectToAction("Index");
+                    return RedirectToAction("Index","Customers");
                 }
                 return View(bankAccount);
             }

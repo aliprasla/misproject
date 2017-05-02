@@ -416,6 +416,14 @@
     <Compile Include="Migrations\201705011842527_removedPlaceholder.Designer.cs">
       <DependentUpon>201705011842527_removedPlaceholder.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705012132189_someupdate.cs" />
+    <Compile Include="Migrations\201705012132189_someupdate.Designer.cs">
+      <DependentUpon>201705012132189_someupdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705020210378_somechange.cs" />
+    <Compile Include="Migrations\201705020210378_somechange.Designer.cs">
+      <DependentUpon>201705020210378_somechange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -492,6 +500,7 @@
     <Content Include="Views\Managers\EditEmployee.cshtml" />
     <Content Include="Views\Managers\Index.cshtml" />
     <Content Include="Views\Account\InactiveAccountError.cshtml" />
+    <Content Include="Views\Transactions\Deposit.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -575,6 +584,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705011842527_removedPlaceholder.resx">
       <DependentUpon>201705011842527_removedPlaceholder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705012132189_someupdate.resx">
+      <DependentUpon>201705012132189_someupdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705020210378_somechange.resx">
+      <DependentUpon>201705020210378_somechange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
