@@ -3,49 +3,51 @@
 @{
     ViewBag.Title = "IRA";
 }
+<style>
+    div.something {
+    padding-top: 50px;
+    }
 
 
+</style>
+<script>
+    function clicked() {
+        window.location.href = '@Url.Action("Back","Transactions")';
+    }
+</script>
 
-@using (Html.BeginForm())
-{
-    @Html.Label("Because this transactions exceeded the allowed contribution amount, it has automatically been adjusted with the following details",new { @class = "form-danger"})
-    <d1 class="d1-horizontal">         
-    <dt>
-        @Html.DisplayNameFor(model => model.Date)
-    </dt>            
-    <dd>
-        @Html.DisplayFor(model => model.Date)
-    </dd>
-    <dt>
-        @Html.DisplayNameFor(model => model.Type)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Type)
-    </dd>
-    <dt>
-        @Html.DisplayNameFor(model => model.Amount)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Amount)
-    </dd>
-    <dt>
-        @Html.DisplayNameFor(model => model.Description)
-    </dt>
-    <dd>
-        @Html.DisplayFor(model => model.Description)
-    </dd>  
-     <dt>
-        @Html.DisplayNameFor(model => model.ToAccount)
-     </dt>
-     <dd>
-        @Html.DisplayFor(model => model.ToAccount.NameNo)
-     </dd>
-     <dt>
-        @Html.DisplayNameFor(model => model.ToAccount)
-     </dt>
-     <dd>
-        @Html.DisplayFor(model => model.ToAccount.NameNo)
-     </dd>
+    @using (Html.BeginForm())
+    {
+    <d1 class="d1-horizontal">
+        <div class="something">
+        @Html.Label("Because this transactions exceeded the allowed contribution amount, it has automatically been adjusted with the following details",new { @class = "form-danger"})
+        </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date, new{id = "Date"})
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type, new {id = "Type"})
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Amount, new {id = "Amount"})
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description, new {id = "Description"})
+        </dd>
+
     </d1>
-    <input type="submit" value="Save" class="btn btn-default" />
-}
+    <input type="submit" value="Save" class="btn btn-default"/>
+    <input type="button" value="Back" class="btn btn-default" onclick="clicked()" />
+    }

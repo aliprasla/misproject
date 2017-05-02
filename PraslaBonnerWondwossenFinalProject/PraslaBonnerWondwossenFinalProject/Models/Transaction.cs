@@ -28,7 +28,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
     {
 
         //primary key
-
+        [Key]
         public int TransactionID { get; set; }
 
         [Required(ErrorMessage = "Date is Required")]
