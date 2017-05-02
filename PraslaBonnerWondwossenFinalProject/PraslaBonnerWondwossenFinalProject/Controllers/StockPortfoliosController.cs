@@ -40,6 +40,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.isApproved = false;
             StockPortfolio.CashBalance = 0;
             StockPortfolio.Balance = 0;
+            //StockPortfolio.BankAccountID = StockPortfolioID
 
             if(ModelState.IsValid)
             {
