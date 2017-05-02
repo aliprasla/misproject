@@ -21,6 +21,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     public class StockController : Controller
 
     {
+        private AppDbContext db = new AppDbContext();
 
         // GET: Home
 
@@ -110,6 +111,31 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             return View(Quotes);
 
+        }
+
+        //Jessica --what to use instead of db?
+
+        // GET: stocks/Create
+        public ActionResult Purchase()
+        {
+            return View();
+        }
+
+        // POST: stocks/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Purchase([Bind(Include = "StockID,Amount")] Stock stock)
+        {
+            if (ModelState.IsValid)
+            {
+                //db.Stocks.Add(stock);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+
+            return View(stock);
         }
 
     }
