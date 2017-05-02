@@ -76,6 +76,14 @@ namespace PraslaBonnerWondwossenFinalProject.Models
             }
             return true;
         }
+        public int Age { get {
+                int outter = 0;
+                outter = DateTime.Now.Year - Birthday.Year;
+                if (DateTime.Now.DayOfYear<Birthday.DayOfYear)
+                {
+                    outter = outter - 1;
+                }
+                return outter;} }
         //This method allows you to create a new user
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<AppUser> manager)

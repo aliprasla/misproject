@@ -1,0 +1,70 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.StockPortfolio
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Cash Value</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        
+       
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gains)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gains)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fees)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bonuses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bonuses)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CashBalance)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CashBalance)
+        </dd>
+
+    </dl>
+
+    <h4>Stock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+
+        <dt>
+            Total Value
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Balance)
+        </dd>
+
+    </dl>
+
+
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BankAccountID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

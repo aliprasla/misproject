@@ -6,9 +6,16 @@
 
 <script>
     function validate() {
-        $("#form").submit();
-    }
+        //check to see if IRA account
+        var e = document.getElementById("AccountName");
+        var text = e.options[e.selectedIndex].text;
+        if ('@ViewBag.IRANames'.includes(text)) {
+            alert("Worked")
+        }
 
+        //$("#form").submit();
+    }
+    
 </script>
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
@@ -21,7 +28,7 @@
         <div class="form-group">
             @Html.Label("From Account ", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("BankAccountID", (SelectList)ViewBag.AccountList, new { @class = "form-control" })
+                @Html.DropDownList("BankAccountID", (SelectList)ViewBag.AccountList, new { @class = "form-control" , id = "AccountName"})
             </div>
         </div>
         <div class="form-group">
