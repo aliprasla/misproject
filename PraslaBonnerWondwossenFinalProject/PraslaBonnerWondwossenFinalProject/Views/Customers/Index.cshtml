@@ -33,11 +33,11 @@
         @foreach (var item in Model.BankAccounts)
         {
         <tr>
-                <td>@Html.DisplayFor(modelItem => item.AccountNumber)</td>
+                <td>@Html.DisplayFor(modelItem => item.lastFour)</td>
                 <td>@Html.DisplayFor(modelItem => item.Name)</td>
                 <td>@Html.DisplayFor(modelItem => item.Type)</td>
                 <td>@Html.DisplayFor(modelItem => item.Balance)</td>
-                <td>@Html.ActionLink("Details","Details","BankAccounts", new { id = item.BankAccountID },null) @Html.ActionLink("Edit", "Edit","BankAccounts", new { id = item.BankAccountID },null)</td>
+                <td>@Html.ActionLink("Details","Details","BankAccounts", new { id = item.BankAccountID },null) @Html.ActionLink("Edit Name", "Edit","BankAccounts", new { id = item.BankAccountID },null)</td>
         </tr>
         }
     </table>
