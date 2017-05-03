@@ -55,12 +55,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.Name = "Longorn Stock";
             StockPortfolio.Balance = 0;
             StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
+            /*
             StockPortfolio.isBalanced = false;
             StockPortfolio.isApproved = false;
             StockPortfolio.CashBalance = 0;
             StockPortfolio.Gains = 0;
             StockPortfolio.Fees = 0;
             StockPortfolio.Bonuses = 0;
+            */
             db.Users.Find(User.Identity.GetUserId()).BankAccounts.Add(StockPortfolio);
             db.SaveChanges();
 
@@ -69,6 +71,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             if (ModelState.IsValid)
             {
+                /*
                 var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
                 StockPortfolio.AccountNumber = item.AccountNumber + 1;
 
@@ -85,7 +88,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 current.StockPortfolio = (StockPortfolio);
                 db.StockPortfolios.Add(StockPortfolio);
                 db.SaveChanges();
-
+                */
                 return RedirectToAction("Index","Customers");
 
             }
