@@ -60,7 +60,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 {
                 StockPortfolio.Type = AccountTypes.Stock;
                 StockPortfolio.Name = "Longorn Stock";
-                StockPortfolio.Balance = 0;
+                StockPortfolio.CashBalance = 0;
                 StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
                 StockPortfolio.isBalanced = false;
                 StockPortfolio.isApproved = false;

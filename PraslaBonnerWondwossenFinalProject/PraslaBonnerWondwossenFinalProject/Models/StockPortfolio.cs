@@ -21,11 +21,11 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Decimal Fees { get; set; }
         public Decimal Bonuses { get; set; }
 
-        public Decimal Balance { get; set; }
+        public Decimal CashBalance { get; set; }
 
         public virtual List<Stock> stocks { get; set; }
 
-        public Decimal CashBalance
+        public Decimal Balance
         {
             get
             {
