@@ -13,6 +13,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
 
+        public ActionResult Error()
+        {
+            return View();
+        }
         // GET: StockPortfolios
         public ActionResult Index()
         {
@@ -30,7 +34,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 return HttpNotFound();
             }
-            //View All Transactions associated with account
+            
 
             return View(StockPortfolio);
         }
@@ -38,7 +42,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         public ActionResult Create()
         {
             AppUser person = db.Users.Find(User.Identity.GetUserId());
-            if (person.isActive == true || person.isActive == false || person.isActive == null)
+            if (person.isActive == true)
             {
                 return View();
             }
@@ -49,8 +53,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create([Bind(Include = "BankAccountID")]BankAccount StockPortfolio)
+        public ActionResult Create([Bind(Include = "BankAccountID")]StockPortfolio StockPortfolio)
         {
+<<<<<<< HEAD
             StockPortfolio.Type = AccountTypes.Stock;
             StockPortfolio.Name = "Longorn Stock";
             StockPortfolio.Balance = 0;
@@ -65,24 +70,38 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             */
             db.Users.Find(User.Identity.GetUserId()).BankAccounts.Add(StockPortfolio);
             db.SaveChanges();
+=======
+            AppUser user = db.Users.Find(User.Identity.GetUserId());
+            if (user.StockPortfolio == null) 
+                {
+                StockPortfolio.Type = AccountTypes.Stock;
+                StockPortfolio.Name = "Longorn Stock";
+                StockPortfolio.CashBalance = 0;
+                StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
+                StockPortfolio.isBalanced = false;
+                StockPortfolio.isApproved = false;
+                StockPortfolio.Gains = 0;
+                StockPortfolio.Fees = 0;
+                StockPortfolio.Bonuses = 0;
+                //StockPortfolio.AccountNumber = Convert.ToInt32((10000000000 + StockPortfolio.BankAccountID));
+                db.Users.Find(User.Identity.GetUserId()).BankAccounts.Add(StockPortfolio);
+                db.Users.Find(User.Identity.GetUserId()).StockPortfolio = StockPortfolio;
+>>>>>>> 32ff7531dd0ca2904ae2ea5d127e8ec56164c429
 
-            
-            
+                db.SaveChanges();
 
+<<<<<<< HEAD
             if (ModelState.IsValid)
             {
                 /*
                 var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
                 StockPortfolio.AccountNumber = item.AccountNumber + 1;
+=======
+>>>>>>> 32ff7531dd0ca2904ae2ea5d127e8ec56164c429
 
 
-                //create a dispute for manager approval
-                Dispute now = new Dispute();
-                now.Status = Status.WaitingOnManager;
-                now.CustomerDescription = "Customer " + User.Identity.Name + "has applied for a stock portfolio. Please approve or deny this deposit.";
-                now.DisputeAmount = 0;
-                db.Disputes.Add(now);
 
+<<<<<<< HEAD
                 AppUser current = db.Users.Find(User.Identity.GetUserId());
                 StockPortfolio.Customer = current;
                 current.StockPortfolio = (StockPortfolio);
@@ -90,9 +109,35 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 db.SaveChanges();
                 */
                 return RedirectToAction("Index","Customers");
+=======
+                if (ModelState.IsValid)
+                {
+                    var item = db.BankAccounts.OrderByDescending(i => i.AccountNumber).FirstOrDefault();
+                    StockPortfolio.AccountNumber = item.AccountNumber + 1;
 
+>>>>>>> 32ff7531dd0ca2904ae2ea5d127e8ec56164c429
+
+                    //TODO:create a dispute for manager approval
+                    //Dispute now = new Dispute();
+                    //now.Status = Status.WaitingOnManager;
+                    //now.CustomerDescription = "Customer " + User.Identity.Name + "has applied for a stock portfolio. Please approve or deny this deposit.";
+                    //now.DisputeAmount = 0;
+                    //db.Disputes.Add(now);
+
+
+
+
+                    db.SaveChanges();
+
+
+                    return RedirectToAction("Index", "Customers");
+
+                }
             }
-
+            else
+            {
+                return RedirectToAction("Error");
+            }
 
 
             return View();
