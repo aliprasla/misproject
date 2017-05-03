@@ -12,9 +12,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public bool isApproved { get; set; }
 
-        public bool isBalanced { get; set;}
+        public bool isBalanced { get; set; }
 
-        public Decimal CashBalance { get; set; }
+        //public Decimal CashBalance { get; set; }
 
         public Decimal Gains { get; set; }
 
@@ -25,5 +25,20 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public virtual List<Stock> stocks { get; set; }
 
+        public Decimal CashBalance
+        {
+            get
+            {
+                Decimal stockAmount;
+                stockAmount = 0;
+                foreach (Stock stock in stocks) { stockAmount += Convert.ToDecimal((stock.StockQuote.PreviousClose) * (stock.Amount)); }
+
+                stockAmount += Gains + Fees + Bonuses + Balance;
+
+                return stockAmount;
+
+            }
+
+        }
     }
 }

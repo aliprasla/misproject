@@ -64,7 +64,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
                 StockPortfolio.isBalanced = false;
                 StockPortfolio.isApproved = false;
-                StockPortfolio.CashBalance = 0;
                 StockPortfolio.Gains = 0;
                 StockPortfolio.Fees = 0;
                 StockPortfolio.Bonuses = 0;

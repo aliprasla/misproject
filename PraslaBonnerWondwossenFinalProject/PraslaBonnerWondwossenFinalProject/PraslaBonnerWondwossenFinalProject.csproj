@@ -477,6 +477,10 @@
     <Compile Include="Migrations\201705022125029_idk1.Designer.cs">
       <DependentUpon>201705022125029_idk1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705030220090_ChangeCashBalancceStockPortfoliioa.cs" />
+    <Compile Include="Migrations\201705030220090_ChangeCashBalancceStockPortfoliioa.Designer.cs">
+      <DependentUpon>201705030220090_ChangeCashBalancceStockPortfoliioa.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -685,6 +689,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705022125029_idk1.resx">
       <DependentUpon>201705022125029_idk1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705030220090_ChangeCashBalancceStockPortfoliioa.resx">
+      <DependentUpon>201705030220090_ChangeCashBalancceStockPortfoliioa.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
