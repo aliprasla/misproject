@@ -481,9 +481,9 @@
     <Compile Include="Migrations\201705040027031_nullableCashBalance.Designer.cs">
       <DependentUpon>201705040027031_nullableCashBalance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705040931415_something5.4.cs" />
-    <Compile Include="Migrations\201705040931415_something5.4.Designer.cs">
-      <DependentUpon>201705040931415_something5.4.cs</DependentUpon>
+    <Compile Include="Migrations\201705040922070_add_stock.cs" />
+    <Compile Include="Migrations\201705040922070_add_stock.Designer.cs">
+      <DependentUpon>201705040922070_add_stock.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -494,6 +494,7 @@
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\Dispute.cs" />
     <Compile Include="Models\Payee.cs" />
+    <Compile Include="Models\PurchasedStock.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockPortfolio.cs" />
@@ -564,11 +565,12 @@
     <Content Include="Views\Transactions\Deposit.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\StockPortfolios\Details.cshtml" />
-    <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Transactions\Withdraw.cshtml" />
     <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
     <Content Include="Views\Transactions\TransferFunds.cshtml" />
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
+    <Content Include="Views\Managers\AddStock.cshtml" />
+    <Content Include="Views\Stock\PurchaseStocks.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -701,8 +703,8 @@
     <EmbeddedResource Include="Migrations\201705040027031_nullableCashBalance.resx">
       <DependentUpon>201705040027031_nullableCashBalance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705040931415_something5.4.resx">
-      <DependentUpon>201705040931415_something5.4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705040922070_add_stock.resx">
+      <DependentUpon>201705040922070_add_stock.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

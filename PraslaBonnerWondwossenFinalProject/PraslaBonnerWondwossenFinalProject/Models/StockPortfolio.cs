@@ -25,31 +25,32 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Decimal? CashBalance { get; set; }
 
         public virtual List<Stock> stocks { get; set; }
+        public virtual List<PurchasedStock> purchasedstocks { get; set; }
 
-        public new Decimal Balance
-        {
-            get
-            {
-                if (stocks.Count == 0) { return Convert.ToDecimal((Gains + Fees + Bonuses + CashBalance)); }
+        //public new Decimal Balance
+        //{
+        //    get
+        //    {
+        //        if (stocks.Count == 0) { return Convert.ToDecimal((Gains + Fees + Bonuses + CashBalance)); }
 
-                Decimal stockAmount;
-                stockAmount = 0;
-                //foreach (Stock stock in stocks) { stockAmount += Convert.ToDecimal((stock.StockQuote.PreviousClose) * (CashBalance)); }
+        //        Decimal stockAmount;
+        //        stockAmount = 0;
+        //        foreach (Stock stock in stocks) { stockAmount += Convert.ToDecimal((stock.StockQuote.PreviousClose) * (stock.Amount)); }
 
-                if (CashBalance == null)
-                {
-                    stockAmount += Gains + Fees + Bonuses;
-                }
-                else
-                {
-                    stockAmount += Gains + Fees + Bonuses + Convert.ToDecimal(CashBalance);
-                }
+        //        if (CashBalance == null)
+        //        {
+        //            stockAmount += Gains + Fees + Bonuses;
+        //        }
+        //        else
+        //        {
+        //            stockAmount += Gains + Fees + Bonuses + Convert.ToDecimal(CashBalance);
+        //        }
                 
 
-                return stockAmount;
+        //        return stockAmount;
 
-            }
+        //    }
 
-        }
+        //}
     }
 }

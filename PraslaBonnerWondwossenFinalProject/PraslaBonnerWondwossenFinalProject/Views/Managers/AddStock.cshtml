@@ -1,5 +1,4 @@
 ﻿@model PraslaBonnerWondwossenFinalProject.Models.Stock
-
 @{
     ViewBag.Title = "AddStock";
 }
@@ -19,7 +18,7 @@
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
 
         <div class="form-group">
-            @Html.Label("Ticker to Add", new { @class = "control-label col-md-2" })
+            @Html.Label("Stock Ticker", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.TextBoxFor(model => model.Symbol, new { @class = "form-control", id = "depo" })
                 @Html.ValidationMessageFor(model => model.Symbol, "", new { @class = "text-danger" })
@@ -29,15 +28,26 @@
         <div class="form-group">
             @Html.Label("Transaction Fee", new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.TextBoxFor(model => model.Fee, new { @class = "form-control", id = "depo" })
-                @Html.ValidationMessageFor(model => model.Fee, "", new { @class = "text-danger" })
+                @Html.TextBoxFor(model => model.Fees, new { @class = "form-control", id = "depo" })
+                @Html.ValidationMessageFor(model => model.Fees, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Type, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EnumDropDownListFor(model => model.Type, htmlAttributes: new { @class = "form-control", id = "type" })
+                @Html.ValidationMessageFor(model => model.Type, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add Stock" class="btn btn-default" />
             </div>
         </div>
     </div>
 
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input value="Add Stock" class="btn btn-default" />
-        </div>
-    </div>
 }
+
+
