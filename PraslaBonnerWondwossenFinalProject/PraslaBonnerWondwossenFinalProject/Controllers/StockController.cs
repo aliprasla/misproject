@@ -129,55 +129,51 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.AllStocks = GetAllStocks();
             return View();
         }
 
-        // POST: stocks/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        //POST: stocks/Create
+        //To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Purchase([Bind(Include = "Id,Amount")] Stock stock, int Id)
+        public ActionResult Purchase([Bind(Include = "Id,Shares")] PurchasedStock stock, Int32 StockID)
         {
-            StockQuote quoteToAdd = db.StockQuotes.Find(Id);
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
-            
-            //customer.StockPortfolio.stocks.Add(stock);
-            stock.StockPortfolio = customer.StockPortfolio;
-            stock.StockQuote = quoteToAdd;
+            Stock FoundStock = db.Stocks.Find(StockID);
 
+            // iterate through purchases to see it this stock already exists
+            bool exists = false;
 
-
-            if (ModelState.IsValid)
+            foreach (PurchasedStock item in customer.StockPortfolio.purchasedstocks)
             {
-                db.Stocks.Add(stock);
-                db.SaveChanges();
-                customer.StockPortfolio.stocks.Add(stock);
-                quoteToAdd.Stocks.Add(stock);
 
+                if (item.stock.StockID == StockID)
+                {
+                    //add purchased shares to existing purchased share number
+                    item.Shares = item.Shares + stock.Shares;
+                    //add to total fees
+                    item.TotalFees = item.TotalFees + FoundStock.Fees;
+                    //if successful, redirect here, must put adequate spot
+                    return RedirectToAction("Index");
 
-                return RedirectToAction("Index");
+                }
             }
-
-            return View(stock);
         }
 
         public SelectList GetAllStocks()
         {
-            var query = from q in db.StockQuotes
+            var query = from q in db.Stocks
                         orderby q.Name
                         select q;
 
-            List<StockQuote> allQuotes = query.ToList();
+            List<Stock> allStocks = query.ToList();
 
-            foreach (StockQuote x in allQuotes)
-            {
 
-            }
+            SelectList allStockslist = new SelectList(allStocks, "StockID", "display");
 
-            SelectList allQuoteslist = new SelectList(allQuotes, "StockQuoteID", "Name","Symbol");
-
-            return allQuoteslist;
+            return allStockslist;
         }
 
     }

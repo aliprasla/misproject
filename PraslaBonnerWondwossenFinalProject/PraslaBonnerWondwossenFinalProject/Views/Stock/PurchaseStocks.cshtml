@@ -1,0 +1,35 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.PurchasedStock
+@{
+    ViewBag.Title = "PurchaseStocks";
+}
+
+<h2>PurchaseStocks</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Event</h4>
+        <hr />
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.stock, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.ListBox("StockID", (SelectList)ViewBag.AllStocks, new { @class = "form-control" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.Label("Number of Shares", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBoxFor(model => model.Shares, new { @class = "form-control", id = "depo" })
+            @Html.ValidationMessageFor(model => model.Shares, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+
+}
+
