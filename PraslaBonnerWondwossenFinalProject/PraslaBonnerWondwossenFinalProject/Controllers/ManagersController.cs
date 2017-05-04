@@ -26,7 +26,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         [HttpPost]
         //add dropdown for type and let manager pick the type
-        public ActionResult AddStock([Bind(Include = "StockID,Symbol,Fee,Type")] Stock stock)
+        public ActionResult AddStock([Bind(Include = "StockID,Symbol,Fees,Type")] Stock stock)
         {
             if (ModelState.IsValid)
             {

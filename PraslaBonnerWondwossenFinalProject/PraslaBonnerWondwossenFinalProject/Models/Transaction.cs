@@ -32,7 +32,6 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public int TransactionID { get; set; }
 
         [Required(ErrorMessage = "Date is Required")]
-
         public DateTime Date { get; set; }
 
         [Required(ErrorMessage = "Select a valid Transaction Type")]

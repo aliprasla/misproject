@@ -30,7 +30,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public Double LastPrice { get { return GetQuote.GetStock(Symbol).PreviousClose; } }
 
-        public string display { get { return "Stock: "+Name+" Ticker: "+Symbol+" Stock Type: "+Type+" Current Price "+LastPrice+" Fees: "+Fees; } }
+        public string display { get { return "Stock: "+Name+"   Ticker: "+Symbol+"  Stock Type: "+Type+"    Current Price "+LastPrice+"     Fees: "+Fees; } }
 
 
         public virtual List<PurchasedStock> PurchasedStocks { get; set; }

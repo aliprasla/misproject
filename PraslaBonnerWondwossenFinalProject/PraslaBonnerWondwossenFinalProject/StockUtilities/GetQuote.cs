@@ -107,7 +107,7 @@ namespace PraslaBonnerWondwossenFinalProject.StockUtilities
 
             }
 
-            catch (Exception e)
+            catch
 
             {
 

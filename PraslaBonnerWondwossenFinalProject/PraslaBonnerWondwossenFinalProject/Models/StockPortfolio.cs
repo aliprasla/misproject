@@ -15,14 +15,29 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public bool isBalanced { get; set; }
 
-
-        public Decimal Gains { get; set; }
+        //calculate gains
+        public Decimal Gains { get {
+                Decimal holder = 0;
+                if (purchasedstocks.Count()==0)
+                {
+                    holder = 0;
+                    return holder;
+                }
+                else
+                {
+                    foreach(PurchasedStock item in purchasedstocks)
+                    {
+                        holder = holder + (Convert.ToDecimal(item.stock.LastPrice) * item.Shares);
+                        holder = holder - (Convert.ToDecimal(item.stock.Price) * item.Shares);
+                    }
+                }
+                return holder; 
+            } }
 
         public Decimal Fees { get; set; }
         public Decimal Bonuses { get; set; }
-
-
         public Decimal? CashBalance { get; set; }
+        public string info { get { return Name + "     " + "Cash: " + Balance+"      Total Balance:"+Balance; } }
 
         public virtual List<Stock> stocks { get; set; }
         public virtual List<PurchasedStock> purchasedstocks { get; set; }
@@ -31,7 +46,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         {
             get
             {
-                if (purchasedstocks.Count == 0) { return Convert.ToDecimal((Gains + Fees + Bonuses + CashBalance)); }
+                if (purchasedstocks.Count() == 0||purchasedstocks == null) { return Convert.ToDecimal((Gains - Fees + Bonuses + CashBalance)); }
 
                 Decimal stockAmount;
                 stockAmount = 0;

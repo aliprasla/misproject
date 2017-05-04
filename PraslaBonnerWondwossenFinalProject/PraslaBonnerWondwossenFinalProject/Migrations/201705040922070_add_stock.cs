@@ -7,28 +7,45 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
     {
         public override void Up()
         {
-            DropIndex("dbo.PurchasedStocks", new[] { "Stock_StockID" });
-            DropIndex("dbo.PurchasedStocks", new[] { "StockPortfolio_BankAccountID" });
-            AddColumn("dbo.PurchasedStocks", "Shares", c => c.Int(nullable: false));
-            AddColumn("dbo.PurchasedStocks", "InitialPrice", c => c.Decimal(nullable: false, precision: 18, scale: 2));
+            CreateTable(
+                "dbo.PurchasedStocks",
+                c => new
+                    {
+                        PurchasedStockId = c.Int(nullable: false, identity: true),
+                        Shares = c.Int(nullable: false),
+                        InitialPrice = c.Double(nullable: false),
+                        TotalFees = c.Decimal(nullable: false, precision: 18, scale: 2),
+                        Date = c.DateTime(nullable: false),
+                        stock_StockID = c.Int(),
+                        stockportfolio_BankAccountID = c.Int(),
+                    })
+                .PrimaryKey(t => t.PurchasedStockId)
+                .ForeignKey("dbo.Stocks", t => t.stock_StockID)
+                .ForeignKey("dbo.BankAccounts", t => t.stockportfolio_BankAccountID)
+                .Index(t => t.stock_StockID)
+                .Index(t => t.stockportfolio_BankAccountID);
+            
+            AddColumn("dbo.Stocks", "Fees", c => c.Int(nullable: false));
+            AddColumn("dbo.Payees", "AppUser_Id", c => c.String(maxLength: 128));
             AlterColumn("dbo.Stocks", "Symbol", c => c.String(nullable: false));
-            CreateIndex("dbo.PurchasedStocks", "stock_StockID");
-            CreateIndex("dbo.PurchasedStocks", "stockportfolio_BankAccountID");
-            DropColumn("dbo.PurchasedStocks", "Amount");
-            DropColumn("dbo.PurchasedStocks", "PurchasedPrice");
+            CreateIndex("dbo.Payees", "AppUser_Id");
+            AddForeignKey("dbo.Payees", "AppUser_Id", "dbo.AspNetUsers", "Id");
+            DropColumn("dbo.Stocks", "Fee");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.PurchasedStocks", "PurchasedPrice", c => c.Decimal(nullable: false, precision: 18, scale: 2));
-            AddColumn("dbo.PurchasedStocks", "Amount", c => c.Int(nullable: false));
+            AddColumn("dbo.Stocks", "Fee", c => c.Int(nullable: false));
+            DropForeignKey("dbo.PurchasedStocks", "stockportfolio_BankAccountID", "dbo.BankAccounts");
+            DropForeignKey("dbo.PurchasedStocks", "stock_StockID", "dbo.Stocks");
+            DropForeignKey("dbo.Payees", "AppUser_Id", "dbo.AspNetUsers");
             DropIndex("dbo.PurchasedStocks", new[] { "stockportfolio_BankAccountID" });
             DropIndex("dbo.PurchasedStocks", new[] { "stock_StockID" });
+            DropIndex("dbo.Payees", new[] { "AppUser_Id" });
             AlterColumn("dbo.Stocks", "Symbol", c => c.String());
-            DropColumn("dbo.PurchasedStocks", "InitialPrice");
-            DropColumn("dbo.PurchasedStocks", "Shares");
-            CreateIndex("dbo.PurchasedStocks", "StockPortfolio_BankAccountID");
-            CreateIndex("dbo.PurchasedStocks", "Stock_StockID");
+            DropColumn("dbo.Payees", "AppUser_Id");
+            DropColumn("dbo.Stocks", "Fees");
+            DropTable("dbo.PurchasedStocks");
         }
     }
 }

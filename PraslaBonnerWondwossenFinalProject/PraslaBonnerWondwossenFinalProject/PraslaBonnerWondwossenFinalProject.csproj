@@ -296,6 +296,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -310,7 +311,6 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
-    <Compile Include="Controllers\PayeesController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
@@ -482,9 +482,13 @@
     <Compile Include="Migrations\201705040027031_nullableCashBalance.Designer.cs">
       <DependentUpon>201705040027031_nullableCashBalance.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705040931415_something5.4.cs" />
-    <Compile Include="Migrations\201705040931415_something5.4.Designer.cs">
-      <DependentUpon>201705040931415_something5.4.cs</DependentUpon>
+    <Compile Include="Migrations\201705040922070_add_stock.cs" />
+    <Compile Include="Migrations\201705040922070_add_stock.Designer.cs">
+      <DependentUpon>201705040922070_add_stock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705042314058_purchased_stocks.cs" />
+    <Compile Include="Migrations\201705042314058_purchased_stocks.Designer.cs">
+      <DependentUpon>201705042314058_purchased_stocks.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -564,20 +568,13 @@
     <Content Include="Views\Managers\Index.cshtml" />
     <Content Include="Views\Account\InactiveAccountError.cshtml" />
     <Content Include="Views\Transactions\Deposit.cshtml" />
-    <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\StockPortfolios\Details.cshtml" />
-    <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Transactions\Withdraw.cshtml" />
     <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
     <Content Include="Views\Transactions\TransferFunds.cshtml" />
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
-    <Content Include="Views\Payees\Create.cshtml" />
-    <Content Include="Views\Payees\Delete.cshtml" />
-    <Content Include="Views\Payees\Details.cshtml" />
-    <Content Include="Views\Payees\Edit.cshtml" />
-    <Content Include="Views\Payees\Index.cshtml" />
-    <Content Include="Views\Payees\AddPayee.cshtml" />
-    <Content Include="Views\Payees\Payment.cshtml" />
+    <Content Include="Views\Managers\AddStock.cshtml" />
+    <Content Include="Views\Stock\Purchase.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -710,8 +707,11 @@
     <EmbeddedResource Include="Migrations\201705040027031_nullableCashBalance.resx">
       <DependentUpon>201705040027031_nullableCashBalance.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705040931415_something5.4.resx">
-      <DependentUpon>201705040931415_something5.4.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705040922070_add_stock.resx">
+      <DependentUpon>201705040922070_add_stock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705042314058_purchased_stocks.resx">
+      <DependentUpon>201705042314058_purchased_stocks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

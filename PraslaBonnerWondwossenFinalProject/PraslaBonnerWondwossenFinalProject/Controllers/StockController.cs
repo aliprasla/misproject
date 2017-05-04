@@ -118,18 +118,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         //Jessica --what to use instead of db?
 
         // GET: stocks/Create
-        public ActionResult Purchase(int? Id)
+        public ActionResult Purchase()
         {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            StockQuote stockquote = db.StockQuotes.Find(Id);
-            if (stockquote == null)
-            {
-                return HttpNotFound();
-            }
             ViewBag.AllStocks = GetAllStocks();
+            ViewBag.AllAccounts = GetAllAccounts();
             return View();
         }
 
@@ -138,13 +130,22 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Purchase([Bind(Include = "Id,Shares")] PurchasedStock stock, Int32 StockID)
+        public ActionResult Purchase([Bind(Include = "Id,Shares")] PurchasedStock stock, Int32 StockID, Int32 AccountID)
         {
+            //get customer
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            //get purchased stock
             Stock FoundStock = db.Stocks.Find(StockID);
+            //get bank acount to get money from
+            BankAccount Account = db.BankAccounts.Find(AccountID);
 
+            //check to see if customer selected a stock portfolio
+            if (Account.Type==AccountTypes.Stock)
+            {
+                //if so, see if balance is adequate
+                return View();
+            }
             // iterate through purchases to see it this stock already exist
-
             foreach (PurchasedStock item in customer.StockPortfolio.purchasedstocks)
             {
                 if (item.stock.StockID == StockID)
@@ -167,15 +168,20 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             //create new transaction
             Transaction Transaction = new Transaction();
-
-
+            Transaction.Date = stock.Date;
+            Transaction.Type = TransactionTypes.Fee;
+            Transaction.Amount = FoundStock.Fees;
+            Transaction.Description = "Fee: "+FoundStock.Name;
+            db.Transactions.Add(Transaction);
+            db.SaveChanges();
+            return View();
 
         }
 
         public SelectList GetAllStocks()
         {
             var query = from q in db.Stocks
-                        orderby q.Name
+                        orderby q.Symbol
                         select q;
 
             List<Stock> allStocks = query.ToList();
@@ -186,6 +192,15 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return allStockslist;
         }
 
+        public SelectList GetAllAccounts()
+        {
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            List<BankAccount> allAccounts = customer.BankAccounts;
+
+            SelectList allAccountsList = new SelectList(allAccounts, "BankAccountID", "display");
+
+            return allAccountsList;
+        }
     }
 
 }

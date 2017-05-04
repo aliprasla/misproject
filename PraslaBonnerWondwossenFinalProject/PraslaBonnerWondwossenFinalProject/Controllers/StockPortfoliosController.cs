@@ -62,8 +62,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             
             StockPortfolio.isBalanced = false;
             StockPortfolio.isApproved = false;
-            //StockPortfolio.CashBalance = 0;
-            StockPortfolio.Gains = 0;
+            //StockPortfolio.CashBalance = 0;;
             StockPortfolio.Fees = 0;
             StockPortfolio.Bonuses = 0;
             
@@ -79,7 +78,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
                 StockPortfolio.isBalanced = false;
                 StockPortfolio.isApproved = false;
-                StockPortfolio.Gains = 0;
                 StockPortfolio.Fees = 0;
                 StockPortfolio.Bonuses = 0;
                 //StockPortfolio.AccountNumber = Convert.ToInt32((10000000000 + StockPortfolio.BankAccountID));

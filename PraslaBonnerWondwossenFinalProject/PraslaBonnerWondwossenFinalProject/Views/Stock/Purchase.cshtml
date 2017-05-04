@@ -17,10 +17,9 @@
         <div class="form-group">
             @Html.LabelFor(model => model.stock, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.ListBox("StockID", (SelectList)ViewBag.AllStocks, new { @class = "form-control" })
+                @Html.DropDownList("StockID", (SelectList)ViewBag.AllStocks, new { @class = "form-control" })
             </div>
         </div>
-    </div>
 
     <div class="form-group">
         @Html.Label("Number of Shares", new { @class = "control-label col-md-2" })
@@ -30,6 +29,20 @@
         </div>
     </div>
 
+    <div class="form-group">
+        @Html.Label("Transaction Date", new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.ListBox("AccountID", (SelectList)ViewBag.AllAccounts, new { @class = "form-control" })
+        </div>
+    </div>
+ </div>
 
 }
 

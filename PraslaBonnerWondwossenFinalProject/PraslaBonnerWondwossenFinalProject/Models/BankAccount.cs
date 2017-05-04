@@ -37,36 +37,23 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         [Display(Name = "Account Number")]
         public Int32 AccountNumber { get; set; }
 
-
-
         public static DateTime Today { get; }
 
-
-
         [Required(ErrorMessage = "You must select an Account type")]
-
         [Display(Name = "Account Type")]
-
         public AccountTypes Type { get; set; }
 
-
-
         [Display(Name = "Account Name")]
-
         public String Name { get; set; }
 
-
-
-
-
         [Required]
-
         public Decimal Balance { get; set; }
 
-
+        public string display { get { return Name + "     "+" Balance: "+Balance;} }
+                    
+         
 
         public virtual AppUser Customer { get; set; }
-
         public virtual List<Transaction> Transactions {get;set;}
 
 
@@ -78,7 +65,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
                 {
                     return "( XXXXXX" + Convert.ToString(this.AccountNumber).Substring(6, 4) + " ) " + this.Name;
                 }
-                catch (Exception e)
+                catch
                 {
                     return "";
                 }
