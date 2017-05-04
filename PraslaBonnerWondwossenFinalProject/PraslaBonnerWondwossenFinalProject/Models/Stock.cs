@@ -13,11 +13,15 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //Jessica
         public Int32 StockID { get; set; }
 
-        public Int32 Amount { get; set; }
+        public string Symbol { get; set; }
+
+
+
+
 
         public Type Type { get; set; }
 
-        public int Fees { get; set; }
+        public int Fee { get; set; }
               
         //Jessica
 
