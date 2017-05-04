@@ -168,6 +168,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             //create new transaction
             Transaction Transaction = new Transaction();
 
+            //jessica: CHANGE
+            return View();
 
 
         }

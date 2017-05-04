@@ -1,0 +1,45 @@
+﻿@model IEnumerable<PraslaBonnerWondwossenFinalProject.Models.PurchasedStock>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Shares)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.InitialPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalFees)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Shares)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.InitialPrice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalFees)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PurchasedStockId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PurchasedStockId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PurchasedStockId })
+        </td>
+    </tr>
+}
+
+</table>
