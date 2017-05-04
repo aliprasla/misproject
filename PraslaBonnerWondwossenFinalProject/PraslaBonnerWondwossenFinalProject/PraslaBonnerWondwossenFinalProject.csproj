@@ -552,6 +552,7 @@
     <Content Include="Views\Transactions\Deposit.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\StockPortfolios\Details.cshtml" />
+    <Content Include="Views\Managers\AddStock.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

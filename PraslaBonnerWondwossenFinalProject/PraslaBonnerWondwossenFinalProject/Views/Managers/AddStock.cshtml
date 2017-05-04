@@ -1,0 +1,43 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Stock
+
+@{
+    ViewBag.Title = "AddStock";
+}
+
+<h2>AddStock</h2>
+
+@using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal">
+        <h4>Apply for a New Bank Account</h4>
+        <p>
+
+        </p>
+        <!---TODO: Maybe something fancy here like "Each new customer must apply for a bank acconut-->
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            @Html.Label("Ticker to Add", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Symbol, new { @class = "form-control", id = "depo" })
+                @Html.ValidationMessageFor(model => model.Symbol, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.Label("Transaction Fee", new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(model => model.Fee, new { @class = "form-control", id = "depo" })
+                @Html.ValidationMessageFor(model => model.Fee, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input value="Add Stock" class="btn btn-default" />
+        </div>
+    </div>
+}

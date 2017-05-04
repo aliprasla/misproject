@@ -18,5 +18,19 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         {
             return View();
         }
+
+        public ActionResult AddStock()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        //add dropdown for type and let manager pick the type
+        public ActionResult AddStock([Bind(Include ="Symbol,Fee")] Stock stock)
+        {
+            stock.Type
+        
+            return View();
+        }
     }
 }
