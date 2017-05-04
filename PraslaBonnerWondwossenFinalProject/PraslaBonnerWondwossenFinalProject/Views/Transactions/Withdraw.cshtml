@@ -3,20 +3,11 @@
 @{
     ViewBag.Title = "Withdraw";
 }
-
-<script>
-    function validate() {
-        //check to see if IRA account
-        var e = document.getElementById("AccountName");
-        var text = e.options[e.selectedIndex].text;
-        if ('@ViewBag.IRANames'.includes(text)) {
-            alert("Worked")
-        }
-
-        //$("#form").submit();
+<style>
+    div.mesaage{
+        padding-left: 100px;
     }
-    
-</script>
+</style>
 @using (Html.BeginForm(null, null, FormMethod.Post, new { id = "form" }))
 {
     @Html.AntiForgeryToken()
@@ -33,11 +24,12 @@
         </div>
         <div class="form-group">
             <!---TODO: Make this error message Prettier-->
-            <div class="col-md-10">
-                @Html.Label((string)ViewBag.Message, new { @class = "text-danger" })
+            <div class="lab">
+                <div class="col-md-10" id="message">
+                    @Html.Label((string)ViewBag.Message, new { @class = "text-danger" })
+                </div>
             </div>
         </div>
-
         <div class="form-group">
             @Html.LabelFor(model => model.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
@@ -53,15 +45,19 @@
                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
             </div>
         </div>
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" onclick="validate()" value="Withdraw" class="btn btn-default" />
+  
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <div id="element">
+                        <input type="submit" value="Withdraw" class="btn btn-default" />
+                    </div>
             </div>
         </div>
     </div>
 }
-
+    <div id="dlg-flag">
+        <input type="button" />
+    </div>
 <div>
     @Html.ActionLink("Back to Transaction List", "Index")
 </div>

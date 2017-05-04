@@ -1,0 +1,57 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Transaction
+
+@{
+    ViewBag.Title = "RedirectedWithdrawal";
+}
+
+<script>
+    function clickedBack() {
+        window.location.href = '@Url.Action("Back","Transactions", new { type = "Withdrawal", id = Model.TransactionID })';
+    }
+    function subtract() {
+        window.location.href = '@Url.Action("Subtract","Transactions", new { type = "Withdrawal" , id = Model.TransactionID})';
+    }
+</script>
+<h2>Unqualified Withdrawal Confirmation</h2>
+
+<h6> As you are less than 65 years old, this is an unqualified withdrawal from your IRA account. </h6>
+<p> If you wish to continue with the transaction, select if you would like your $30 fee deducted from the 
+    transaction or added onto the withdrawal amount. 
+    </p>
+@using (Html.BeginForm())
+{
+
+    <d1 class="d1-horizontal">
+        <div class="something">
+            @Html.Label("Here are the transaction details:", new { @class = "form-danger" })
+        </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date, new { id = "Date" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type, new { id = "Type" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Amount, new { id = "Amount" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Description, new { id = "Description" })
+        </dd>
+    </d1>
+    <input type="button" value="Subtract from Original" class="btn btn-default" onclick="subtract()"/>
+    <input type="submit" value="Add on top of Original" class="btn btn-default"/>
+    <input type="button" value="Back" class="btn btn-default" onclick="clickedBack()" />
+}
+

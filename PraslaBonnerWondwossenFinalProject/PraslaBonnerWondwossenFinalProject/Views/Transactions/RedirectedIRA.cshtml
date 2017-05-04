@@ -12,7 +12,7 @@
 </style>
 <script>
     function clicked() {
-        window.location.href = '@Url.Action("Back","Transactions")';
+        window.location.href = '@Url.Action("Back","Transactions",new{type = "Deposit"})';
     }
 </script>
 
@@ -46,7 +46,6 @@
         <dd>
             @Html.DisplayFor(model => model.Description, new {id = "Description"})
         </dd>
-
     </d1>
     <input type="submit" value="Save" class="btn btn-default"/>
     <input type="button" value="Back" class="btn btn-default" onclick="clicked()" />
