@@ -1,13 +1,12 @@
 ﻿@model PraslaBonnerWondwossenFinalProject.Models.Transaction
-
+@using PraslaBonnerWondwossenFinalProject.Models
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
 
 <div>
-    <h4>Transaction</h4>
+    <h4>Transaction Details</h4>
     <hr />
     <dl class="dl-horizontal">
         @if (Model.Dispute != null)
@@ -75,7 +74,59 @@
         </dd>
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.TransactionID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<h4> Similar Transactions: </h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Amount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ToAccount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FromAccount)
+        </th>
+    </tr>
+    @foreach (Transaction item in ViewBag.SimilarTransactions)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Amount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ToAccount.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FromAccount.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.TransactionID })
+            </td>
+        </tr>
+
+    }
+    </table>
+
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.TransactionID }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
