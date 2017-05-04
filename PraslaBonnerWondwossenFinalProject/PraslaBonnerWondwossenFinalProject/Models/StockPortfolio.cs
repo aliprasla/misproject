@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace PraslaBonnerWondwossenFinalProject.Models
 {
@@ -14,18 +15,18 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public bool isBalanced { get; set; }
 
-        //public Decimal CashBalance { get; set; }
 
         public Decimal Gains { get; set; }
 
         public Decimal Fees { get; set; }
         public Decimal Bonuses { get; set; }
 
-        public Decimal CashBalance { get; set; }
+
+        public Decimal? CashBalance { get; set; }
 
         public virtual List<Stock> stocks { get; set; }
 
-        public Decimal Balance
+        public new Decimal Balance
         {
             get
             {

@@ -185,6 +185,70 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 }
                 else
                 {
+                    //IRA Validation
+                    if (currentB.Type == AccountTypes.IRA || currentD.Type == AccountTypes.IRA)
+                    {
+                        if (currentB.Type == AccountTypes.IRA)
+                        {
+                            //if age < 65, you cannot withdraw more than 3000 bucks
+                            if (current.Age < 65 && transaction.Amount > 3000)
+                            {
+                                //TODO: if time,figure out why whole viewbag not showing
+                                ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
+                                ViewBag.Message = "Unqualified transaction. Max withdrawal: $3000";
+                                return View();
+                            }
+                            else if (current.Age < 65)
+                            {
+                                transaction.FromAccount = currentB;
+                                transaction.Date = DateTime.Now;
+                                transaction.Customer = currentB.Customer;
+                                transaction.Type = TransactionTypes.Withdrawal;
+                                transaction.ToAccount = currentD;
+                                currentB.Balance -= transaction.Amount;
+                                db.Transactions.Add(transaction);
+                                db.SaveChanges();
+
+
+                                Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
+
+
+                                Transaction fee = new Transaction()
+                                {
+                                    Date = transaction.Date,
+                                    Type = TransactionTypes.Fee,
+                                    Amount = 30,
+                                    Description = "Unqualified IRA withdrawal fee",
+                                    Customer = current,
+                                    FromAccount = currentB
+                                };
+                                currentB.Transactions.Add(fee);
+                                currentD.Transactions.Add(transaction);
+                                currentB.Balance -= fee.Amount;
+                                db.Transactions.Add(fee);
+                                db.SaveChanges();
+
+
+                                return RedirectToAction("RedirectedWithdrawal", new { transactionID = trans.TransactionID });
+                            }
+                        }
+                        else {
+                            decimal maxContributionAllow = maxContributionAmount(currentD);
+                            if (transaction.Amount > maxContributionAllow)
+                            {
+                                transaction.Amount = maxContributionAllow;
+                                transaction.ToAccount = currentD;
+                                transaction.Date = DateTime.Now;
+                                currentD.Balance += transaction.Amount;
+                                db.Transactions.Add(transaction);
+                                db.SaveChanges();
+                                Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
+                                return RedirectToAction("RedirectedIRA", new { transactionID = trans.TransactionID });
+                            }
+
+                        }
+
+                    }
                     //TODO: Add Account Status Validation -> Active, Inactive -> Transfer
                     transaction.Customer = current;
                     transaction.Date = DateTime.Now;
@@ -212,14 +276,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         {
             //Pass through text list of IRA's name and NO
             AppUser current = db.Users.Find(User.Identity.GetUserId());
-            ViewBag.Age = current.Age;
-            List<string> nameList = new List<string>();
-            foreach (var item in current.BankAccounts) {
-                if (item.Type == AccountTypes.IRA) {
-                    nameList.Add(item.NameNo);
-                }
-            }
-            ViewBag.IRANames = nameList;
             ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
             ViewBag.Message = "";
             return View();
@@ -251,13 +307,44 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 {
                     //IRA Validation
                     if (currentB.Type == AccountTypes.IRA){
-                        
-                        //if age < 65, you cannot withdraw
-                        if (current.Age < 65 && transaction.Amount > 3000) {
+
+                        //if age < 65, you cannot withdraw more than 3000 bucks
+                        if (current.Age < 65 && transaction.Amount > 3000)
+                        {
+                            //TODO: if time,figure out why whole viewbag not showing
                             ViewBag.AccountList = new SelectList(current.BankAccounts, "BankAccountID", "NameNo");
-                            ViewBag.Message = "Because you are not above 65 years old, this is an unqualified transaction. You can only withdraw a maximum of $3000.";
+                            ViewBag.Message = "Unqualified transaction. Max withdrawal: $3000";
                             return View();
                         }
+                        else if (current.Age < 65){
+                            transaction.FromAccount = currentB;
+                            transaction.Date = DateTime.Now;
+                            transaction.Customer = currentB.Customer;
+                            transaction.Type = TransactionTypes.Withdrawal;
+                            currentB.Balance -= transaction.Amount;
+                            db.Transactions.Add(transaction);
+                            db.SaveChanges();
+                            Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
+
+
+                            Transaction fee = new Transaction()
+                            {
+                                Date = transaction.Date,
+                                Type = TransactionTypes.Fee,
+                                Amount = 30,
+                                Description = "Unqualified IRA withdrawal fee",
+                                Customer = current,
+                                FromAccount = currentB
+                            };
+                            currentB.Transactions.Add(fee);
+                            currentB.Balance -= fee.Amount;
+                            db.Transactions.Add(fee);
+                            db.SaveChanges();
+
+
+                            return RedirectToAction("RedirectedWithdrawal", new { transactionID = trans.TransactionID });
+                        }
+
 
                     }
                     transaction.Customer = currentB.Customer;
@@ -265,7 +352,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     transaction.Date = DateTime.Now;
                     transaction.FromAccount = currentB;
                     currentB.Balance -= transaction.Amount;
-                    transaction.FromAccount = currentB;
                     db.Transactions.Add(transaction);
                     currentB.Transactions.Add(transaction);
                     db.SaveChanges();
@@ -336,7 +422,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                             db.SaveChanges(); 
                             Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
                             return RedirectToAction("RedirectedIRA",new { transactionID = trans.TransactionID });
-                           
                         }
                     }
 
@@ -392,12 +477,75 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         {
             return RedirectToAction("Index","Customers");
         }
-        public ActionResult Back() {
-            (from y in db.Transactions orderby y.Date descending select y).FirstOrDefault().ToAccount.Balance -= (from y in db.Transactions orderby y.Date descending select y).FirstOrDefault().Amount;
-            db.Transactions.Remove((from y in db.Transactions orderby y.Date descending select y).FirstOrDefault());
+        [HttpGet]
+        public ActionResult RedirectedWithdrawal(int? transactionID)
+        {
+            if (transactionID == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Transaction transaction = db.Transactions.Find(transactionID);
+            return View(transaction);
+        }
+
+
+        [HttpPost]
+        public ActionResult RedirectedWithdrawal([Bind(Include = "TransactionID,Date,Type,Amount,Description")] Transaction transaction)
+        {
+            return RedirectToAction("Index", "Customers");
+        }
+
+        public ActionResult Subtract(String  type, int id) {
+
+            if (type == "Withdrawal") {
+                db.Transactions.Find(id).Amount -= 30;
+                db.Transactions.Find(id).FromAccount.Balance += 30;
+            }
+            db.SaveChanges();
+
+            return RedirectToAction("Index", "Customers");
+        }
+
+
+
+        public ActionResult Back(String type, int? id) {
+            //Note: The Hacks.
+            if (type == "Deposit")
+            {
+                (from y in db.Transactions orderby y.Date descending select y).FirstOrDefault().ToAccount.Balance -= (from y in db.Transactions orderby y.Date descending select y).FirstOrDefault().Amount;
+            }
+            else if (type == "Withdrawal")
+            {
+
+                //Step 1: Reset Accounts
+                db.Transactions.Find(id).FromAccount.Balance += 30;
+                db.Transactions.Find(id).FromAccount.Balance += db.Transactions.Find(id).Amount;
+
+                //Step 2: Remove Added Transactions
+                //2a. Remove Fee - 
+                Transaction from = db.Transactions.Find(id);
+                var query = db.Transactions.Where(c => c.FromAccount.BankAccountID == from.FromAccount.BankAccountID);
+                query = query.Where(c => c.Amount == 30);
+                query = query.OrderByDescending(c => c.Date);
+                db.Transactions.Remove(query.ToList().FirstOrDefault());
+
+                
+            }
+            else if (type == "Transfer")
+            {
+
+
+            }
+            else {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            
+            db.Transactions.Remove(db.Transactions.Find(id));
             db.SaveChanges();
             return RedirectToAction("Deposit");
         }
+
+
         // POST: Transactions/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
@@ -408,6 +556,20 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+        
+        
+        
+        /*
+        public ActionResult Search(string? SearchString) {
+
+
+
+        }
+        */
+
+
+
+
 
         protected override void Dispose(bool disposing)
         {

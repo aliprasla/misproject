@@ -19,7 +19,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
     // we may need to add more types here
 
-    public enum TransactionTypes { Deposit, Transfer, Withdrawal }
+    public enum TransactionTypes { Deposit, Transfer, Withdrawal, Fee }
 
     public class Transaction
 
