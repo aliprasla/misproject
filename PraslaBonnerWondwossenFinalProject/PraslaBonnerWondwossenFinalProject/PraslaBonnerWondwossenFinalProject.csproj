@@ -490,6 +490,14 @@
     <Compile Include="Migrations\201705041945582_PayeeModelchanges.Designer.cs">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705042329360_justdesserts.cs" />
+    <Compile Include="Migrations\201705042329360_justdesserts.Designer.cs">
+      <DependentUpon>201705042329360_justdesserts.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705042333367_addedPayeeBack.cs" />
+    <Compile Include="Migrations\201705042333367_addedPayeeBack.Designer.cs">
+      <DependentUpon>201705042333367_addedPayeeBack.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -719,6 +727,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705041945582_PayeeModelchanges.resx">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705042329360_justdesserts.resx">
+      <DependentUpon>201705042329360_justdesserts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705042333367_addedPayeeBack.resx">
+      <DependentUpon>201705042333367_addedPayeeBack.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
