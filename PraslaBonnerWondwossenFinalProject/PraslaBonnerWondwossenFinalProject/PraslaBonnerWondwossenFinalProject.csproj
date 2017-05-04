@@ -560,14 +560,11 @@
     <Content Include="Views\Transactions\Deposit.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\StockPortfolios\Details.cshtml" />
-<<<<<<< HEAD
     <Content Include="Views\Managers\AddStock.cshtml" />
-=======
     <Content Include="Views\Transactions\Withdraw.cshtml" />
     <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
     <Content Include="Views\Transactions\TransferFunds.cshtml" />
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
->>>>>>> 8c56ff11f2f0cb31e60b7ec574c8570624b25f42
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
