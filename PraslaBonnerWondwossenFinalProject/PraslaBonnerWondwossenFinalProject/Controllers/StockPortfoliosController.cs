@@ -59,14 +59,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.Name = "Longorn Stock";
             StockPortfolio.CashBalance = 0;
             StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
-            /*
+            
             StockPortfolio.isBalanced = false;
             StockPortfolio.isApproved = false;
-            StockPortfolio.CashBalance = 0;
+            //StockPortfolio.CashBalance = 0;
             StockPortfolio.Gains = 0;
             StockPortfolio.Fees = 0;
             StockPortfolio.Bonuses = 0;
-            */
+            
             db.Users.Find(User.Identity.GetUserId()).BankAccounts.Add(StockPortfolio);
             db.SaveChanges();
 

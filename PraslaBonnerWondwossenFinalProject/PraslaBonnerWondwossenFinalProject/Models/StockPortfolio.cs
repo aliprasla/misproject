@@ -30,11 +30,21 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         {
             get
             {
+                if (stocks.Count == 0) { return Convert.ToDecimal((Gains + Fees + Bonuses + CashBalance)); }
+
                 Decimal stockAmount;
                 stockAmount = 0;
                 foreach (Stock stock in stocks) { stockAmount += Convert.ToDecimal((stock.StockQuote.PreviousClose) * (stock.Amount)); }
 
-                stockAmount += Gains + Fees + Bonuses + Balance;
+                if (CashBalance == null)
+                {
+                    stockAmount += Gains + Fees + Bonuses;
+                }
+                else
+                {
+                    stockAmount += Gains + Fees + Bonuses + Convert.ToDecimal(CashBalance);
+                }
+                
 
                 return stockAmount;
 
