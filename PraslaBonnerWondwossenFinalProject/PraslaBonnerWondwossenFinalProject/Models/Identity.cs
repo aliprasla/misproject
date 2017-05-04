@@ -67,6 +67,8 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public virtual List<BankAccount> BankAccounts { get; set; }
         public virtual List<Transaction> Transactions { get; set; }
         public virtual List<Dispute> Disputes { get; set; }
+
+        public virtual List<Payee> Payees { get; set; }
         public virtual StockPortfolio StockPortfolio { get; set; }
         
    
