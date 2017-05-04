@@ -310,6 +310,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
+    <Compile Include="Controllers\PayeesController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
@@ -569,6 +570,13 @@
     <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
     <Content Include="Views\Transactions\TransferFunds.cshtml" />
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
+    <Content Include="Views\Payees\Create.cshtml" />
+    <Content Include="Views\Payees\Delete.cshtml" />
+    <Content Include="Views\Payees\Details.cshtml" />
+    <Content Include="Views\Payees\Edit.cshtml" />
+    <Content Include="Views\Payees\Index.cshtml" />
+    <Content Include="Views\Payees\AddPayee.cshtml" />
+    <Content Include="Views\Payees\Payment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
