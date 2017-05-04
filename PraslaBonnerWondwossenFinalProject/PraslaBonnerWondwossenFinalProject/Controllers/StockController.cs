@@ -169,7 +169,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             Transaction Transaction = new Transaction();
 
 
-
+            return View();
         }
 
         public SelectList GetAllStocks()

@@ -25,7 +25,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Decimal? CashBalance { get; set; }
 
         public virtual List<Stock> stocks { get; set; }
-        //public virtual List<PurchasedStock> purchasedstocks { get; set; }
+        public virtual List<PurchasedStock> purchasedstocks { get; set; }
 
         public new Decimal Balance
         {
