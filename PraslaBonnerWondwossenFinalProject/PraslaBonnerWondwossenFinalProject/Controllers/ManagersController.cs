@@ -28,8 +28,8 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         //add dropdown for type and let manager pick the type
         public ActionResult AddStock([Bind(Include ="Symbol,Fee")] Stock stock)
         {
-            stock.Type
-        
+// stock.Type
+
             return View();
         }
     }

@@ -34,7 +34,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
                 Decimal stockAmount;
                 stockAmount = 0;
-                foreach (Stock stock in stocks) { stockAmount += Convert.ToDecimal((stock.StockQuote.PreviousClose) * (stock.Amount)); }
+                //foreach (Stock stock in stocks) { stockAmount += Convert.ToDecimal((stock.StockQuote.PreviousClose) * (CashBalance)); }
 
                 if (CashBalance == null)
                 {

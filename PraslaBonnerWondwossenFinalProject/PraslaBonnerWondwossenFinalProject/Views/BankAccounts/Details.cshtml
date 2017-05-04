@@ -3,6 +3,14 @@
 @{
     ViewBag.Title = "Details";
 }
+<style>
+    div.b {
+        font-weight: bold;
+        left: 0px;
+        display: block;
+    }
+
+</style>
 
 <h2>Details</h2>
 
@@ -42,8 +50,120 @@
             @Html.DisplayFor(model => model.Balance)
         </dd>
 </dl>
-    <h4>Transactions:</h4>
-    <!-- Show Similar transactions-->
+    @using (Html.BeginForm())
+    {
+        <!--- TODO: Urgently make Prettier-->
+     <h2>Search All Transactions:</h2>
+    <p class="form-group">
+        Search Description: @Html.TextBox("SearchString", null, new { @class = "form-control" }) <br />
+        <div class="form-group">
+            <div class="b">Transaction Type </div>
+            <div class="col-md-10">
+                @Html.DropDownList("SelectedType", (SelectList)ViewBag.TransactionTypes, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <p><div class="b">Transaction Amount Range </div></p>
+                <div class="form-check">
+                    <label class="radio-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButton("SelectedRange", "All", true, new { @class = "form-check-input" }) All
+                        </label>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="radio-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButton("SelectedRange", "0-100", true, new { @class = "form-check-input" }) $0-$100
+                        </label>
+                    </label>
+                    </div>
+                <div class="form-check">
+                    <label class="radio-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButton("SelectedRange", "100-200", new { @class = "form-check-input" }) $100-$200
+                        </label>
+                    </label>
+                    </div>
+                <div class="form-check">
+                    <label class="radio-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButton("SelectedRange", "200-300", new { @class = "form-check-input" }) $200-$300
+                        </label>
+                    </label>
+                </div>
+                <div class="form-check">
+                    <label class="radio-inline">
+                        <label class="form-check-label">
+                            @Html.RadioButton("SelectedRange", "300+", new { @class = "form-check-input" }) $300+
+                        </label>
+                    </label>
+            </div>
+        
+            <!--- TODO: Jquery "Other button Maybe?-->
+            <div class="b">Custom Begin to End </div>
+            <div class="form-check">
+                <div class="col-lg-3">
+                    @Html.TextBox("RangeStringBeg", null, new { @class = "form-conrtol" }) <br />
+                </div> 
+                <div class="col-lg-3">
+                    @Html.TextBox("RangeStringEnd", null, new { @class = "form-conrtol" }) <br />
+                </div>
+
+            </div>
+       
+        <div class="b">Transaction ID: </div>
+        <div class="form-check">
+            <label class="form-check-label">
+                @Html.TextBox("TransactionID", null, new { @class = "form-conrtol" }) <br />
+            </label>
+        </div>
+                <div class="form-check">
+                    <label class="radio-inline">
+                        <label class="form-check-label">
+
+                            @Html.RadioButton("Dates", "All", new { @class = "form-check-input" }) All Dates
+                        </label>
+                    </label>
+                </div>
+                <label class="radio-inline">
+                    <label class="form-check-label">
+
+                        @Html.RadioButton("Dates", "15", true, new { @class = "form-check-input" }) Last 15 Days
+                    </label>
+                </label>
+            <div class="form-check">
+                <label class="radio-inline">
+                    <label class="form-check-label">
+                        @Html.RadioButton("Dates", "30", new { @class = "form-check-input" }) Last 30 Days
+                    </label>
+                </label>
+            </div>
+            <div class="form-check">
+                <label class="radio-inline">
+                    <label class="form-check-label">
+                        @Html.RadioButton("Dates", "60", new { @class = "form-check-input" }) Last 60 Days
+                    </label>
+                </label>
+            </div>
+            <div class="b">With in Last:  </div>
+            <div class="form-check">
+                <label class="form-check-label">
+                 @Html.TextBox("DateString", null, new { @class = "form-conrtol" }) <br />
+                </label>
+            </div>
+    </div>
+       </p>
+            <input type="submit" value="Search" class="btn btn-default" />
+
+    }
+ 
+    <p>
+        Displaying @ViewBag.Selected out of @ViewBag.All
+    </p>
+
+
+    <h4>Associated Transactions:</h4>
     <table class="table">
         <tr>
             <th>
@@ -66,28 +186,30 @@
             </th>
 
         </tr>
-        @foreach (var item in Model.Transactions)
+        @{int counter = 0; }
+        @foreach (var item in ViewBag.Transactions)
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Date)
+                    @item.Date
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Type)
+                    @item.Type
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
+                    @item.Amount
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.Description)
+                    @item.Description
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.ToAccount.Name)
+                    @ViewBag.accountInfo[counter].Item1
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.FromAccount.Name)
+                    @ViewBag.accountInfo[counter].Item2
                 </td>
             </tr>
+            counter++;
         }
         </table>
 </div>
