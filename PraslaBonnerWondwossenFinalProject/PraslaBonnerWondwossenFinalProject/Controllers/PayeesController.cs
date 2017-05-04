@@ -128,7 +128,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             AppUser current = db.Users.Find(User.Identity.GetUserId());
             var payees = from c in db.Payees select c;
             List<Payee> outter = new List<Payee>();
-            foreach( var item in payees.ToList())
+            foreach(var item in payees.ToList())
             {
                 if (current.Payees.Contains(item))
                 {
@@ -143,7 +143,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 ViewBag.Message = "You must select Payees to Add to your account";
             }
-            ViewBag.AllPayees = new SelectList(outter, "Name", "PayeeID");
+            ViewBag.AllPayees = new SelectList(outter, "PayeeID", "Name");
             return View();
 
         }
@@ -165,7 +165,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     outter.Add(item);
                 }
             }
-            Payee selected = outter[SelectedPayee];
+            Payee selected = outter[SelectedPayee-1];
             current.Payees.Add(selected);
             db.SaveChanges();
             return RedirectToAction("Payment");
