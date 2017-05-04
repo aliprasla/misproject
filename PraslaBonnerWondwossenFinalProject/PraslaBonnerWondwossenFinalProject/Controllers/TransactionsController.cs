@@ -26,41 +26,13 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 transactions = transactions.Where(t => t.Customer.Email == current.Email);
             }
+
             ViewBag.Selected = transactions.Count();
             ViewBag.All = transactions.Count();
             transactions = transactions.OrderBy(c => c.Date);
             return View(transactions.ToList());
         }
-        [HttpPost]
-        public ActionResult Index(string SearchString) {
-            var transactions = db.Transactions.Include(t => t.Dispute);
-            AppUser current = db.Users.Find(User.Identity.GetUserId());
-            ViewBag.All = transactions.Count();
-            if (User.IsInRole("Customer"))
-            {
-                transactions = transactions.Where(t => t.Customer.Email == current.Email);
-            }
-            if (SearchString == null || SearchString == "")
-            {
-                ViewBag.Selected = transactions.Count();
-                
-                return View(transactions.ToList());
-            }
-            else {
-                try
-                {
-                    Decimal test = Convert.ToDecimal(SearchString);
-                    transactions = transactions.Where(c => c.Amount == test);
-                    ViewBag.Selected = transactions.Count();
-                }
-                catch {
-                    transactions = transactions.Where(c => c.FromAccount.Name.Contains(SearchString) || c.ToAccount.Name.Contains(SearchString) || c.Description.Contains(SearchString) || c.Type.ToString().Contains(SearchString));
-                    ViewBag.Selected = transactions.Count();
-                }
-                return View(transactions.ToList());
-            }
-        }
-        //TODO: Transactions detailed Search
+        
         
         
         
@@ -79,23 +51,25 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 return HttpNotFound();
             }
             //Similar Transactions:
+            BankAccount fromAccount = transaction.FromAccount;
+            BankAccount toAccount = transaction.ToAccount;
             var query = (from c in db.Transactions select c);
             query = query.Where(c => c.Type == transaction.Type);
             if (transaction.Type == TransactionTypes.Deposit)
             {
-                query = query.Where(c => c.ToAccount.BankAccountID.Equals(transaction.ToAccount.BankAccountID));
+                query = query.Where(c => c.ToAccount.BankAccountID.Equals(toAccount.BankAccountID));
             }
             else if (transaction.Type == TransactionTypes.Withdrawal)
             {
-                query = query.Where(c => c.FromAccount.BankAccountID == transaction.ToAccount.BankAccountID);
+                query = query.Where(c => c.FromAccount.BankAccountID == fromAccount.BankAccountID);
 
             }
             else if (transaction.Type == TransactionTypes.Transfer)
             {
-                query = query.Where(c => c.ToAccount == transaction.ToAccount || c.FromAccount == transaction.FromAccount);
+                query = query.Where(c => c.ToAccount.BankAccountID == toAccount.BankAccountID || c.FromAccount.BankAccountID == fromAccount.BankAccountID);
             }
             else if (transaction.Type == TransactionTypes.Fee) {
-                query = query.Where(c => c.FromAccount == transaction.FromAccount);
+                query = query.Where(c => c.FromAccount.BankAccountID == fromAccount.BankAccountID);
             }
             
             //List <Transaction> queryList = query.ToList();

@@ -36,9 +36,190 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
 
             //View All Transactions associated with account
+            
+
             bankAccount.Transactions = db.Transactions.Where(c => c.ToAccount.BankAccountID == bankAccount.BankAccountID || c.FromAccount.BankAccountID == bankAccount.BankAccountID).ToList();
+            ViewBag.Selected = bankAccount.Transactions.Count();
+            ViewBag.All = bankAccount.Transactions.Count();
+            ViewBag.TransactionTypes = GetAllTransactionTypes();
+            ViewBag.Transactions = bankAccount.Transactions;
+            List<Tuple<string,string>> accountInfo = new List<Tuple<string,string>>();
+            foreach (var item in bankAccount.Transactions) {
+                try
+                {
+                    accountInfo.Add(new Tuple<string, string>(item.ToAccount.NameNo, item.FromAccount.NameNo));
+                }
+                catch {
+                    try
+                    {
+                        accountInfo.Add(new Tuple<string, string>(item.ToAccount.NameNo, " "));
+                    }
+                    catch {
+                        accountInfo.Add(new Tuple<string, string>(" ", item.FromAccount.NameNo));
+                    }
+                }
+            }
+            ViewBag.accountInfo = accountInfo;
             return View(bankAccount);
         }
+
+        [HttpPost]
+        public ActionResult Details(int? id,String SearchString, String SelectedType, String SelectedRange, String RangeStringBeg, String RangeStringEnd, String TransactionID, String Dates, String DateString) {
+            var query = (from t in db.Transactions select t);
+            AppUser current = db.Users.Find(User.Identity.GetUserId());
+            if (User.IsInRole("Customer")) {
+                query = query.Where(t => t.Customer.Id == current.Id);
+            }
+            if(SearchString != ""){
+                query = query.Where(t => t.Description.Contains(SearchString));
+            }
+            if (SelectedType != "All") {
+                var currentType = (TransactionTypes)Enum.Parse(typeof(TransactionTypes), SelectedType);
+                query = query.Where(t => t.Type == currentType);
+            }
+            //At least one has value
+            if ((SelectedRange != "All" ) || (RangeStringBeg != "") || ( RangeStringEnd != "")) {
+
+                //if both custom and Selected have values
+                if ((SelectedRange != "All" ) && ((RangeStringBeg != "" ) && (RangeStringEnd != "" )))
+                {
+                    decimal beg = Convert.ToDecimal(RangeStringBeg);
+                    decimal end = Convert.ToDecimal(RangeStringEnd);
+                    query = query.Where(c => c.Amount >= beg && c.Amount <= end);
+                }
+                //Range not filled out
+                else if ((RangeStringBeg != "" && RangeStringEnd == "") || (RangeStringBeg == "" && RangeStringEnd != ""))
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                else if (SelectedRange != "All")
+                {
+                    int beg = 0;
+                    int end = 0;
+                    //Which Range Selected
+                    if (SelectedRange == "0-100")
+                    {
+                        beg = 0;
+                        end = 100;
+                    }
+                    else if (SelectedRange == "100-200")
+                    {
+                        beg = 100;
+                        end = 200;
+                    }
+                    else if (SelectedRange == "200-300")
+                    {
+                        beg = 200;
+                        end = 300;
+                    }
+                    else if (SelectedRange == "300+")
+                    {
+                        beg = 300;
+                        end = 999999999;
+                    }
+                    query = query.Where(c => c.Amount >= beg && c.Amount <= end);
+                }
+                else {
+                    try
+                    {
+                        Decimal beg = Convert.ToDecimal(RangeStringBeg);
+                        Decimal end = Convert.ToDecimal(RangeStringEnd);
+                        query = query.Where(c => c.Amount >= beg && c.Amount <= end);
+                    }
+                    catch (Exception e) {
+
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+
+                }
+
+            }
+            if (TransactionID != "") {
+
+                try
+                {
+                    int SearchId = Convert.ToInt32(TransactionID);
+                    query = query.Where(c => c.TransactionID == SearchId);
+                }
+                catch (Exception e) {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+            }
+
+            //Dates
+            //One of the data parameters has value
+            if (Dates != "All"  || DateString != "" ) {
+                if (Dates != "All")
+                {
+
+                    try
+                    {
+                        int sp = Convert.ToInt32(Dates);
+                        DateTime comp = DateTime.Now.AddDays(-sp);
+                        query = query.Where(c => c.Date >= comp);
+                    }
+                    catch (Exception e)
+                    {
+
+                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                    }
+                }
+                else
+                {
+                        DateTime comp = DateTime.Now.AddDays(-Convert.ToInt32(DateString));
+                        query = query.Where(c => c.Date >= comp);
+
+                }
+            }
+            BankAccount bankAccount = db.BankAccounts.Find(id);
+            List<Transaction> trans = query.ToList();
+            ViewBag.Transactions = query.ToList();
+            ViewBag.Selected = query.ToList().Count();
+            String userId = User.Identity.GetUserId();
+            ViewBag.All = db.Transactions.Where(c => c.Customer.Id == userId).Count();
+            ViewBag.TransactionTypes = GetAllTransactionTypes();
+            List<Tuple<string, string>> accountInfo = new List<Tuple<string, string>>();
+            foreach (var item in trans)
+            {
+                try
+                {
+                    accountInfo.Add(new Tuple<string, string>(item.ToAccount.NameNo, item.FromAccount.NameNo));
+                }
+                catch
+                {
+                    try
+                    {
+                        accountInfo.Add(new Tuple<string, string>(item.ToAccount.NameNo, " "));
+                    }
+                    catch
+                    {
+                        try
+                        {
+                            accountInfo.Add(new Tuple<string, string>(" ", item.FromAccount.NameNo));
+                        }
+                        catch {
+                            accountInfo.Add(new Tuple<string, string>(" ", " "));
+                        }
+                    }
+                }
+            }
+            ViewBag.accountInfo = accountInfo;
+            return View(db.BankAccounts.Find(id));
+
+        }
+
+        public SelectList GetAllTransactionTypes() {
+            IEnumerable<TransactionTypes> list = Enum.GetValues(typeof(TransactionTypes)).Cast<TransactionTypes>();
+            List<string> allTypes = new List<string>();
+            allTypes.Add("All");
+            foreach (var item in list) {
+                allTypes.Add(item.ToString());
+            }
+            return new SelectList(allTypes, "All");
+
+        }
+
+
 
         // GET: BankAccounts/Create
         [Authorize(Roles = "Customer")]

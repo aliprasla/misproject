@@ -365,3 +365,4 @@ C:\Users\MSBStudent\Documents\MIS313\wtf\PraslaBonnerWondwossenFinalProject\Pras
 C:\Users\MSBStudent\Documents\MIS313\wtf\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Helpers.xml
 C:\Users\MSBStudent\Documents\MIS313\wtf\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\bin\System.Web.Mvc.xml
 C:\Users\MSBStudent\Documents\MIS313\wtf\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.add_stock.resources
+C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.something54.resources

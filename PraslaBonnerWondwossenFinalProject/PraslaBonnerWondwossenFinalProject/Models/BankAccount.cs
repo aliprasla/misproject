@@ -72,8 +72,17 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public string NameNo
         {
-
-           get { return "( XXXXXX" + Convert.ToString(this.AccountNumber).Substring(6,4) + " ) " + this.Name; }
+            get
+            {
+                try
+                {
+                    return "( XXXXXX" + Convert.ToString(this.AccountNumber).Substring(6, 4) + " ) " + this.Name;
+                }
+                catch (Exception e)
+                {
+                    return "";
+                }
+            }
         }
         public string lastFour {get
 

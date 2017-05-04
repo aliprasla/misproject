@@ -1,0 +1,24 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Payee
+
+@{
+    ViewBag.Title = "AddPayee";
+}
+
+<h2>Add a Payee</h2>
+@using (Html.BeginForm())
+{
+    <div class="form-horizontal">
+        <h4>Payee</h4>
+        <hr />
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SelectedPayee",(SelectList)ViewBag.AllPayees, new {@class = "form-control" })
+            </div>
+        </div>
+    </div>
+    <input type="submit" value="Search" class="btn btn-default" />
+}
+
+
+
