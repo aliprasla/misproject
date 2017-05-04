@@ -78,6 +78,29 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 return HttpNotFound();
             }
+            //Similar Transactions:
+            var query = (from c in db.Transactions select c);
+            query = query.Where(c => c.Type == transaction.Type);
+            if (transaction.Type == TransactionTypes.Deposit)
+            {
+                query = query.Where(c => c.ToAccount.BankAccountID.Equals(transaction.ToAccount.BankAccountID));
+            }
+            else if (transaction.Type == TransactionTypes.Withdrawal)
+            {
+                query = query.Where(c => c.FromAccount.BankAccountID == transaction.ToAccount.BankAccountID);
+
+            }
+            else if (transaction.Type == TransactionTypes.Transfer)
+            {
+                query = query.Where(c => c.ToAccount == transaction.ToAccount || c.FromAccount == transaction.FromAccount);
+            }
+            else if (transaction.Type == TransactionTypes.Fee) {
+                query = query.Where(c => c.FromAccount == transaction.FromAccount);
+            }
+            
+            //List <Transaction> queryList = query.ToList();
+            //List<Transaction> transList = new List<Transaction>();
+            ViewBag.SimilarTransactions = query.Take(5).ToList();
             return View(transaction);
         }
 
@@ -533,7 +556,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             else if (type == "Transfer")
             {
-
+                   //TODO: IRA TRANSFERS BACK
 
             }
             else {

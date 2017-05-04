@@ -565,6 +565,7 @@
     <Content Include="Views\Transactions\Deposit.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\StockPortfolios\Details.cshtml" />
+    <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Transactions\Withdraw.cshtml" />
     <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
     <Content Include="Views\Transactions\TransferFunds.cshtml" />
