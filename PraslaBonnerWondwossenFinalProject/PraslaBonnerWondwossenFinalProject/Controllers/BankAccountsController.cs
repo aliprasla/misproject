@@ -126,7 +126,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         Decimal end = Convert.ToDecimal(RangeStringEnd);
                         query = query.Where(c => c.Amount >= beg && c.Amount <= end);
                     }
-                    catch (Exception e) {
+                    catch {
 
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                     }
@@ -134,14 +134,15 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 }
 
             }
-            if (TransactionID != "") {
+            if (TransactionID != "")
+            {
 
                 try
                 {
                     int SearchId = Convert.ToInt32(TransactionID);
                     query = query.Where(c => c.TransactionID == SearchId);
                 }
-                catch (Exception e) {
+                catch  {
                     return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
             }
@@ -158,7 +159,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         DateTime comp = DateTime.Now.AddDays(-sp);
                         query = query.Where(c => c.Date >= comp);
                     }
-                    catch (Exception e)
+                    catch 
                     {
 
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

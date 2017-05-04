@@ -78,7 +78,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
                 {
                     return "( XXXXXX" + Convert.ToString(this.AccountNumber).Substring(6, 4) + " ) " + this.Name;
                 }
-                catch (Exception e)
+                catch 
                 {
                     return "";
                 }
