@@ -495,6 +495,7 @@
     <Compile Include="Models\BankAccount.cs" />
     <Compile Include="Models\Dispute.cs" />
     <Compile Include="Models\Payee.cs" />
+    <Compile Include="Models\PurchasedStock.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockPortfolio.cs" />

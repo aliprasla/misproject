@@ -34,7 +34,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
 
         public virtual List<PurchasedStock> PurchasedStocks { get; set; }
-        public virtual StockQuote StockQuote { get; set; }
+        //public virtual StockQuote StockQuote { get; set; }
 
     }
 }
