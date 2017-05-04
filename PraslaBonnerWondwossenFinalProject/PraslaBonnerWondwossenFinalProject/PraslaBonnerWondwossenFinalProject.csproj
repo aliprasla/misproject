@@ -490,6 +490,10 @@
     <Compile Include="Migrations\201705042314058_purchased_stocks.Designer.cs">
       <DependentUpon>201705042314058_purchased_stocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705041945582_PayeeModelchanges.cs" />
+    <Compile Include="Migrations\201705041945582_PayeeModelchanges.Designer.cs">
+      <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -712,6 +716,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705042314058_purchased_stocks.resx">
       <DependentUpon>201705042314058_purchased_stocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705041945582_PayeeModelchanges.resx">
+      <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

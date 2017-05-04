@@ -128,7 +128,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             AppUser current = db.Users.Find(User.Identity.GetUserId());
             var payees = from c in db.Payees select c;
             List<Payee> outter = new List<Payee>();
-            foreach( var item in payees.ToList())
+            foreach(var item in payees.ToList())
             {
                 if (current.Payees.Contains(item))
                 {
@@ -139,13 +139,18 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     outter.Add(item);
                 }
             }
-            ViewBag.AllPayees = new SelectList(outter, "Name", "PayeeID");
+            if (current.Payees.Count() == 0)
+            {
+                ViewBag.Message = "You must select Payees to Add to your account";
+            }
+            ViewBag.AllPayees = new SelectList(outter, "PayeeID", "Name");
             return View();
 
         }
         [HttpPost]
         public ActionResult AddPayee(int SelectedPayee) {
             AppUser current = db.Users.Find(User.Identity.GetUserId());
+            
             var payees = from c in db.Payees select c;
             List<Payee> outter = new List<Payee>();
             foreach (var item in payees.ToList())
@@ -160,10 +165,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     outter.Add(item);
                 }
             }
-            Payee selected = outter[SelectedPayee];
+            Payee selected = outter[SelectedPayee-1];
             current.Payees.Add(selected);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Payment");
         }
         [HttpGet]
         public ActionResult Payment() {
@@ -174,9 +179,81 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 return RedirectToAction("AddPayee");
             }
             else {
+                List<BankAccount> outter = new List<BankAccount>();
+                foreach(BankAccount account in current.BankAccounts)
+                {
+                    if (account.Type == AccountTypes.Savings || account.Type == AccountTypes.Checking) {
+                        outter.Add(account);
+                    }
+
+                }
+                ViewBag.Message = "";
+                ViewBag.Accounts = new SelectList(outter, "NameNo", "BankAccountID");
                 return View();
             }
+        }
 
+        [HttpPost]
+        public ActionResult Payment(String Date, int SelectedAccount,int SelectedPayee, decimal Amount, string description) {
+            AppUser current = db.Users.Find(User.Identity.GetUserId());
+            BankAccount currentBank = db.BankAccounts.Find(SelectedAccount);
+            List<BankAccount> outter = new List<BankAccount>();
+            foreach (BankAccount account in current.BankAccounts)
+            {
+                if (account.Type == AccountTypes.Savings || account.Type == AccountTypes.Checking)
+                {
+                    outter.Add(account);
+                }
+            }
+            if (Amount < 0)
+            {
+                ViewBag.Message = "You must enter a positive number for payment";
+                ViewBag.Accounts = new SelectList(outter, "NameNo", "BankAccountID");
+                return View();
+            }
+            else if (DateTime.Parse(Date) < DateTime.Now)
+            {
+
+                ViewBag.Message = "You cannot make a Payment in the past";
+                ViewBag.Accounts = new SelectList(outter, "NameNo", "BankAccountID");
+                return View();
+            }
+            //if overdraft
+            else if (Amount > currentBank.Balance && Amount < currentBank.Balance + 50)
+            {
+                currentBank.Balance -= 30;
+                Transaction overdraftfee = new Transaction() {
+                        Date = DateTime.Now,
+                        Type = TransactionTypes.Fee,
+                        Amount = 30,
+                        Description = "Overdraft Fee",
+                        Customer = current,
+                        FromAccount = currentBank};
+                currentBank.Transactions.Add(overdraftfee);
+                db.Transactions.Add(overdraftfee);
+                db.SaveChanges();
+
+            }else if (Amount > currentBank.Balance + 50) {
+                ViewBag.Message = "You have exceed the overdraft limit with this transaction";
+                ViewBag.Accounts = new SelectList(outter, "NameNo", "BankAccountID");
+                return View();
+            }
+            //regular
+            currentBank.Balance -= Amount;
+            Transaction trans = new Transaction()
+            {
+                Date = DateTime.Parse(Date),
+                Type = TransactionTypes.Withdrawal,
+                Amount = Amount,
+                Description = description,
+                Customer = current,
+                FromAccount = currentBank
+            };
+            currentBank.Transactions.Add(trans);
+            db.Transactions.Add(trans);
+            return RedirectToAction("Index", "Customers");
+            }
+            
         }
     }
-}
+

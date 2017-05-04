@@ -160,6 +160,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [HttpPost]
         public ActionResult TransferFunds([Bind(Include = "Amount,Description")] Transaction transaction, int FBankAccountID, int TBankAccountID)
         {
+            //TODO: Add Negative Balance Validation.
+
+
             if (ModelState.IsValid)
             {
                 BankAccount currentB = db.BankAccounts.Find(FBankAccountID);
