@@ -39,7 +39,11 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public Decimal? CashBalance { get; set; }
         public string info { get { return Name + "     " + "Cash: " + Balance+"      Total Balance:"+Balance; } }
 
+<<<<<<< HEAD
+        //public virtual List<Stock> stocks { get; set; }
+=======
         public virtual List<Stock> stocks { get; set; }
+>>>>>>> fa754d6218465c759a171791dbd8168bc2e2a106
         public virtual List<PurchasedStock> purchasedstocks { get; set; }
 
         public new Decimal Balance

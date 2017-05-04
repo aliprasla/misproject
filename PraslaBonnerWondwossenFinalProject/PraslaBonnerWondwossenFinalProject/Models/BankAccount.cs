@@ -56,7 +56,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public virtual AppUser Customer { get; set; }
         public virtual List<Transaction> Transactions {get;set;}
 
-
+        public virtual List<Payee> Payees { get; set; }
         public string NameNo
         {
             get

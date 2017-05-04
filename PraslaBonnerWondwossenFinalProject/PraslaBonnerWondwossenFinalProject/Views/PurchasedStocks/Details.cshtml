@@ -1,0 +1,42 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.PurchasedStock
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PurchasedStock</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.InitialPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.InitialPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalFees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalFees)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PurchasedStockId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
