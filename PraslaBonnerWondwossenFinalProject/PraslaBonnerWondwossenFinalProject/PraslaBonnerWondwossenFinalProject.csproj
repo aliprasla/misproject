@@ -477,6 +477,10 @@
     <Compile Include="Migrations\201705021922530_someupdates.Designer.cs">
       <DependentUpon>201705021922530_someupdates.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705040027031_nullableCashBalance.cs" />
+    <Compile Include="Migrations\201705040027031_nullableCashBalance.Designer.cs">
+      <DependentUpon>201705040027031_nullableCashBalance.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -556,6 +560,10 @@
     <Content Include="Views\Transactions\Deposit.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\StockPortfolios\Details.cshtml" />
+    <Content Include="Views\Transactions\Withdraw.cshtml" />
+    <Content Include="Views\Transactions\RedirectedIRA.cshtml" />
+    <Content Include="Views\Transactions\TransferFunds.cshtml" />
+    <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -684,6 +692,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705021922530_someupdates.resx">
       <DependentUpon>201705021922530_someupdates.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705040027031_nullableCashBalance.resx">
+      <DependentUpon>201705040027031_nullableCashBalance.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

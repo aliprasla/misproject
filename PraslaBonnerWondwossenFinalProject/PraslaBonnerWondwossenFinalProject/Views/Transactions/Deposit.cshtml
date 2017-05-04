@@ -3,6 +3,11 @@
 @{
     ViewBag.Title = "Deposit";
 }
+<style>
+    div.lab {
+        padding-left: 100px;
+    }
+</style>
 
 @using (Html.BeginForm())
 {
@@ -20,8 +25,10 @@
         </div>
         <div class="form-group">
             <!---TODO: Make this error message Prettier-->
-            <div class="col-md-10">
-                @Html.Label((string)ViewBag.Message, new { @class = "text-danger" })
+            <div class="lab">
+                <div class="col-md-10" id="message">
+                    @Html.Label((string)ViewBag.Message, new { @class = "text-danger" })
+                </div>
             </div>
         </div>
             
