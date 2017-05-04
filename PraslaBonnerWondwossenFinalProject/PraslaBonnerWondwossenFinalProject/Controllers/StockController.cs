@@ -143,23 +143,33 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
             Stock FoundStock = db.Stocks.Find(StockID);
 
-            // iterate through purchases to see it this stock already exists
-            bool exists = false;
+            // iterate through purchases to see it this stock already exist
 
             foreach (PurchasedStock item in customer.StockPortfolio.purchasedstocks)
             {
-
                 if (item.stock.StockID == StockID)
                 {
                     //add purchased shares to existing purchased share number
                     item.Shares = item.Shares + stock.Shares;
                     //add to total fees
-                    item.TotalFees = item.TotalFees + FoundStock.Fees;
+                    customer.StockPortfolio.Fees = customer.StockPortfolio.Fees + FoundStock.Fees;
                     //if successful, redirect here, must put adequate spot
-                    return RedirectToAction("Index");
-
+                    return RedirectToAction("Customer","Index");
                 }
             }
+            //stock is not present in the portfolio
+            customer.StockPortfolio.Fees = customer.StockPortfolio.Fees + FoundStock.Fees;
+            stock.InitialPrice = FoundStock.LastPrice;
+            //assign stock to purchased stock
+            stock.stock = FoundStock;
+            //assign stockp
+            stock.stockportfolio = customer.StockPortfolio;
+
+            //create new transaction
+            Transaction Transaction = new Transaction();
+
+
+
         }
 
         public SelectList GetAllStocks()
