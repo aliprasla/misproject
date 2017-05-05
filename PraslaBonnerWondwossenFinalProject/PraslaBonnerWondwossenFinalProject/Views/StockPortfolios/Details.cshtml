@@ -1,17 +1,25 @@
 ﻿@model PraslaBonnerWondwossenFinalProject.Models.StockPortfolio
 
+
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Portfolio Details</h2>
 
 <div>
-    <h4>Cash Value</h4>
+    <h4>Current Performance</h4>
     <hr />
     <dl class="dl-horizontal">
         
-       
+       @if(Model.isBalanced == false)
+       {
+           <dd>Portfolio is not balanced</dd>
+       }
+       else
+       {
+           <dd>Portfolio is balanced</dd>
+       }
 
 
         <dt>
@@ -47,24 +55,41 @@
 
     </dl>
 
-    <h4>Stock</h4>
+    <h4>Securities</h4>
     <hr />
-    <dl class="dl-horizontal">
+        <table class="table table-bordered">
+            <tr>
+                <th>
+                    Ticker
+                </th>
+                <th>
+                    Security
+                </th>
+                <th>
+                    Shares
+                </th>
+            </tr>
+            @foreach (var item in Model.purchasedstocks)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(modelItem => item.stock.Symbol)</td>
+                    <td>@Html.DisplayFor(modelItem => item.stock.Name)</td>
+                    <td>@Html.DisplayFor(modelItem => item.Shares)</td>
+                    <td>@Html.ActionLink("Details", "Details", "PurchasedStocks", new { id = item.PurchasedStockId })</td>
+                </tr>
+            }
 
-
-        <dt>
-            Total Value
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Balance)
-        </dd>
-
-    </dl>
-
-
+            }
+        </table>
 </div>
+<dt>
+    Total Value
+</dt>
+
+<dt>
+    @Html.DisplayFor(model => model.Balance)
+</dt>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.BankAccountID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to List", "Index","Customers")
 </p>

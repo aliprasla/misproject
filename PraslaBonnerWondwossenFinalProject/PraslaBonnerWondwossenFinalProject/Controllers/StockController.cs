@@ -130,14 +130,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Purchase([Bind(Include = "Id,Shares,Date")] PurchasedStock stock, Int32 StockID, Int32 AccountID)
+        public ActionResult Purchase([Bind(Include = "Id,Shares,Date")] PurchasedStock stock, Int32 StockID, Int32 BankAccountID)
         {
             //get customer
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
             //get purchased stock
             Stock FoundStock = db.Stocks.Find(StockID);
             //get bank acount to get money from
-            BankAccount Account = db.BankAccounts.Find(AccountID);
+            BankAccount Account = db.BankAccounts.Find(BankAccountID);
 
             stock.InitialPrice = GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice;
 
@@ -151,7 +151,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             if (Account.Type==AccountTypes.Stock)
             {
                 //if so, see if balance is adequate
-                if((Convert.ToDecimal(stock.Shares * stock.InitialPrice))>customer.StockPortfolio.CashBalance)
+                if((Convert.ToDecimal(stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol,DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice)))>customer.StockPortfolio.CashBalance)
                 {
                     return View("Error");
                 }
@@ -163,7 +163,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             else
             {
-                if ((Convert.ToDecimal(stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date)))))) > Account.Balance);
+                if ((stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice))>Account.Balance)
                 {
                     return View("Error");
                 }
@@ -187,6 +187,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         TransactionFees1.Amount = FoundStock.Fees;
                         TransactionFees1.Description = "Fee: " + FoundStock.Name;
                         TransactionFees1.FromAccount = Account;
+                        customer.Transactions.Add(TransactionFees1);
                         db.Transactions.Add(TransactionFees1);
                         db.SaveChanges();
 
@@ -197,6 +198,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         TransactionWithdrawl1.Amount = Convert.ToDecimal(stock.Shares * FoundStock.LastPrice);
                         TransactionWithdrawl1.Description = "Stock Purchase - Account " + Account.AccountNumber;
                         TransactionWithdrawl1.FromAccount = Account;
+                        customer.Transactions.Add(TransactionWithdrawl1);
                         db.Transactions.Add(TransactionWithdrawl1);
                         db.SaveChanges();
 
@@ -212,6 +214,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             stock.stock = FoundStock;
             //assign stockp
             stock.stockportfolio = customer.StockPortfolio;
+            customer.StockPortfolio.purchasedstocks.Add(stock);
 
             //create new transaction for Fees
             Transaction TransactionFees = new Transaction();
@@ -220,6 +223,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             TransactionFees.Amount = FoundStock.Fees;
             TransactionFees.Description = "Fee: "+FoundStock.Name;
             TransactionFees.FromAccount = Account;
+            customer.Transactions.Add(TransactionFees);
             db.Transactions.Add(TransactionFees);
             db.SaveChanges();
 
@@ -230,12 +234,15 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             TransactionWithdrawl.Amount = Convert.ToDecimal(stock.Shares * FoundStock.LastPrice);
             TransactionWithdrawl.Description = "Stock Purchase - Account " + Account.AccountNumber;
             TransactionWithdrawl.FromAccount = Account;
+            customer.Transactions.Add(TransactionWithdrawl);
             db.Transactions.Add(TransactionWithdrawl);
             db.SaveChanges();
 
             return RedirectToAction("Index","Customers");
 
         }
+
+    
 
         public SelectList GetAllStocks()
         {

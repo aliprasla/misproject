@@ -86,14 +86,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             purchasedstock.TotalFees += sales.Fees;
             customer.StockPortfolio.CashBalance += sales.NetProfit;
 
-            if (sales.SharesLeft == 0) {
+            if (sales.SharesLeft == 0)
+            {
                 db.PurchasedStocks.Remove(purchasedstock);
                 db.SaveChanges();
             }
 
             return RedirectToAction("Index");
         }
-
 
 
 
