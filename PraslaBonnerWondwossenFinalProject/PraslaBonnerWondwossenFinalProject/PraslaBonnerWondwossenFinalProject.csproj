@@ -311,10 +311,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
-    <Compile Include="Controllers\PayeesController.cs" />
-    <Compile Include="Controllers\PurchasedStocksController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
-    <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -497,13 +494,17 @@
     <Compile Include="Migrations\201705041945582_PayeeModelchanges.Designer.cs">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705042348161_blah.cs" />
-    <Compile Include="Migrations\201705042348161_blah.Designer.cs">
-      <DependentUpon>201705042348161_blah.cs</DependentUpon>
+    <Compile Include="Migrations\201705050133543_new_stock_data.cs" />
+    <Compile Include="Migrations\201705050133543_new_stock_data.Designer.cs">
+      <DependentUpon>201705050133543_new_stock_data.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705050152147_payeesNavigation.cs" />
-    <Compile Include="Migrations\201705050152147_payeesNavigation.Designer.cs">
-      <DependentUpon>201705050152147_payeesNavigation.cs</DependentUpon>
+    <Compile Include="Migrations\201705050251446_wtf.cs" />
+    <Compile Include="Migrations\201705050251446_wtf.Designer.cs">
+      <DependentUpon>201705050251446_wtf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.cs" />
+    <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.Designer.cs">
+      <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -590,19 +591,7 @@
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
     <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
-    <Content Include="Views\Payees\AddPayee.cshtml" />
-    <Content Include="Views\Payees\Create.cshtml" />
-    <Content Include="Views\Payees\Delete.cshtml" />
-    <Content Include="Views\Payees\Details.cshtml" />
-    <Content Include="Views\Payees\Edit.cshtml" />
-    <Content Include="Views\Payees\Index.cshtml" />
-    <Content Include="Views\Payees\Payment.cshtml" />
-    <Content Include="Views\PurchasedStocks\Details.cshtml" />
-    <Content Include="Views\PurchasedStocks\Edit.cshtml" />
-    <Content Include="Views\PurchasedStocks\Index.cshtml" />
-    <Content Include="Views\PurchasedStocks\Sell.cshtml" />
-    <Content Include="Views\Sell\Sale.cshtml" />
-    <Content Include="Views\Sell\SaleSummary.cshtml" />
+    <Content Include="Views\Stock\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -744,11 +733,14 @@
     <EmbeddedResource Include="Migrations\201705041945582_PayeeModelchanges.resx">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705042348161_blah.resx">
-      <DependentUpon>201705042348161_blah.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705050133543_new_stock_data.resx">
+      <DependentUpon>201705050133543_new_stock_data.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050152147_payeesNavigation.resx">
-      <DependentUpon>201705050152147_payeesNavigation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705050251446_wtf.resx">
+      <DependentUpon>201705050251446_wtf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050333113_finished_purchasing_stocks.resx">
+      <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

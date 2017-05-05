@@ -26,9 +26,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public string Name { get { return GetQuote.GetStock(Symbol).Name; } }
 
-        public Double Price { get { return GetQuote.GetStock(Symbol).LastTradePrice; } }
+        public decimal Price { get { return Convert.ToDecimal(GetQuote.GetStock(Symbol).LastTradePrice); } }
 
-        public Double LastPrice { get { return GetQuote.GetStock(Symbol).PreviousClose; } }
+        public decimal LastPrice { get { return Convert.ToDecimal(GetQuote.GetStock(Symbol).PreviousClose); } }
 
         public string display { get { return "Stock: "+Name+"   Ticker: "+Symbol+"  Stock Type: "+Type+"    Current Price "+LastPrice+"     Fees: "+Fees; } }
 

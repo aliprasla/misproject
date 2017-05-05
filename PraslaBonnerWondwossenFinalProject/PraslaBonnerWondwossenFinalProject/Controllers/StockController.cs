@@ -130,7 +130,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Purchase([Bind(Include = "Id,Shares")] PurchasedStock stock, Int32 StockID, Int32 AccountID)
+        public ActionResult Purchase([Bind(Include = "Id,Shares,Date")] PurchasedStock stock, Int32 StockID, Int32 AccountID)
         {
             //get customer
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
@@ -139,42 +139,101 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             //get bank acount to get money from
             BankAccount Account = db.BankAccounts.Find(AccountID);
 
+            stock.InitialPrice = GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice;
+
+            //cash Balance of 0
+            if (FoundStock.Fees > customer.StockPortfolio.CashBalance)
+            {
+                return View("Error");
+            }
+
             //check to see if customer selected a stock portfolio
             if (Account.Type==AccountTypes.Stock)
             {
                 //if so, see if balance is adequate
-                return View();
-            }
-            // iterate through purchases to see it this stock already exist
-            foreach (PurchasedStock item in customer.StockPortfolio.purchasedstocks)
-            {
-                if (item.stock.StockID == StockID)
+                if((Convert.ToDecimal(stock.Shares * stock.InitialPrice))>customer.StockPortfolio.CashBalance)
                 {
-                    //add purchased shares to existing purchased share number
-                    item.Shares = item.Shares + stock.Shares;
-                    //add to total fees
-                    customer.StockPortfolio.Fees = customer.StockPortfolio.Fees + FoundStock.Fees;
-                    //if successful, redirect here, must put adequate spot
-                    return RedirectToAction("Customer","Index");
+                    return View("Error");
+                }
+                else
+                {
+                    customer.StockPortfolio.CashBalance = customer.StockPortfolio.CashBalance - Convert.ToDecimal(stock.Shares * FoundStock.LastPrice);
+                }
+                
+            }
+            else
+            {
+                if ((Convert.ToDecimal(stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date)))))) > Account.Balance);
+                {
+                    return View("Error");
                 }
             }
+            if (customer.StockPortfolio.purchasedstocks != null)
+            {
+                foreach (PurchasedStock item in customer.StockPortfolio.purchasedstocks)
+                {
+                    if (item.stock.StockID == StockID)
+                    {
+                        //add purchased shares to existing purchased share number
+                        item.Shares = item.Shares + stock.Shares;
+                        //add to total fees
+                        customer.StockPortfolio.Fees = customer.StockPortfolio.Fees + FoundStock.Fees;
+                        //if successful, redirect here, must put adequate spot
+
+                        //create new transaction for Fees
+                        Transaction TransactionFees1 = new Transaction();
+                        TransactionFees1.Date = stock.Date;
+                        TransactionFees1.Type = TransactionTypes.Fee;
+                        TransactionFees1.Amount = FoundStock.Fees;
+                        TransactionFees1.Description = "Fee: " + FoundStock.Name;
+                        TransactionFees1.FromAccount = Account;
+                        db.Transactions.Add(TransactionFees1);
+                        db.SaveChanges();
+
+                        //create transaction for withdrawl
+                        Transaction TransactionWithdrawl1 = new Transaction();
+                        TransactionWithdrawl1.Date = stock.Date;
+                        TransactionWithdrawl1.Type = TransactionTypes.Withdrawal;
+                        TransactionWithdrawl1.Amount = Convert.ToDecimal(stock.Shares * FoundStock.LastPrice);
+                        TransactionWithdrawl1.Description = "Stock Purchase - Account " + Account.AccountNumber;
+                        TransactionWithdrawl1.FromAccount = Account;
+                        db.Transactions.Add(TransactionWithdrawl1);
+                        db.SaveChanges();
+
+
+                        return RedirectToAction("Index", "Customer");
+                    }
+                }
+            }
+            
             //stock is not present in the portfolio
             customer.StockPortfolio.Fees = customer.StockPortfolio.Fees + FoundStock.Fees;
-            stock.InitialPrice = FoundStock.LastPrice;
             //assign stock to purchased stock
             stock.stock = FoundStock;
             //assign stockp
             stock.stockportfolio = customer.StockPortfolio;
 
-            //create new transaction
-            Transaction Transaction = new Transaction();
-            Transaction.Date = stock.Date;
-            Transaction.Type = TransactionTypes.Fee;
-            Transaction.Amount = FoundStock.Fees;
-            Transaction.Description = "Fee: "+FoundStock.Name;
-            db.Transactions.Add(Transaction);
+            //create new transaction for Fees
+            Transaction TransactionFees = new Transaction();
+            TransactionFees.Date = stock.Date;
+            TransactionFees.Type = TransactionTypes.Fee;
+            TransactionFees.Amount = FoundStock.Fees;
+            TransactionFees.Description = "Fee: "+FoundStock.Name;
+            TransactionFees.FromAccount = Account;
+            db.Transactions.Add(TransactionFees);
             db.SaveChanges();
-            return View();
+
+            //create transaction for withdrawl
+            Transaction TransactionWithdrawl = new Transaction();
+            TransactionWithdrawl.Date = stock.Date;
+            TransactionWithdrawl.Type = TransactionTypes.Withdrawal;
+            TransactionWithdrawl.Amount = Convert.ToDecimal(stock.Shares * FoundStock.LastPrice);
+            TransactionWithdrawl.Description = "Stock Purchase - Account " + Account.AccountNumber;
+            TransactionWithdrawl.FromAccount = Account;
+            db.Transactions.Add(TransactionWithdrawl);
+            db.SaveChanges();
+
+            return RedirectToAction("Index","customer");
 
         }
 
@@ -197,7 +256,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
             List<BankAccount> allAccounts = customer.BankAccounts;
 
-            SelectList allAccountsList = new SelectList(allAccounts, "BankAccountID", "display");
+            SelectList allAccountsList = new SelectList(allAccounts, "BankAccountID", "Name");
 
             return allAccountsList;
         }

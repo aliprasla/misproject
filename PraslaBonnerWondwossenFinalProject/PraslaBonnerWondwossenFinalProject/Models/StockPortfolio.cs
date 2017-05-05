@@ -40,7 +40,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public string info { get { return Name + "     " + "Cash: " + Balance+"      Total Balance:"+Balance; } }
 
 
+        //public virtual List<Stock> stocks { get; set; }
         public virtual List<Stock> stocks { get; set; }
+
         public virtual List<PurchasedStock> purchasedstocks { get; set; }
 
         public new Decimal Balance
