@@ -381,7 +381,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             else
             {
-                //TODO:change so reditexts to error: inactive page
+                
                 return RedirectToAction("InactiveAccountError", "Account");
             }
         }

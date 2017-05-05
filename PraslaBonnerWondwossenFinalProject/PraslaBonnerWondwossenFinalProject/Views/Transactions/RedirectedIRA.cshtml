@@ -46,6 +46,18 @@
         <dd>
             @Html.DisplayFor(model => model.Description, new {id = "Description"})
         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FromAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FromAccount.NameNo, new { id = "FromAccount" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ToAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ToAccount.NameNo, new { id = "ToAccount" })
+        </dd>
     </d1>
     <input type="submit" value="Save" class="btn btn-default"/>
     <input type="button" value="Back" class="btn btn-default" onclick="clicked()" />
