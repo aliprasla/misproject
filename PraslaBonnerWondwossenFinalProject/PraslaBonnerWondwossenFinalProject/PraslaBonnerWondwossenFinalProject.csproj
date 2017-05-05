@@ -311,7 +311,10 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
+    <Compile Include="Controllers\PayeesController.cs" />
+    <Compile Include="Controllers\PurchasedStocksController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -506,6 +509,14 @@
     <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.Designer.cs">
       <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705050340579_merged.cs" />
+    <Compile Include="Migrations\201705050340579_merged.Designer.cs">
+      <DependentUpon>201705050340579_merged.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050347408_forc.cs" />
+    <Compile Include="Migrations\201705050347408_forc.Designer.cs">
+      <DependentUpon>201705050347408_forc.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -517,6 +528,8 @@
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\PurchasedStock.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
+    <Compile Include="Models\Sales.cs" />
+    <Compile Include="Models\SellViewModel.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockPortfolio.cs" />
     <Compile Include="Models\StockQuote.cs" />
@@ -741,6 +754,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705050333113_finished_purchasing_stocks.resx">
       <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050340579_merged.resx">
+      <DependentUpon>201705050340579_merged.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050347408_forc.resx">
+      <DependentUpon>201705050347408_forc.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
