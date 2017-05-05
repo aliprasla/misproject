@@ -7,13 +7,13 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class addedAgeField : IMigrationMetadata
+    public sealed partial class post : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(addedAgeField));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(post));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705021708077_addedAgeField"; }
+            get { return "201705051122017_post"; }
         }
         
         string IMigrationMetadata.Source
