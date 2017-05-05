@@ -40,7 +40,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create ([Bind(Include = "Id,DisputeAmount,CustomerComment")] Dispute dispute, int Id)
+        public ActionResult Create ([Bind(Include = "DisputeID,DisputeAmount,CustomerDescription")] Dispute dispute, int Id)
         {
             Transaction transaction = db.Transactions.Find(Id);
             dispute.Status = Status.WaitingOnManager;
@@ -59,10 +59,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [Authorize(Roles ="Manager")]
         public ActionResult Resolve(int Id)
         {
-            if (Id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
+
             Dispute dispute = db.Disputes.Find(Id);
             if (dispute == null)
             {
@@ -73,7 +70,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Resolve([Bind(Include = "DisputeId")]Status SelectedResponse, String commentString, int AdjustedAmount, Dispute dispute)
+        public ActionResult Resolve([Bind(Include = "DisputeID")]Status SelectedResponse, String commentString, int AdjustedAmount, Dispute dispute)
         {
             if (ModelState.IsValid)
             {

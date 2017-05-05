@@ -39,7 +39,7 @@
                     <td>@Html.DisplayFor(modelItem => item.Name)</td>
                     <td>@Html.DisplayFor(modelItem => item.Type)</td>
                     <td>@Html.DisplayFor(modelItem => item.Balance)</td>
-                    <td>@Html.ActionLink("Details", "Details", "StockPortfolios", new { }, null) | @Html.ActionLink("Edit Name", "Edit", "BankAccounts", new { id = item.BankAccountID }, null) |  @Html.ActionLink("Buy Stock", "Purchase", "Stock", new { id = item.BankAccountID }, null) | @Html.ActionLink("Sell Stock", "Index", "Sales", new { }, null)</td>
+                    <td>@Html.ActionLink("Details", "Details", "StockPortfolios", new { }, null) | @Html.ActionLink("Edit Name", "Edit", "BankAccounts", new { id = item.BankAccountID }, null) |  @Html.ActionLink("Buy Stock", "Purchase", "Stock", new { id = item.BankAccountID }, null) | @Html.ActionLink("Sell Stock", "Index", "PurchasedStocks", new { }, null)</td>
                 </tr>
             }
             else

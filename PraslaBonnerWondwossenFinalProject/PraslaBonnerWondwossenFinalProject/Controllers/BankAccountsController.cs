@@ -344,6 +344,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         db.Disputes.Add(now);
                     }
                     db.SaveChanges();
+                    current.isActive = true;
                     return RedirectToAction("Index", "Customers");
                 }
 

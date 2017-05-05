@@ -21,9 +21,11 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(db.Sales.ToList());
         }
 
-       
+
 
         // GET: Sales/Create
+        [HttpGet]
+        [ValidateAntiForgeryToken]
         public ActionResult Create(int? id)
         {
             if (id == null)

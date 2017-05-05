@@ -42,14 +42,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         public ActionResult Create()
         {
             AppUser person = db.Users.Find(User.Identity.GetUserId());
-            if (person.isActive == true)
-            {
-                return View();
-            }
-            else
-            {
-                return RedirectToAction("InactiveAccountError", "Account");
-            }
+            return View();
         }
 
         [HttpPost]
