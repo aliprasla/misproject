@@ -21,6 +21,9 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         public ActionResult Index()
         {
             AppUser AppUser = db.Users.Find(User.Identity.GetUserId());
+            if (AppUser.BankAccounts.Contains(null)) {
+                AppUser.BankAccounts.Remove(null);
+            }
             if (AppUser.BankAccounts.Count() == 0)
             {
                 ViewBag.hasAccounts = false;
@@ -28,6 +31,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             else {
                 ViewBag.hasAccounts = true;
             }
+            
             return View(AppUser);
         }
 

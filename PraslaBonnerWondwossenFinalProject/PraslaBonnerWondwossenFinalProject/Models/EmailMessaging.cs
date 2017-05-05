@@ -14,13 +14,15 @@ namespace PraslaBonnerWondwossenFinalProject.Models
             //Create an email client to send the emails
          SmtpClient client = new SmtpClient("smtp.gmail.com", 587)
 
-         { UseDefaultCredentials = false };
-            client.Credentials = new NetworkCredential("aprasla0922@gmail.com", "Li0nsden.");
+         { };
+            client.UseDefaultCredentials = false;
+            client.Credentials = new NetworkCredential("aprasla0922@gmail.com", "Li0nsden.123");
             client.EnableSsl = true;
             //Add anything that you need to the body of the message       
             // /n is a new line – this will add some white space after the main body of the message            
             String finalMessage = emailBody + "\n\n This is a disclaimer that will be on all    messages. ";
             //Create an email address object for the sender address      
+            
             MailAddress senderEmail = new MailAddress("aprasla0922@gmail.com");
             MailMessage mm = new MailMessage();
             mm.Subject = "[Team 22] - " + emailSubject;

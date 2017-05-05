@@ -1,0 +1,57 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Dispute
+@{
+    ViewBag.Title = "Reject";
+}
+
+<h2>Reject</h2>
+
+<div>
+
+    <h4>Reject Dispute</h4>
+
+    <hr />
+
+    <dl class="dl-horizontal">
+
+        <dt>Customer Comment:</dt>
+        <dd>
+            @Html.DisplayFor(model => model.CustomerDescription)
+        </dd>
+
+        <dt>Transaction Amount:</dt>
+        <dd>
+            @Html.DisplayFor(model => Model.Transaction.Amount)
+        </dd>
+
+        <dt>Dispute Amount</dt>
+        <dd>
+            @Html.DisplayFor(model => Model.DisputeAmount)
+        </dd>
+    </dl>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Member</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @Html.HiddenFor(model => model.DisputeID)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.ManagerDescription, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.ManagerDescription, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.ManagerDescription, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Reject" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    }
