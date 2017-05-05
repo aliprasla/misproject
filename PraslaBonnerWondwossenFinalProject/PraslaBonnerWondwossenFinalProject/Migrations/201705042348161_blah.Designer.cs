@@ -7,13 +7,13 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class finished_purchasing_stocks : IMigrationMetadata
+    public sealed partial class blah : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(finished_purchasing_stocks));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(blah));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705050333113_finished_purchasing_stocks"; }
+            get { return "201705042348161_blah"; }
         }
         
         string IMigrationMetadata.Source

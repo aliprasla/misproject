@@ -4,5 +4,45 @@
     ViewBag.Title = "Payment";
 }
 
-<h2>Payment</h2>
+<h2>Pay your Bills here</h2>
+
+@using (Html.BeginForm())
+{
+<div class="form-horizontal">
+    <h4>Payee</h4>
+    <hr />
+    @Html.Label((string)ViewBag.Message, new { @class = "text-danger" })
+    <div class="form-group">
+        @Html.Label("Select A Date", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("Date", null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Select A Payee", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("SelectedPayee",(SelectList)ViewBag.Payees, new {@class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("From Account", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.DropDownList("SelectedAccount",(SelectList)ViewBag.Accounts, new {@class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Amount", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("Amount", null, new { @class = "form-control" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.Label("Description", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.TextBox("Description", null, new { @class = "form-control" })
+        </div>
+    </div>
+</div>
+<input type="submit" value="Submit" class="btn btn-default" />
+}
 

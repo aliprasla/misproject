@@ -6,8 +6,10 @@
 
 <script>
     function clickedBack() {
-        window.location.href = '@Url.Action("Back","Transactions", new { type = "Withdrawal", id = Model.TransactionID })';
+        if(@ViewBag.isTransfer){window.location.href = '@Url.Action("Back","Transactions", new { type = "Transfer", id = Model.TransactionID })';}
+        else{window.location.href = '@Url.Action("Back","Transactions", new { type = "Withdrawal", id = Model.TransactionID })';}
     }
+
     function subtract() {
         window.location.href = '@Url.Action("Subtract","Transactions", new { type = "Withdrawal" , id = Model.TransactionID})';
     }
@@ -48,6 +50,18 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Description, new { id = "Description" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.FromAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FromAccount.NameNo, new { id = "FromAccount" })
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ToAccount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ToAccount.NameNo, new { id = "ToAccount" })
         </dd>
     </d1>
     <input type="button" value="Subtract from Original" class="btn btn-default" onclick="subtract()"/>

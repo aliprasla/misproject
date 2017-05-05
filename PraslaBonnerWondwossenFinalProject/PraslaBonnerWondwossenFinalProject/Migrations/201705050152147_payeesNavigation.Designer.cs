@@ -7,13 +7,13 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.3-40302")]
-    public sealed partial class wtf : IMigrationMetadata
+    public sealed partial class payeesNavigation : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(wtf));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(payeesNavigation));
         
         string IMigrationMetadata.Id
         {
-            get { return "201705050251446_wtf"; }
+            get { return "201705050152147_payeesNavigation"; }
         }
         
         string IMigrationMetadata.Source

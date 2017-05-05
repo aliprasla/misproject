@@ -188,6 +188,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     //IRA Validation
                     if (currentB.Type == AccountTypes.IRA || currentD.Type == AccountTypes.IRA)
                     {
+                        //From Account
                         if (currentB.Type == AccountTypes.IRA)
                         {
                             //if age < 65, you cannot withdraw more than 3000 bucks
@@ -208,8 +209,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                                 currentB.Balance -= transaction.Amount;
                                 db.Transactions.Add(transaction);
                                 db.SaveChanges();
-
-
                                 Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
 
 
@@ -242,8 +241,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                                 currentD.Balance += transaction.Amount;
                                 db.Transactions.Add(transaction);
                                 db.SaveChanges();
-                                Transaction trans = db.Transactions.Where(c => c.Description == transaction.Description && c.Customer.Id == transaction.Customer.Id && c.Amount == transaction.Amount).ToList().First();
-                                return RedirectToAction("RedirectedIRA", new { transactionID = trans.TransactionID });
+                                return RedirectToAction("RedirectedIRA", new { transactionID = transaction.TransactionID });
                             }
 
                         }
@@ -261,7 +259,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     db.BankAccounts.Where(c => c.BankAccountID == currentB.BankAccountID).ToList().First().Transactions.Add(transaction);
                     //db.BankAccounts.Where(c => c.BankAccountID == currentD.BankAccountID).ToList().First().Transactions.Add(transaction);                    
                     db.SaveChanges();
-
                 }
 
             }
@@ -478,13 +475,20 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return RedirectToAction("Index","Customers");
         }
         [HttpGet]
-        public ActionResult RedirectedWithdrawal(int? transactionID)
+        public ActionResult RedirectedWithdrawal(int? transactionID, bool? transfer)
         {
             if (transactionID == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Transaction transaction = db.Transactions.Find(transactionID);
+            if (transfer == true)
+            {
+                ViewBag.isTransfer = true;
+            }
+            else {
+                ViewBag.isTransfer = false;
+            }
             return View(transaction);
         }
 
@@ -533,8 +537,27 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             else if (type == "Transfer")
             {
-                   //TODO: IRA TRANSFERS BACK
+                //TODO: IRA TRANSFERS BACK
 
+                //Step 1: Find transaction
+                Transaction transfer = db.Transactions.Find(id);
+                
+                //Reverse
+                transfer.FromAccount.Balance += transfer.Amount;
+                transfer.ToAccount.Balance -= transfer.Amount;
+                //if withdrawal fee
+                if (transfer.FromAccount.Type == AccountTypes.IRA) {
+                    var query = (from c in db.Transactions select c);
+                    query = query.Where(c => c.Type == TransactionTypes.Fee);
+                    query = query.OrderBy(c => c.Date);
+                    Transaction fee = query.FirstOrDefault();
+                    
+                    //Reset Amount.
+                    fee.FromAccount.Balance += 30;
+                    //Remove fee.
+                    db.Transactions.Remove(fee);
+                    
+                }
             }
             else {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);

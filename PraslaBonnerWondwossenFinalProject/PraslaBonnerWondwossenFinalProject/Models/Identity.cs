@@ -27,7 +27,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
     {
 
-
+        public AppUser() {
+            Payees = new List<Payee>();
+        }
 
         // Put any additional fields that you need for your user here
 

@@ -3,7 +3,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq;
+    using System.Linq.Expressions;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
     using PraslaBonnerWondwossenFinalProject.Models;
@@ -2013,7 +2013,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 ZipCode = 78710,
                 PhoneNumber = "5126645558"
             };
-            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee2);
+            db.Payees.AddOrUpdate(u => u.PayeeID, payee2);
             base.Seed(db);
             db.SaveChanges();
             Payee payee3 = new Payee()
@@ -2026,7 +2026,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 ZipCode = 77099,
                 PhoneNumber = "7135546697"
             };
-            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee3);
+            db.Payees.AddOrUpdate(u => u.PayeeID, payee3);
             base.Seed(db);
             db.SaveChanges();
             Payee payee4 = new Payee()
@@ -2039,7 +2039,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 ZipCode = 78705,
                 PhoneNumber = "5124453312"
             };
-            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee4);
+            db.Payees.AddOrUpdate(u => u.PayeeID, payee4);
             base.Seed(db);
             db.SaveChanges();
             Payee payee5 = new Payee()
@@ -2052,7 +2052,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 ZipCode = 82001,
                 PhoneNumber = "5302215542"
             };
-            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee5);
+            db.Payees.AddOrUpdate(u => u.PayeeID, payee5);
             base.Seed(db);
             db.SaveChanges();
             Payee payee6 = new Payee()
@@ -2065,7 +2065,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 ZipCode = 78745,
                 PhoneNumber = "5128654951"
             };
-            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee6);
+            db.Payees.AddOrUpdate(u => u.PayeeID, payee6);
             base.Seed(db);
             db.SaveChanges();
             Payee payee7 = new Payee()
@@ -2078,7 +2078,7 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
                 ZipCode = 78712,
                 PhoneNumber = "5123365247"
             };
-            db.Payees.AddOrUpdate(u => u.PhoneNumber, payee7);
+            db.Payees.AddOrUpdate(u => u.PayeeID, payee7);
             base.Seed(db);
             db.SaveChanges();
 

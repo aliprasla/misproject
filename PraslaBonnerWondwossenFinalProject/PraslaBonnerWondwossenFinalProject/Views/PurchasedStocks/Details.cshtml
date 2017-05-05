@@ -37,6 +37,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Sell", "Sell", new { id = Model.PurchasedStockId }) |
+    @Html.ActionLink("Sell", "Create", new {controller="Sales", id = Model.PurchasedStockId }) |
     @Html.ActionLink("Back to List", "Index")
 </p>
