@@ -1,7 +1,11 @@
 ﻿/r:System
 /r:System.Core
 /r:Microsoft.CSharp
-/r:System.ValueTuple.dll
+/r:System.Value
+
+
+
+.dll
 /u:System
 /u:System.IO
 /u:System.Collections.Generic

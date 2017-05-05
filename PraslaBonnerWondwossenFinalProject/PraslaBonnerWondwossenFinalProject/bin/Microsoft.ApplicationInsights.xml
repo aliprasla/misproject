@@ -1634,7 +1634,9 @@
             to determine the length of the first piece based off of the length of the transmission.
             </summary>
             <returns>
-            A tuple with the first item being a Transmission object with n ITelemetry objects
+            A 
+            
+with the first item being a Transmission object with n ITelemetry objects
             and the second item being a Transmission object with the remaining ITelemetry objects.
             </returns>
         </member>

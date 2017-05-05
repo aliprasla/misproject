@@ -34,7 +34,9 @@
             <param name="telemetryClient">Telemetry client object to track the telemetry item.</param>
             <param name="telemetry">Telemetry item to compute the duration and track.</param>
         </member>
-        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.GetTupleForWebDependencies(System.Net.WebRequest)">
+        <member name="M:Microsoft.ApplicationInsights.DependencyCollector.Implementation.ClientServerDependencyTracker.Get
+                
+ForWebDependencies(System.Net.WebRequest)">
             <summary>
             Gets the tuple from either conditional weak table or cache (based on the framework for the input web request).
             </summary>

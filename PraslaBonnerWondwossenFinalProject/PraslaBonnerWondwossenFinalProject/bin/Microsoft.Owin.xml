@@ -1643,7 +1643,8 @@
             Initializes a new instance of the the type.
             </summary>
         </member>
-        <member name="M:Microsoft.Owin.Builder.AppBuilder.#ctor(System.Collections.Generic.IDictionary{System.Tuple{System.Type,System.Type},System.Delegate},System.Collections.Generic.IDictionary{System.String,System.Object})">
+        <member name="M:Microsoft.Owin.Builder.AppBuilder.#ctor(System.Collections.Generic.IDictionary{System.
+                {System.Type,System.Type},System.Delegate},System.Collections.Generic.IDictionary{System.String,System.Object})">
             <summary>
             
             </summary>
