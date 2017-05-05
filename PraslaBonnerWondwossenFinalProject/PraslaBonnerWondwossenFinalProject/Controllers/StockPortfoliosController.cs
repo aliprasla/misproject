@@ -60,7 +60,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             StockPortfolio.CashBalance = 0;
             StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
             
-            StockPortfolio.isBalanced = false;
             StockPortfolio.isApproved = false;
             //StockPortfolio.CashBalance = 0;;
             StockPortfolio.Fees = 0;
@@ -76,7 +75,6 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 StockPortfolio.Name = "Longorn Stock";
                 StockPortfolio.CashBalance = 0;
                 StockPortfolio.Customer = db.Users.Find(User.Identity.GetUserId());
-                StockPortfolio.isBalanced = false;
                 StockPortfolio.isApproved = false;
                 StockPortfolio.Fees = 0;
                 StockPortfolio.Bonuses = 0;

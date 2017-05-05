@@ -157,7 +157,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 }
                 else
                 {
-                    customer.StockPortfolio.CashBalance = customer.StockPortfolio.CashBalance - Convert.ToDecimal(stock.Shares * FoundStock.LastPrice);
+                    customer.StockPortfolio.CashBalance = customer.StockPortfolio.CashBalance - Convert.ToDecimal(stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date)))));
                 }
                 
             }

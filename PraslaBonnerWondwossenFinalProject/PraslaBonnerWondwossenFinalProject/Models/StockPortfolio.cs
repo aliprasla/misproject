@@ -13,7 +13,45 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
         public bool isApproved { get; set; }
 
-        public bool isBalanced { get; set; }
+        public bool isBalanced { get {
+                bool holder;
+                int countOrdinary = 0;
+                int countIndex = 0;
+                int countMutual = 0;
+                if (purchasedstocks.Count()==0)
+                {
+                    holder=false;
+                }
+                else
+                {
+                    foreach(PurchasedStock item in purchasedstocks)
+                    {
+                        if (item.stock.Type==Models.Type.Ordinary)
+                        {
+                            countOrdinary = countOrdinary + 1;
+                        }
+                        if (item.stock.Type==Models.Type.IndexFund)
+                        {
+                            countIndex = countIndex + 1;
+                        }
+                        if(item.stock.Type==Models.Type.MutualFund)
+                        {
+                            countMutual = countMutual + 1;
+                        }
+                    }
+                }
+                if(countIndex>=1 && countMutual>=1 && countOrdinary>=2)
+                {
+                    holder = true;
+                }
+                else
+                {
+                    holder = false;
+                }
+
+                return holder;
+
+            } }
 
         //calculate gains
         public Decimal Gains { get {

@@ -506,6 +506,10 @@
     <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.Designer.cs">
       <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705050444453__completed_stock_purchase.cs" />
+    <Compile Include="Migrations\201705050444453__completed_stock_purchase.Designer.cs">
+      <DependentUpon>201705050444453__completed_stock_purchase.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -517,6 +521,7 @@
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\PurchasedStock.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
+    <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockPortfolio.cs" />
     <Compile Include="Models\StockQuote.cs" />
@@ -741,6 +746,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705050333113_finished_purchasing_stocks.resx">
       <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050444453__completed_stock_purchase.resx">
+      <DependentUpon>201705050444453__completed_stock_purchase.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
