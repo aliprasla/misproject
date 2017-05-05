@@ -25,14 +25,18 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
         // GET: Sales/Create
         public ActionResult Create(int? id)
-        { 
-        if (id == null)
+        {
+            if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            
-            return View(id);
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            //customer.StockPortfolio.sale = id;
+            //db.SaveChanges();
+
+
+            return View();
         }
 
         // POST: Sales/Create
@@ -40,16 +44,19 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(int? id, [Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
+        public ActionResult Create([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
         {
             
 
-            sales.PurchaseId = Convert.ToInt32(id);
 
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
             PurchasedStock purchasedstock = customer.StockPortfolio.purchasedstocks.Find(c => c.PurchasedStockId == sales.PurchaseId);
             sales.NetProfit = Convert.ToDecimal(purchasedstock.InitialPrice * purchasedstock.Shares) + (sales.Shares * purchasedstock.stock.LastPrice);
             sales.SharesLeft = purchasedstock.Shares - sales.Shares;
+
+            //sales.PurchaseId = customer.StockPortfolio.sale;
+
+
 
             if (sales.date < purchasedstock.Date) { return View("Error"); }
             if (sales.SharesLeft < 0) { return View("Error"); }
