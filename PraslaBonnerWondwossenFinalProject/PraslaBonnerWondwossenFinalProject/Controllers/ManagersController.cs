@@ -14,11 +14,12 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
     {
         private AppDbContext db = new AppDbContext();
         // GET: Managers
+        [Authorize(Roles ="Manager")]
         public ActionResult Index()
         {
             return View();
         }
-
+        [Authorize(Roles = "Manager")]
         public ActionResult AddStock()
         {
             return View();

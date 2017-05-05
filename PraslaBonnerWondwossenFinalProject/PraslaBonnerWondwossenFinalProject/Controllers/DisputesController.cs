@@ -56,7 +56,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(dispute);
         }
 
-
+        [Authorize(Roles ="Manager")]
         public ActionResult Resolve(int Id)
         {
             if (Id == null)
@@ -112,6 +112,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(dispute);
         }
 
+        [Authorize(Roles ="Manager")]
         public ActionResult Accept(int Id)
         {
             Dispute dispute = db.Disputes.Find(Id);
@@ -130,6 +131,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult Reject(int Id)
         {
             Dispute dispute = db.Disputes.Find(Id);
@@ -147,6 +149,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View("Index");
         }
 
+        [Authorize(Roles = "Manager")]
         public ActionResult Adjust(int Id)
         {
             Dispute dispute = db.Disputes.Find(Id);
