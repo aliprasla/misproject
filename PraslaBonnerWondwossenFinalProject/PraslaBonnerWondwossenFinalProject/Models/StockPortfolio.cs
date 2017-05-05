@@ -12,7 +12,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //List<Stock> Portfolio = new List<Stock>();
         public virtual List<PurchasedStock> purchasedstocks { get; set; }
 
-        //public Int32 sale { get; set; }
+        public Int32? sale { get; set; }
 
         public bool isApproved { get; set; }
 
