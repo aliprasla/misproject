@@ -242,7 +242,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 currentBank.Transactions.Add(overdraftfee);
                 db.Transactions.Add(overdraftfee);
                 //TODO: Send email.
-                EmailMessaging.SendEmail("ali.prasla@aiesec.net", "Team 22:Overdraft Notification", "You have overdrafter from account " + currentBank.NameNo + ". \n There was a $30 fee. The account's current Balance is " + Convert.ToString(currentBank.Balance));
+                EmailMessaging.SendEmail("alijessnate@gmail.com", "Team 22:Overdraft Notification", "You have overdrafter from account " + currentBank.NameNo + ". \n There was a $30 fee. The account's current Balance is " + Convert.ToString(currentBank.Balance));
                 db.SaveChanges();
 
             }else if (Amount > currentBank.Balance + 50) {
