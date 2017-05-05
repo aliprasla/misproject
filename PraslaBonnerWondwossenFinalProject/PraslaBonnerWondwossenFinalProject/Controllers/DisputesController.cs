@@ -56,7 +56,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(dispute);
         }
 
-
+        [Authorize(Roles ="Manager")]
         public ActionResult Resolve(int Id)
         {
             if (Id == null)

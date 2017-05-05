@@ -38,7 +38,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         //
 
         // GET: /RoleAdmin/
-
+        [Authorize(Roles ="Manager")]
         public ActionResult Index()
 
         {
@@ -48,7 +48,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
 
-
+        [Authorize(Roles = "Manager")]
         public ActionResult Create()
 
         {
@@ -100,7 +100,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
 
-
+        [Authorize(Roles ="Manager")]
         public ActionResult Edit(string id)
 
         {
@@ -192,6 +192,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         //edit employee information
+        [Authorize(Roles ="Manager")]
         public ActionResult EditEmployee(string Id)
         {
             AppUser employee = db.Users.Find(Id);
