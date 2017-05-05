@@ -501,21 +501,13 @@
     <Compile Include="Migrations\201705050133543_new_stock_data.Designer.cs">
       <DependentUpon>201705050133543_new_stock_data.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705050251446_wtf.cs" />
-    <Compile Include="Migrations\201705050251446_wtf.Designer.cs">
-      <DependentUpon>201705050251446_wtf.cs</DependentUpon>
+    <Compile Include="Migrations\201705050152147_payeesNavigation.cs" />
+    <Compile Include="Migrations\201705050152147_payeesNavigation.Designer.cs">
+      <DependentUpon>201705050152147_payeesNavigation.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.cs" />
-    <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.Designer.cs">
-      <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705050340579_merged.cs" />
-    <Compile Include="Migrations\201705050340579_merged.Designer.cs">
-      <DependentUpon>201705050340579_merged.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201705050347408_forc.cs" />
-    <Compile Include="Migrations\201705050347408_forc.Designer.cs">
-      <DependentUpon>201705050347408_forc.cs</DependentUpon>
+    <Compile Include="Migrations\201705050358411_nav_prop.cs" />
+    <Compile Include="Migrations\201705050358411_nav_prop.Designer.cs">
+      <DependentUpon>201705050358411_nav_prop.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -758,17 +750,11 @@
     <EmbeddedResource Include="Migrations\201705050133543_new_stock_data.resx">
       <DependentUpon>201705050133543_new_stock_data.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050251446_wtf.resx">
-      <DependentUpon>201705050251446_wtf.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705050152147_payeesNavigation.resx">
+      <DependentUpon>201705050152147_payeesNavigation.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050333113_finished_purchasing_stocks.resx">
-      <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050340579_merged.resx">
-      <DependentUpon>201705050340579_merged.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201705050347408_forc.resx">
-      <DependentUpon>201705050347408_forc.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201705050358411_nav_prop.resx">
+      <DependentUpon>201705050358411_nav_prop.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

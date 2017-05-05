@@ -81,7 +81,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public PayeeTypes Type { get; set; }
 
 
-
+        public virtual List<AppUser> Customers { get; set; }
 
 
     }

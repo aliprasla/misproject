@@ -374,6 +374,7 @@ C:\Users\MSBStudent\Documents\MIS313\wtf\PraslaBonnerWondwossenFinalProject\Pras
 C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.add_stock.resources
 C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.purchased_stocks.resources
 C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.new_stock_data.resources
+<<<<<<< HEAD
 C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.wtf.resources
 C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.finished_purchasing_stocks.resources
 C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.merged.resources
@@ -386,3 +387,7 @@ C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProjec
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.finished_purchasing_stocks.resources
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.merged.resources
 C:\Users\Jessica\Desktop\mis333k\Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.forc.resources
+=======
+C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.payeesNavigation.resources
+C:\Users\Ali\Desktop\MIS Final Project\PraslaBonnerWondwossenFinalProject\PraslaBonnerWondwossenFinalProject\obj\Debug\PraslaBonnerWondwossenFinalProject.Migrations.nav_prop.resources
+>>>>>>> 423f263e246e23ebc5f3bec0b0cd5b626e577d52
