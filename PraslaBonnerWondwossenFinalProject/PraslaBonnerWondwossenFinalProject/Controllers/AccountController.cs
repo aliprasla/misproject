@@ -340,10 +340,16 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 //
                 //                await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                
-                
+
+
                 //TODO: Figure out how to send an email after
-                EmailMessaging.SendEmail(user.Email, "Reset Password Confirmation", "This email worked");
+                //EmailMessaging.SendEmail(user.Email, "Reset Password Confirmation", "This email worked");
+                string url = Url.Action("ResetPassword", "Account",
+                new System.Web.Routing.RouteValueDictionary(new { id = user.Id }),
+                "http", Request.Url.Host);
+
+                EmailMessaging.SendEmail("ali.prasla@aiesec.net", "Team 22:reset password", "Use the following link to reset your password: " + url );
+
 
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
 
