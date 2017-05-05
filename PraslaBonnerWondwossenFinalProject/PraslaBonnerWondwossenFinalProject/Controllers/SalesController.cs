@@ -31,6 +31,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            
             return View(id);
         }
 
@@ -39,7 +40,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales, int? id)
+        public ActionResult Create(int? id, [Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
         {
             
 
@@ -104,12 +105,12 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Sales sales = db.Sales.Find(id);
-            if (sales == null)
+
+            if (id == null)
             {
                 return HttpNotFound();
             }
-            return View(sales);
+            return View(id);
         }
 
         // POST: Sales/Edit/5

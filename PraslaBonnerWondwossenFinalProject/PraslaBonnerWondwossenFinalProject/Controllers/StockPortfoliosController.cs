@@ -82,6 +82,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 StockPortfolio.isApproved = false;
                 StockPortfolio.Fees = 0;
                 StockPortfolio.Bonuses = 0;
+                //StockPortfolio.sale = 0;
                 //StockPortfolio.AccountNumber = Convert.ToInt32((10000000000 + StockPortfolio.BankAccountID));
                 db.Users.Find(User.Identity.GetUserId()).BankAccounts.Add(StockPortfolio);
                 db.Users.Find(User.Identity.GetUserId()).StockPortfolio = StockPortfolio;
