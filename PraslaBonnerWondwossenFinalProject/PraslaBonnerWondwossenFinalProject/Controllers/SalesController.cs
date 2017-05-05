@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using PraslaBonnerWondwossenFinalProject.Models;
+using Microsoft.AspNet.Identity;
 
 namespace PraslaBonnerWondwossenFinalProject.Controllers
 {
@@ -36,9 +37,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         // GET: Sales/Create
-        public ActionResult Create()
-        {
-            return View();
+        public ActionResult Create(int? id)
+        { 
+        if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            return View(id);
         }
 
         // POST: Sales/Create
@@ -46,9 +52,19 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
+        public ActionResult Create([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales, int? id)
         {
+            
 
+            sales.PurchaseId = Convert.ToInt32(id);
+
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            PurchasedStock purchasedstock = customer.StockPortfolio.purchasedstocks.Find(c => c.PurchasedStockId == sales.PurchaseId);
+            sales.NetProfit = Convert.ToDecimal(purchasedstock.InitialPrice * purchasedstock.Shares) + (sales.Shares * purchasedstock.stock.LastPrice);
+            sales.SharesLeft = purchasedstock.Shares - sales.Shares;
+
+            if (sales.date < purchasedstock.Date) { return View("Error"); }
+            if (sales.SharesLeft < 0) { return View("Error"); }
             if (ModelState.IsValid)
             {
                 db.Sales.Add(sales);
@@ -58,6 +74,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
 
             return View(sales);
         }
+
+
+
+
 
         // GET: Sales/Edit/5
         public ActionResult Edit(int? id)
