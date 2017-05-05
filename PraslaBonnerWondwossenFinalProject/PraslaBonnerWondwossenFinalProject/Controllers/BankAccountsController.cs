@@ -252,12 +252,12 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 {
                     AppUser current = db.Users.Find(User.Identity.GetUserId());
                     db.BankAccounts.Include(c => c.Transactions);
-                db.Transactions.Include(c => c.ToAccount);
-                db.Transactions.Include(c => c.FromAccount);
+                    db.Transactions.Include(c => c.ToAccount);
+                    db.Transactions.Include(c => c.FromAccount);
                     if ((int)bankAccount.Type == 2)
                     {
                     //IRA validation - if age < 70 no contributions allowed
-                    int age = current.Age;
+                        int age = current.Age;
                         if (age > 70)
                         {
                             ViewBag.Message = "A contribution to an IRA account cannot be made as you are above the age requirements";
@@ -291,26 +291,34 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     Decimal originalDepo = bankAccount.Balance;
                     Dispute now = null;
                     String transactionDescrip;
-                    if (bankAccount.Balance > 5000)
+                if (bankAccount.Balance > 5000)
+                {
+                    bankAccount.Balance = 0;
+                    //create dispute
+                    now = new Dispute()
                     {
-                        bankAccount.Balance = 0;
-                        //create dispute
-                        now = new Dispute()
-                        {
-                            Status = Status.WaitingOnManager,
-                            CustomerDescription = "Customer " + User.Identity.Name + "has submitted a deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + ". Please approve or deny this deposit.",
-                            DisputeAmount = originalDepo
-                            //TODO: Assign to Manager
+                        Status = Status.WaitingOnManager,
+                        CustomerDescription = "Customer " + User.Identity.Name + "has submitted a deposit of " + String.Format("{0:C}", Convert.ToString(originalDepo)) + ". Please approve or deny this deposit.",
+                        DisputeAmount = originalDepo
+                        //TODO: Assign to Manager
 
-                        };
-                        transactionDescrip = "Account Opening Initial Deposit of $" + Convert.ToString(originalDepo) + " Waiting on Manager approval.";
-                    }
-                    else
+                    };
+                    transactionDescrip = "Account Opening Initial Deposit of $" + Convert.ToString(originalDepo) + " Waiting on Manager approval.";
+                }
+                else if (bankAccount.Type == AccountTypes.Stock) {
+                    bankAccount.Balance = 0;
+                    now = new Dispute()
                     {
-                        transactionDescrip = "Initial Deposit of $" + Convert.ToString(originalDepo) + "";
+                        Status = Status.WaitingOnManager,
+                        CustomerDescription = "Customer " + User.Identity.Name + "has submitted an application for a stock portfolio. Waiting on manager approval.",
+                        DisputeAmount = originalDepo
+                    };
+                    transactionDescrip = "Stock Account opening Initial Deposit : " + Convert.ToString(originalDepo) + ". Needs Manager Approval."
                     }
-
-                    
+                else
+                {
+                    transactionDescrip = "Initial Deposit of $" + Convert.ToString(originalDepo) + "";
+                }   
                     //create transaction
                     Transaction deposit = new Transaction()
                     {

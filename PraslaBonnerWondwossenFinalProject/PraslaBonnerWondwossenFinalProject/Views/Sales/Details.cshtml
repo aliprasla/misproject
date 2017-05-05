@@ -18,13 +18,7 @@
             @Html.DisplayFor(model => model.Shares)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.date)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.date)
-        </dd>
+        
 
         <dt>
             @Html.DisplayNameFor(model => model.NetProfit)
@@ -43,16 +37,23 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.PurchaseId)
+            @Html.DisplayNameFor(model => model.Name)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.PurchaseId)
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fees)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fees)
         </dd>
 
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.SalesId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.SalesId }) |*@
+    @Html.ActionLink("Cancel", "Index")
 </p>
