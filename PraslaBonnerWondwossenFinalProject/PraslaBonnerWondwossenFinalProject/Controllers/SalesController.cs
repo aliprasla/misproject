@@ -78,7 +78,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Details(([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
+        public ActionResult Details([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
         {
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
             PurchasedStock purchasedstock = customer.StockPortfolio.purchasedstocks.Find(c => c.PurchasedStockId == sales.PurchaseId);
@@ -86,14 +86,14 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             purchasedstock.TotalFees += sales.Fees;
             customer.StockPortfolio.CashBalance += sales.NetProfit;
 
-            if (sales.SharesLeft == 0) {
+            if (sales.SharesLeft == 0)
+            {
                 db.PurchasedStocks.Remove(purchasedstock);
                 db.SaveChanges();
             }
 
-            return RedirectToAction("Index")
+            return RedirectToAction("Index");
         }
-
 
 
 

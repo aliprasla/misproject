@@ -3,5 +3,7 @@
     ViewBag.Title = "Error";
 }
 
-<h2>Error</h2>
+<h2>Insufficient Funds</h2>
+<h4>Please select an other account to purchase securities from</h4>
 
+@Html.ActionLink("OK", "Index", "Customers", null, new { @class = "btn btn-success" })

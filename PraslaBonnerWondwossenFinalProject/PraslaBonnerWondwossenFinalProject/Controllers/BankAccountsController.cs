@@ -313,7 +313,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         CustomerDescription = "Customer " + User.Identity.Name + "has submitted an application for a stock portfolio. Waiting on manager approval.",
                         DisputeAmount = originalDepo
                     };
-                    transactionDescrip = "Stock Account opening Initial Deposit : " + Convert.ToString(originalDepo) + ". Needs Manager Approval."
+                    transactionDescrip = "Stock Account opening Initial Deposit : " + Convert.ToString(originalDepo) + ". Needs Manager Approval.";
                     }
                 else
                 {
