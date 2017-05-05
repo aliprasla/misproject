@@ -53,7 +53,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
 
             //add the net income from this sale to gains
-            customer.StockPortfolio.Gains += NetProfit;
+            //customer.StockPortfolio.Gains += NetProfit;
 
             //TODO:add transaction
 

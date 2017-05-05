@@ -122,6 +122,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         public DbSet<StockPortfolio> StockPortfolios { get; set; }
         public DbSet<Stock> Stocks { get; set; }
         public DbSet<StockQuote> StockQuotes { get; set; }
+        public DbSet<Sales> Sales { get; set; }
 
 
 
