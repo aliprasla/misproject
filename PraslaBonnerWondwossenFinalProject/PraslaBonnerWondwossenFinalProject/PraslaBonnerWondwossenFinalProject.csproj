@@ -311,6 +311,8 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
+    <Compile Include="Controllers\PayeesController.cs" />
+    <Compile Include="Controllers\PurchasedStocksController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
@@ -505,6 +507,7 @@
     <Compile Include="Models\Payee.cs" />
     <Compile Include="Models\PurchasedStock.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
+    <Compile Include="Models\Sales.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockPortfolio.cs" />
     <Compile Include="Models\StockQuote.cs" />
@@ -579,6 +582,10 @@
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
     <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
+    <Content Include="Views\PurchasedStocks\Details.cshtml" />
+    <Content Include="Views\PurchasedStocks\Edit.cshtml" />
+    <Content Include="Views\PurchasedStocks\Index.cshtml" />
+    <Content Include="Views\PurchasedStocks\Sell.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -586,7 +593,10 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+    <Folder Include="Views\Sales\" />
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201704201344291_firstUpdate.resx">
       <DependentUpon>201704201344291_firstUpdate.cs</DependentUpon>
