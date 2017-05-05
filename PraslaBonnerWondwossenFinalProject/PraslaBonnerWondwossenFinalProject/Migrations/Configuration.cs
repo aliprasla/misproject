@@ -3,16 +3,16 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
-    using System.Linq.Expressions;
+    using System.Linq;
+    using PraslaBonnerWondwossenFinalProject.Models;
     using Microsoft.AspNet.Identity;
     using Microsoft.AspNet.Identity.EntityFramework;
-    using PraslaBonnerWondwossenFinalProject.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<PraslaBonnerWondwossenFinalProject.Models.AppDbContext>
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
         }
 
         protected override void Seed(PraslaBonnerWondwossenFinalProject.Models.AppDbContext db)
@@ -2081,7 +2081,6 @@ namespace PraslaBonnerWondwossenFinalProject.Migrations
             db.Payees.AddOrUpdate(u => u.PayeeID, payee7);
             base.Seed(db);
             db.SaveChanges();
-
 
         }
     }
