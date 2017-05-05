@@ -513,6 +513,10 @@
     <Compile Include="Migrations\201705050444453__completed_stock_purchase.Designer.cs">
       <DependentUpon>201705050444453__completed_stock_purchase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705050502358_new.cs" />
+    <Compile Include="Migrations\201705050502358_new.Designer.cs">
+      <DependentUpon>201705050502358_new.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -610,6 +614,13 @@
     <Content Include="Views\PurchasedStocks\Index.cshtml" />
     <Content Include="Views\PurchasedStocks\SaleSummary.cshtml" />
     <Content Include="Views\PurchasedStocks\Sell.cshtml" />
+    <Content Include="Views\Payees\AddPayee.cshtml" />
+    <Content Include="Views\Payees\Create.cshtml" />
+    <Content Include="Views\Payees\Delete.cshtml" />
+    <Content Include="Views\Payees\Details.cshtml" />
+    <Content Include="Views\Payees\Edit.cshtml" />
+    <Content Include="Views\Payees\Index.cshtml" />
+    <Content Include="Views\Payees\Payment.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -762,6 +773,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705050444453__completed_stock_purchase.resx">
       <DependentUpon>201705050444453__completed_stock_purchase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050502358_new.resx">
+      <DependentUpon>201705050502358_new.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

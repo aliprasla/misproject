@@ -21,20 +21,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View(db.Sales.ToList());
         }
 
-        // GET: Sales/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Sales sales = db.Sales.Find(id);
-            if (sales == null)
-            {
-                return HttpNotFound();
-            }
-            return View(sales);
-        }
+       
 
         // GET: Sales/Create
         public ActionResult Create(int? id)
@@ -69,12 +56,43 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             {
                 db.Sales.Add(sales);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details",sales.SalesId);
             }
 
             return View(sales);
         }
 
+        // GET: Sales/Details/5
+        public ActionResult Details(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Sales sales = db.Sales.Find(id);
+            if (sales == null)
+            {
+                return HttpNotFound();
+            }
+            return View(sales);
+        }
+
+        [HttpPost]
+        public ActionResult Details(([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
+        {
+            AppUser customer = db.Users.Find(User.Identity.GetUserId());
+            PurchasedStock purchasedstock = customer.StockPortfolio.purchasedstocks.Find(c => c.PurchasedStockId == sales.PurchaseId);
+            purchasedstock.Shares = sales.SharesLeft;
+            purchasedstock.TotalFees += sales.Fees;
+            customer.StockPortfolio.CashBalance += sales.NetProfit;
+
+            if (sales.SharesLeft == 0) {
+                db.PurchasedStocks.Remove(purchasedstock);
+                db.SaveChanges();
+            }
+
+            return RedirectToAction("Index")
+        }
 
 
 
