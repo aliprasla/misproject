@@ -57,7 +57,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
 
-        public ActionResult Resolve(string Id)
+        public ActionResult Resolve(int Id)
         {
             if (Id == null)
             {

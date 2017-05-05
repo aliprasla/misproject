@@ -139,7 +139,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             //get bank acount to get money from
             BankAccount Account = db.BankAccounts.Find(BankAccountID);
 
-            stock.InitialPrice = GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice;
+            stock.InitialPrice = Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice);
 
             //cash Balance of 0
             if (FoundStock.Fees > customer.StockPortfolio.CashBalance)
