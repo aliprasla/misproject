@@ -348,7 +348,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 new System.Web.Routing.RouteValueDictionary(new { id = user.Id }),
                 "http", Request.Url.Host);
 
-                EmailMessaging.SendEmail("ali.prasla@aiesec.net", "Team 22:reset password", "Use the following link to reset your password: " + url );
+                EmailMessaging.SendEmail("alijessnate@gmail.com", "Team 22:reset password", "Use the following link to reset your password: " + url );
 
 
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");

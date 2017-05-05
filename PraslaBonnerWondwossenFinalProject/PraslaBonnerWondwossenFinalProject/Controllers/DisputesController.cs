@@ -101,7 +101,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                     disputeToChange.Status = Status.Resolved;
                 }
 
-                EmailMessaging.SendEmail("ali.prasla@aiesec.net", "Team 22: Dispute Notification", "Your Dispute has been resolved");
+                EmailMessaging.SendEmail("alijessnate@gmail.com", "Team 22: Dispute Notification", "Your Dispute has been resolved");
                 db.Entry(disputeToChange).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -165,4 +165,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View("Index");
         }
     }
+
+
+
 }
