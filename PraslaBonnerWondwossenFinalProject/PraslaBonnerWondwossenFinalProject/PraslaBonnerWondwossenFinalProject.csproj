@@ -311,7 +311,10 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
     <Compile Include="Controllers\ManagersController.cs" />
+    <Compile Include="Controllers\PayeesController.cs" />
+    <Compile Include="Controllers\PurchasedStocksController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\SellController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -494,6 +497,14 @@
     <Compile Include="Migrations\201705041945582_PayeeModelchanges.Designer.cs">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705042348161_blah.cs" />
+    <Compile Include="Migrations\201705042348161_blah.Designer.cs">
+      <DependentUpon>201705042348161_blah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050152147_payeesNavigation.cs" />
+    <Compile Include="Migrations\201705050152147_payeesNavigation.Designer.cs">
+      <DependentUpon>201705050152147_payeesNavigation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -579,6 +590,19 @@
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
     <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
+    <Content Include="Views\Payees\AddPayee.cshtml" />
+    <Content Include="Views\Payees\Create.cshtml" />
+    <Content Include="Views\Payees\Delete.cshtml" />
+    <Content Include="Views\Payees\Details.cshtml" />
+    <Content Include="Views\Payees\Edit.cshtml" />
+    <Content Include="Views\Payees\Index.cshtml" />
+    <Content Include="Views\Payees\Payment.cshtml" />
+    <Content Include="Views\PurchasedStocks\Details.cshtml" />
+    <Content Include="Views\PurchasedStocks\Edit.cshtml" />
+    <Content Include="Views\PurchasedStocks\Index.cshtml" />
+    <Content Include="Views\PurchasedStocks\Sell.cshtml" />
+    <Content Include="Views\Sell\Sale.cshtml" />
+    <Content Include="Views\Sell\SaleSummary.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -719,6 +743,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705041945582_PayeeModelchanges.resx">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705042348161_blah.resx">
+      <DependentUpon>201705042348161_blah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050152147_payeesNavigation.resx">
+      <DependentUpon>201705050152147_payeesNavigation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

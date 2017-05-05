@@ -66,9 +66,9 @@ namespace PraslaBonnerWondwossenFinalProject.Models
 
 
 
-        [Required(ErrorMessage = "PhoneNumber Number Required")]
+        [Required(ErrorMessage = "Phone Number Required")]
 
-        [Display(Name = "PhoneNumber Number")]
+        [Display(Name = "Phone Number")]
 
         public String PhoneNumber { get; set; }
 

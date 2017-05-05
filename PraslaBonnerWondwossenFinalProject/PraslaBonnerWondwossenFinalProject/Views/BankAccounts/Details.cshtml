@@ -111,17 +111,20 @@
                 </div>
 
             </div>
-       
-        <div class="b">Transaction ID: </div>
+        <div class="col-lg-1">
+            <div class="b">Transaction ID: </div>
+        </div>
         <div class="form-check">
-            <label class="form-check-label">
-                @Html.TextBox("TransactionID", null, new { @class = "form-conrtol" }) <br />
-            </label>
+            <div class="col-lg-1">
+                <label class="form-check-label">
+                    @Html.TextBox("TransactionID", null, new { @class = "form-conrtol" }) <br />
+
+                </label>
+            </div>
         </div>
                 <div class="form-check">
                     <label class="radio-inline">
                         <label class="form-check-label">
-
                             @Html.RadioButton("Dates", "All", new { @class = "form-check-input" }) All Dates
                         </label>
                     </label>
