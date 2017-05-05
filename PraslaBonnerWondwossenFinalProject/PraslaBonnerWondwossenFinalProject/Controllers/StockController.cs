@@ -157,7 +157,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 }
                 else
                 {
-                    customer.StockPortfolio.CashBalance = customer.StockPortfolio.CashBalance - Convert.ToDecimal(stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date)))));
+                    customer.StockPortfolio.CashBalance = customer.StockPortfolio.CashBalance - (Convert.ToDecimal(stock.Shares * Convert.ToDecimal(GetQuote.GetStock(FoundStock.Symbol, DateTime.Parse(Convert.ToString(stock.Date))).LastTradePrice)));
                 }
                 
             }
@@ -201,7 +201,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                         db.SaveChanges();
 
 
-                        return RedirectToAction("Index", "Customer");
+                        return RedirectToAction("Index", "Customers");
                     }
                 }
             }
@@ -233,7 +233,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             db.Transactions.Add(TransactionWithdrawl);
             db.SaveChanges();
 
-            return RedirectToAction("Index","customer");
+            return RedirectToAction("Index","Customers");
 
         }
 
