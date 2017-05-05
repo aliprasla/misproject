@@ -494,6 +494,18 @@
     <Compile Include="Migrations\201705041945582_PayeeModelchanges.Designer.cs">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201705050133543_new_stock_data.cs" />
+    <Compile Include="Migrations\201705050133543_new_stock_data.Designer.cs">
+      <DependentUpon>201705050133543_new_stock_data.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050251446_wtf.cs" />
+    <Compile Include="Migrations\201705050251446_wtf.Designer.cs">
+      <DependentUpon>201705050251446_wtf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.cs" />
+    <Compile Include="Migrations\201705050333113_finished_purchasing_stocks.Designer.cs">
+      <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\EmailMessaging.cs" />
@@ -579,6 +591,7 @@
     <Content Include="Views\Transactions\RedirectedWithdrawal.cshtml" />
     <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
+    <Content Include="Views\Stock\Error.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -719,6 +732,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201705041945582_PayeeModelchanges.resx">
       <DependentUpon>201705041945582_PayeeModelchanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050133543_new_stock_data.resx">
+      <DependentUpon>201705050133543_new_stock_data.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050251446_wtf.resx">
+      <DependentUpon>201705050251446_wtf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201705050333113_finished_purchasing_stocks.resx">
+      <DependentUpon>201705050333113_finished_purchasing_stocks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
