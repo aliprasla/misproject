@@ -29,6 +29,57 @@
             @Html.DisplayFor(model => Model.DisputeAmount)
         </dd>
     </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+            <div class="form-group">
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @Html.RadioButton("SelectedResponse", Status.Approved, true, new { @class = "form-check-input" }) Approved
+                    </label>
+                </div>
+
+                <div class="form-check">
+                    <label class="form-check-label">
+                        @Html.RadioButton("SelectedResponse", Status.NotApproved, new { @class = "form-check-input" }) Not Approved
+                    </label>
+                </div>
+                Adjust request: @Html.TextBox("AdjustedAmount", null, new { @class = "form-control" })
+                Manager Comment: @Html.TextBox("commentString", null, new { @class = "form-control" })
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+
+    }
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         <p class="form-group">
    
             <div class="form-group">
@@ -51,6 +102,7 @@
                         <input type="submit" value="Save" class="btn btn-default" />
                     </div>
                 </div>
+ 
             <div>
                 @Html.ActionLink("Back to List", "Index")
             </div>
