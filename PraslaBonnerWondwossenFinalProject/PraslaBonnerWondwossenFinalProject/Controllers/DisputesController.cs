@@ -109,5 +109,58 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             }
             return View(dispute);
         }
+
+        public ActionResult Accept(int Id)
+        {
+            Dispute dispute = db.Disputes.Find(Id);
+            return View(dispute);
+        }
+
+        [HttpPost]
+        public ActionResult Accept([Bind(Include="ManagerDescription")] Dispute dispute)
+        {
+            AppUser manager = db.Users.Find(User.Identity.GetUserId());
+            dispute.AssignedManager = manager;
+            dispute.Transaction.Amount = dispute.DisputeAmount;
+            dispute.Status = Status.Resolved;
+            dispute.Transaction.Description = "Dispute Approved - " + dispute.Transaction.Description;
+            db.SaveChanges();
+            return View("Index");
+        }
+
+        public ActionResult Reject(int Id)
+        {
+            Dispute dispute = db.Disputes.Find(Id);
+            return View(dispute);
+        }
+
+        [HttpPost]
+        public ActionResult Reject([Bind(Include = "ManagerDescription")] Dispute dispute)
+        {
+            AppUser manager = db.Users.Find(User.Identity.GetUserId());
+            dispute.AssignedManager = manager;
+            dispute.Status = Status.Resolved;
+            dispute.Transaction.Description = "Dispute Rejected - " + dispute.Transaction.Description;
+            db.SaveChanges();
+            return View("Index");
+        }
+
+        public ActionResult Adjust(int Id)
+        {
+            Dispute dispute = db.Disputes.Find(Id);
+            return View(dispute);
+        }
+
+        [HttpPost]
+        public ActionResult Adjust([Bind(Include = "ManagerDescription")] Dispute dispute, Decimal AdjustedAmount)
+        {
+            AppUser manager = db.Users.Find(User.Identity.GetUserId());
+            dispute.AssignedManager = manager;
+            dispute.Status = Status.Resolved;
+            dispute.Transaction.Amount = AdjustedAmount;
+            dispute.Transaction.Description = "Dispute Adjusted - " + dispute.Transaction.Description;
+            db.SaveChanges();
+            return View("Index");
+        }
     }
 }

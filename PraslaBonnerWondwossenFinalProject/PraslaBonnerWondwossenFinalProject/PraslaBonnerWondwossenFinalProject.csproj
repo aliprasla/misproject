@@ -631,6 +631,9 @@
     <Content Include="Views\Payees\Payment.cshtml" />
     <Content Include="Views\Stock\Details.cshtml" />
     <Content Include="Views\StockPortfolios\Error.cshtml" />
+    <Content Include="Views\Disputes\Accept.cshtml" />
+    <Content Include="Views\Disputes\Reject.cshtml" />
+    <Content Include="Views\Disputes\Adjust.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
