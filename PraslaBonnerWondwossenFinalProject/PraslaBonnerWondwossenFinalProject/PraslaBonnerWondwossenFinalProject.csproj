@@ -314,7 +314,7 @@
     <Compile Include="Controllers\PayeesController.cs" />
     <Compile Include="Controllers\PurchasedStocksController.cs" />
     <Compile Include="Controllers\RoleAdminController.cs" />
-    <Compile Include="Controllers\SellController.cs" />
+    <Compile Include="Controllers\SalesController.cs" />
     <Compile Include="Controllers\StockController.cs" />
     <Compile Include="Controllers\StockPortfoliosController.cs" />
     <Compile Include="Controllers\TransactionsController.cs" />
@@ -521,7 +521,6 @@
     <Compile Include="Models\PurchasedStock.cs" />
     <Compile Include="Models\RoleViewModels.cs" />
     <Compile Include="Models\Sales.cs" />
-    <Compile Include="Models\SellViewModel.cs" />
     <Compile Include="Models\Stock.cs" />
     <Compile Include="Models\StockPortfolio.cs" />
     <Compile Include="Models\StockQuote.cs" />
@@ -597,6 +596,16 @@
     <Content Include="Views\Managers\AddStock.cshtml" />
     <Content Include="Views\Stock\Purchase.cshtml" />
     <Content Include="Views\Stock\Error.cshtml" />
+    <Content Include="Views\Sales\Create.cshtml" />
+    <Content Include="Views\Sales\Delete.cshtml" />
+    <Content Include="Views\Sales\Details.cshtml" />
+    <Content Include="Views\Sales\Edit.cshtml" />
+    <Content Include="Views\Sales\Index.cshtml" />
+    <Content Include="Views\PurchasedStocks\Details.cshtml" />
+    <Content Include="Views\PurchasedStocks\Edit.cshtml" />
+    <Content Include="Views\PurchasedStocks\Index.cshtml" />
+    <Content Include="Views\PurchasedStocks\SaleSummary.cshtml" />
+    <Content Include="Views\PurchasedStocks\Sell.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

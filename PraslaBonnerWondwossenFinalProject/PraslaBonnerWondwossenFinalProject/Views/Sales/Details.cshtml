@@ -1,0 +1,58 @@
+﻿@model PraslaBonnerWondwossenFinalProject.Models.Sales
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Sales</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Shares)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Shares)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.date)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NetProfit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NetProfit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SharesLeft)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SharesLeft)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseId)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SalesId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
