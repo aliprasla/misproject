@@ -9,7 +9,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
     {
         public int PurchasedStockId { get; set; }
         public int Shares { get; set; }
-        public Double InitialPrice { get; set; }
+        public decimal InitialPrice { get; set; }
         public decimal TotalFees { get; set; }
         public DateTime Date { get; set; }
         public virtual Stock stock { get; set; }

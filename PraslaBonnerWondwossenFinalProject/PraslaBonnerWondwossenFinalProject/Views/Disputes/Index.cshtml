@@ -48,7 +48,7 @@
                 @Html.DisplayFor(modelItem => item.DisputeAmount)
             </td>
             <td>
-                @Html.ActionLink("Resolve", "Resolve", new { Id = item.DisputeID })
+                @Html.ActionLink("Resolve", "Resolve", new { Id = item.DisputeID }, null)
             </td>
         </tr>
     }

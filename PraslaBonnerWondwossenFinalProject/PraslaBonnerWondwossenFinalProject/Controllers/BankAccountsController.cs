@@ -247,6 +247,10 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "BankAccountID,Type,Balance")] BankAccount bankAccount)
         {
+            if(bankAccount.Type==AccountTypes.Stock)
+            {
+                return RedirectToAction("Create", "StockPortfolios");
+            }
                 ViewBag.Message = "";
                 if (ModelState.IsValid)
                 {

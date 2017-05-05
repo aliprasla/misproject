@@ -18,7 +18,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
                 int countOrdinary = 0;
                 int countIndex = 0;
                 int countMutual = 0;
-                if (purchasedstocks.Count()==0)
+                if (purchasedstocks == null || purchasedstocks.Count() == 0 )
                 {
                     holder=false;
                 }
@@ -56,7 +56,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //calculate gains
         public Decimal Gains { get {
                 Decimal holder = 0;
-                if (purchasedstocks.Count()==0)
+                if (purchasedstocks == null || purchasedstocks.Count()==0)
                 {
                     holder = 0;
                     return holder;
@@ -87,7 +87,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         {
             get
             {
-                if (purchasedstocks.Count() == 0||purchasedstocks == null) { return Convert.ToDecimal((Gains - Fees + Bonuses + CashBalance)); }
+                if (purchasedstocks == null || purchasedstocks.Count() == 0) { return Convert.ToDecimal((Gains - Fees + Bonuses + CashBalance)); }
 
                 Decimal stockAmount;
                 stockAmount = 0;
