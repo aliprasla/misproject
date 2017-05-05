@@ -34,13 +34,13 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
             return View("Index", db.Disputes.ToList());
         }
 
-        public ActionResult Create (string Id)
+        public ActionResult Create (int Id)
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create ([Bind(Include = "Id,DisputeAmount,CustomerComment")] Dispute dispute, string Id)
+        public ActionResult Create ([Bind(Include = "Id,DisputeAmount,CustomerComment")] Dispute dispute, int Id)
         {
             Transaction transaction = db.Transactions.Find(Id);
             dispute.Status = Status.WaitingOnManager;

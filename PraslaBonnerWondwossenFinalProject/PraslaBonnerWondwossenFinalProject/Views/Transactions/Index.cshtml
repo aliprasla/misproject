@@ -54,7 +54,7 @@
             @Html.ActionLink("Details", "Details", new { id=item.TransactionID })
         </td>
         <td>
-            @Html.ActionLink("Dispute", "Create","Dispute", new { id = item.TransactionID })
+            @Html.ActionLink("Dispute", "Create","Disputes", new { id = item.TransactionID },null)
         </td>
     </tr>
 }
