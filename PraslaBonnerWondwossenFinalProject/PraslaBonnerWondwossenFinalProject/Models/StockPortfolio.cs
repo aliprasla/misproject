@@ -10,6 +10,7 @@ namespace PraslaBonnerWondwossenFinalProject.Models
     {
         //list of ticker symbols
         //List<Stock> Portfolio = new List<Stock>();
+        public virtual List<PurchasedStock> purchasedstocks { get; set; }
 
         public bool isApproved { get; set; }
 
@@ -18,29 +19,29 @@ namespace PraslaBonnerWondwossenFinalProject.Models
                 int countOrdinary = 0;
                 int countIndex = 0;
                 int countMutual = 0;
-                if (purchasedstocks.Count()==0)
+                if (purchasedstocks == null || purchasedstocks.Count() == 0)
                 {
-                    holder=false;
+                    holder = false;
                 }
                 else
                 {
-                    foreach(PurchasedStock item in purchasedstocks)
+                    foreach (PurchasedStock item in purchasedstocks)
                     {
-                        if (item.stock.Type==Models.Type.Ordinary)
+                        if (item.stock.Type == Models.Type.Ordinary)
                         {
                             countOrdinary = countOrdinary + 1;
                         }
-                        if (item.stock.Type==Models.Type.IndexFund)
+                        if (item.stock.Type == Models.Type.IndexFund)
                         {
                             countIndex = countIndex + 1;
                         }
-                        if(item.stock.Type==Models.Type.MutualFund)
+                        if (item.stock.Type == Models.Type.MutualFund)
                         {
                             countMutual = countMutual + 1;
                         }
                     }
                 }
-                if(countIndex>=1 && countMutual>=1 && countOrdinary>=2)
+                if (countIndex>=1 && countMutual>=1 && countOrdinary>=2)
                 {
                     holder = true;
                 }
@@ -54,25 +55,26 @@ namespace PraslaBonnerWondwossenFinalProject.Models
             } }
 
         //calculate gains
-        public Decimal Gains { get {
+        public Decimal Gains 
+        { get {
                 Decimal holder = 0;
-                if (purchasedstocks.Count()==0)
+                if (purchasedstocks == null||purchasedstocks.Count() == 0)
                 {
                     holder = 0;
                     return holder;
                 }
                 else
                 {
-                    foreach(PurchasedStock item in purchasedstocks)
+                    foreach (PurchasedStock item in purchasedstocks)
                     {
                         holder = holder + (Convert.ToDecimal(item.stock.LastPrice) * item.Shares);
                         holder = holder - (Convert.ToDecimal(item.stock.Price) * item.Shares);
                     }
                 }
-                return holder; 
+                return holder;
             } }
 
-        public Decimal Fees { get; set; }
+    public Decimal Fees { get; set; }
         public Decimal Bonuses { get; set; }
         public Decimal? CashBalance { get; set; }
         public string info { get { return Name + "     " + "Cash: " + Balance+"      Total Balance:"+Balance; } }
@@ -81,13 +83,13 @@ namespace PraslaBonnerWondwossenFinalProject.Models
         //public virtual List<Stock> stocks { get; set; }
         public virtual List<Stock> stocks { get; set; }
 
-        public virtual List<PurchasedStock> purchasedstocks { get; set; }
+        
 
         public new Decimal Balance
         {
             get
             {
-                if (purchasedstocks.Count() == 0||purchasedstocks == null) { return Convert.ToDecimal((Gains - Fees + Bonuses + CashBalance)); }
+                if (purchasedstocks == null||purchasedstocks.Count() == 0) { return Convert.ToDecimal((Gains - Fees + Bonuses + CashBalance)); }
 
                 Decimal stockAmount;
                 stockAmount = 0;
