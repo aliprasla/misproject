@@ -78,7 +78,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
         }
 
         [HttpPost]
-        public ActionResult Details(([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
+        public ActionResult Details([Bind(Include = "SalesId,Shares,date,NetProfit,SharesLeft,PurchaseId")] Sales sales)
         {
             AppUser customer = db.Users.Find(User.Identity.GetUserId());
             PurchasedStock purchasedstock = customer.StockPortfolio.purchasedstocks.Find(c => c.PurchasedStockId == sales.PurchaseId);
@@ -91,7 +91,7 @@ namespace PraslaBonnerWondwossenFinalProject.Controllers
                 db.SaveChanges();
             }
 
-            return RedirectToAction("Index")
+            return RedirectToAction("Index");
         }
 
 
